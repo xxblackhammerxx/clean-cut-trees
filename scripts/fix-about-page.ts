@@ -14,25 +14,7 @@ Clean Cuts is your go-to solution when it comes to getting rid of trees. Our tea
 
 We make sure our work is of top quality every single time with no hassle involved. When you need someone who knows how to take care of your trees, Give us a call today at **[801-473-7548](Tel:+18014737548)** or schedule online with our convenient quote request form! Check out what some of our customers have said about their experiences working with us below! You won't find better than us!
 
-Clean Cuts Trees is the #1 tree service company in Fruit Heights serving all of Davis, Salt Lake and Weber County, Utah, & surrounding areas.
-
-### Contact Us
-
-Fruit Heights, UT 84037
-
-[(801) 473-7548](tel:+18014737548)
-
-[estimates@cleancutstrees.com](mailto:estimates@cleancutstrees.com)
-
-- [Follow](https://www.facebook.com/CleanCutsTrees/ "Follow on Facebook")
-- [Follow](https://www.youtube.com/channel/UCSMH2M8_eCp3TM7lxs7HC1w/videos "Follow on Youtube")
-- [Follow](https://www.instagram.com/clean_cuts_trees/ "Follow on Instagram")
-
-### Our Services
-
-### Service Areas
-
-### Location`
+Clean Cuts Trees is the #1 tree service company in Fruit Heights serving all of Davis, Salt Lake and Weber County, Utah, & surrounding areas.`
 
 const fixAboutPage = async () => {
   try {
@@ -53,8 +35,8 @@ const fixAboutPage = async () => {
         or: [
           { title: { contains: 'About Us' } },
           { slug: { equals: 'about-us' } },
-          { title: { contains: 'About' } }
-        ]
+          { title: { contains: 'About' } },
+        ],
       },
     })
 
@@ -84,7 +66,6 @@ const fixAboutPage = async () => {
 
     console.log('✅ About Us page updated successfully!')
     console.log('🎉 You can now edit the About Us page in the admin panel without errors')
-
   } catch (error) {
     console.error('❌ Error fixing about page:', error)
   } finally {

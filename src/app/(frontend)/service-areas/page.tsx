@@ -153,7 +153,7 @@ export default async function ServiceAreasPage() {
                   <span className="material-symbols-outlined">location_on</span>
                 </div>
                 <h4>Local Expertise</h4>
-                <p>We know the unique challenges of Utah's climate and tree species.</p>
+                <p>We know the unique challenges of Utah&apos;s climate and tree species.</p>
               </div>
               <div className="promise-item">
                 <div className="promise-icon">

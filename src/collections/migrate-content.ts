@@ -33,8 +33,8 @@ const migrateContent = async () => {
       if (url.includes('/category/')) {
         try {
           const category = await createCategory(url, data)
-          if (category) {
-            categoryMap.set(data.slug, category.id)
+          if (category && data && typeof data === 'object' && 'slug' in data) {
+            categoryMap.set((data as any).slug, category.id)
             stats.categories++
             console.log(`✅ Created category: ${category.title}`)
           }
@@ -50,8 +50,8 @@ const migrateContent = async () => {
       if (url.includes('/tag/')) {
         try {
           const tag = await createTag(url, data)
-          if (tag) {
-            tagMap.set(data.slug, tag.id)
+          if (tag && data && typeof data === 'object' && 'slug' in data) {
+            tagMap.set((data as any).slug, tag.id)
             stats.tags++
             console.log(`✅ Created tag: ${tag.title}`)
           }

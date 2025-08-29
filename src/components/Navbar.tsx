@@ -72,7 +72,7 @@ const Navbar = () => {
             Contact
           </Link>
           <Link href="tel:+18014737548" className="navbar-phone">
-            📞 (801) 473-7548
+            (801) 473-7548
           </Link>
         </div>
 
@@ -105,28 +105,28 @@ const Navbar = () => {
 
           <div className="mobile-menu-links">
             <Link href="/" className="mobile-link" onClick={closeMenu}>
-              🏠 Home
+              Home
             </Link>
             <Link href="/services" className="mobile-link" onClick={closeMenu}>
-              🌳 Services
+              Services
             </Link>
             <Link href="/service-areas" className="mobile-link" onClick={closeMenu}>
-              📍 Service Areas
+              Service Areas
             </Link>
             <Link href="/blog" className="mobile-link" onClick={closeMenu}>
-              📝 Blog
+              Blog
             </Link>
             <Link href="/about-us" className="mobile-link" onClick={closeMenu}>
-              ℹ️ About
+              About
             </Link>
             <Link href="/contact-us" className="mobile-link" onClick={closeMenu}>
-              📧 Contact
+              Contact
             </Link>
           </div>
 
           <div className="mobile-menu-footer">
             <Link href="tel:+18014737548" className="mobile-phone" onClick={closeMenu}>
-              📞 (801) 473-7548
+              (801) 473-7548
             </Link>
             <div className="mobile-hours">
               <p>24/7 Emergency Service Available</p>

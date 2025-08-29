@@ -1,4 +1,5 @@
 import { headers as getHeaders } from 'next/headers.js'
+import Link from 'next/link'
 import { getPayload } from 'payload'
 
 import config from '@/payload.config'
@@ -62,9 +63,9 @@ export default async function HomePage() {
               providing expert tree care and all tree services.
             </p>
             <div className="hero-buttons">
-              <a href="/contact-us" className="btn btn-primary">
+              <Link href="/contact-us" className="btn btn-primary">
                 CONTACT US NOW!
-              </a>
+              </Link>
               <a href="tel:+18014737548" className="btn btn-phone">
                 <span
                   className="material-symbols-outlined"
@@ -75,12 +76,26 @@ export default async function HomePage() {
                 (801) 473-7548
               </a>
             </div>
-            <div className="partnership-banner">
-              <p>
-                Clean Cuts Trees is a Proud Partner of <strong>Real Salt Lake</strong> & Winner of
-                the <strong>America First Credit Union</strong> 2024 Small Business Showcase.
-              </p>
-            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Partnership Section */}
+      <section className="partnership">
+        <div className="container">
+          <div className="partnership-banner">
+            <img
+              src="/rsl-acfu-partnership.png"
+              alt="Real Salt Lake and America First Credit Union Partnership"
+              className="partnership-image"
+            />
+            <p>
+              Clean Cuts Trees is a Proud Partner of <strong>Real Salt Lake</strong> & Winner of the{' '}
+              <strong>America First Credit Union</strong> 2024 Small Business Showcase.
+            </p>
+            <Link href="/real-salt-lake-partnership" className="btn btn-secondary">
+              Read more
+            </Link>
           </div>
         </div>
       </section>
@@ -206,10 +221,11 @@ export default async function HomePage() {
               </p>
               <p>
                 You might not give much thought to the trees in your front or backyard. You probably
-                won't notice them growing, but trees, like all living things, need consistent care
-                to stay healthy and strong. For example, tree limbs and stray branches need to be
-                trimmed to keep their shape and ensure that they don't obstruct views and power
-                lines. Falling branches and even entire trees can damage your family and property.
+                won&apos;t notice them growing, but trees, like all living things, need consistent
+                care to stay healthy and strong. For example, tree limbs and stray branches need to
+                be trimmed to keep their shape and ensure that they don&apos;t obstruct views and
+                power lines. Falling branches and even entire trees can damage your family and
+                property.
               </p>
               <p>
                 For our customers in Salt Lake, Weber County, UT, Davis County, UT, Layton, UT and
@@ -217,9 +233,9 @@ export default async function HomePage() {
                 inspect, prune, and trim the trees around their property as well as remove trees,
                 shrubs, and bushes when needed.
               </p>
-              <a href="/contact-us" className="btn btn-primary">
+              <Link href="/contact-us" className="btn btn-primary">
                 CONTACT US NOW!
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -235,11 +251,11 @@ export default async function HomePage() {
             <div className="review-card">
               <div className="review-stars">⭐⭐⭐⭐⭐</div>
               <p>
-                "This is the third time we've used Clean Cuts Trees, and once again, they delivered
-                excellent service. Their response time was impressively fast, and they did a
-                fantastic job at a very fair price. The work site was left spotless, which we really
-                appreciated. Chaz, the job supervisor, was a pleasure to work with — professional,
-                communicative, and made sure everything ran smoothly."
+                &ldquo;This is the third time we&apos;ve used Clean Cuts Trees, and once again, they
+                delivered excellent service. Their response time was impressively fast, and they did
+                a fantastic job at a very fair price. The work site was left spotless, which we
+                really appreciated. Chaz, the job supervisor, was a pleasure to work with —
+                professional, communicative, and made sure everything ran smoothly.&rdquo;
               </p>
               <div className="review-author">- M H.</div>
             </div>
@@ -247,11 +263,11 @@ export default async function HomePage() {
             <div className="review-card">
               <div className="review-stars">⭐⭐⭐⭐⭐</div>
               <p>
-                "First - the people. Zac and Laurie made the scheduling process easy. Then Chaz and
-                crew showed up and made it all worth it. We LOVE our Black Walnut tree and have
-                spent a couple seasons nursing it back to health from a beetle infestation with the
-                help of an arborist. When Chaz and crew left all the dead was gone and the green
-                looks great!"
+                &ldquo;First - the people. Zac and Laurie made the scheduling process easy. Then
+                Chaz and crew showed up and made it all worth it. We LOVE our Black Walnut tree and
+                have spent a couple seasons nursing it back to health from a beetle infestation with
+                the help of an arborist. When Chaz and crew left all the dead was gone and the green
+                looks great!&rdquo;
               </p>
               <div className="review-author">- Gregory P.</div>
             </div>
@@ -259,10 +275,10 @@ export default async function HomePage() {
             <div className="review-card">
               <div className="review-stars">⭐⭐⭐⭐⭐</div>
               <p>
-                "Chaz and his team did an AMAZING job helping to clean up my giant cherry tree that
-                we almost lost. I'm so grateful, and they cleaned up beautifully and left everything
-                pristine. I'm so grateful that my cherry tree still looks so good, even after having
-                to cut the entire top off."
+                &ldquo;Chaz and his team did an AMAZING job helping to clean up my giant cherry tree
+                that we almost lost. I&apos;m so grateful, and they cleaned up beautifully and left
+                everything pristine. I&apos;m so grateful that my cherry tree still looks so good,
+                even after having to cut the entire top off.&rdquo;
               </p>
               <div className="review-author">- Whitterbug</div>
             </div>
@@ -273,7 +289,7 @@ export default async function HomePage() {
       {/* Why Choose Us */}
       <section className="why-choose-us">
         <div className="container">
-          <h2 className="section-title">We're the Trusted Arborists in the Area.</h2>
+          <h2 className="section-title">We&apos;re the Trusted Arborists in the Area.</h2>
           <p className="section-subtitle">
             Because we are professional, efficient, honest, and work closely with our customers
             every step of the way.
@@ -336,8 +352,8 @@ export default async function HomePage() {
       <section className="service-areas">
         <div className="container">
           <h2 className="section-title">
-            We are Open 24 Hours for Storm and Emergency Services
-            in Davis, Weber, and Salt Lake County UT and Surrounding Areas
+            We are Open 24 Hours for Storm and Emergency Services in Davis, Weber, and Salt Lake
+            County UT and Surrounding Areas
           </h2>
           <p className="section-subtitle">
             Call us today to meet a team from a local family-owned and operated tree trimming
@@ -402,9 +418,9 @@ export default async function HomePage() {
           </div>
 
           <div className="faq-cta">
-            <a href="/faq" className="btn btn-secondary">
+            <Link href="/faq" className="btn btn-secondary">
               DISCOVER MORE
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -416,8 +432,8 @@ export default async function HomePage() {
             We are a Professional and Family-Owned Tree Service Provider
           </h2>
           <p className="section-subtitle">
-            We're proud to serve the property owners of Davis, Salt Lake, and Weber County UT, and
-            surrounding areas.
+            We&apos;re proud to serve the property owners of Davis, Salt Lake, and Weber County UT,
+            and surrounding areas.
           </p>
 
           <div className="contact-info">
@@ -464,9 +480,9 @@ export default async function HomePage() {
           </div>
 
           <div className="final-cta">
-            <a href="/contact-us" className="btn btn-primary btn-large">
+            <Link href="/contact-us" className="btn btn-primary btn-large">
               REQUEST A FREE ESTIMATE
-            </a>
+            </Link>
           </div>
         </div>
       </section>

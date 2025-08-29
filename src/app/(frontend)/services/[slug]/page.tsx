@@ -237,7 +237,7 @@ export default async function ServicePage({ params }: Props) {
             <aside className="page-sidebar">
               <div className="sidebar-widget cta-widget">
                 <h3>Need Tree Service?</h3>
-                <p>Get expert tree care from Utah's most trusted professionals.</p>
+                <p>Get expert tree care from Utah&apos;s most trusted professionals.</p>
                 <Link href="/contact-us" className="btn btn-primary">
                   Free Estimate
                 </Link>

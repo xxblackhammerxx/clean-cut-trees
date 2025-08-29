@@ -154,7 +154,8 @@ export default async function ContactPage() {
           <div className="contact-hero-content">
             <h1>Contact Clean Cuts Trees</h1>
             <p>
-              Get your free estimate today! We're here to help with all your tree service needs.
+              Get your free estimate today! We&apos;re here to help with all your tree service
+              needs.
             </p>
           </div>
         </div>
@@ -235,8 +236,8 @@ export default async function ContactPage() {
           <div className="emergency-box">
             <h2>Emergency Tree Service?</h2>
             <p>
-              We're available 24/7 for emergency tree removal, storm damage cleanup, and urgent tree
-              services.
+              We&apos;re available 24/7 for emergency tree removal, storm damage cleanup, and urgent
+              tree services.
             </p>
             <a href="tel:+18014737548" className="btn btn-emergency">
               <span className="material-symbols-outlined">emergency</span>

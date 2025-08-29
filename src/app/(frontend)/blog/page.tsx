@@ -51,7 +51,9 @@ export default async function BlogPage() {
       <section className="blog-hero">
         <div className="container">
           <h1>Tree Care Blog</h1>
-          <p>Expert advice, tips, and insights from Utah's leading tree service professionals</p>
+          <p>
+            Expert advice, tips, and insights from Utah&apos;s leading tree service professionals
+          </p>
         </div>
       </section>
 
@@ -153,7 +155,7 @@ export default async function BlogPage() {
 
               <div className="sidebar-widget cta-widget">
                 <h3>Need Tree Service?</h3>
-                <p>Get a free estimate from Utah's trusted tree service professionals.</p>
+                <p>Get a free estimate from Utah&apos;s trusted tree service professionals.</p>
                 <Link href="/contact-us" className="btn btn-primary">
                   Get Free Estimate
                 </Link>

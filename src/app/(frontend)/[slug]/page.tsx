@@ -100,48 +100,6 @@ export default async function GeneralPage({ params }: Props) {
 
       // Replace social media "Follow" links with proper icons
       // First, let's handle the list format and make them inline
-      fixedContent = fixedContent.replace(
-        /-\s*\[Follow\]\(https:\/\/www\.facebook\.com\/CleanCutsTrees\/[^)]*\)/g,
-        '<a href="https://www.facebook.com/CleanCutsTrees/" target="_blank" rel="noopener noreferrer" class="social-link-inline facebook" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a>',
-      )
-
-      fixedContent = fixedContent.replace(
-        /-\s*\[Follow\]\(https:\/\/www\.youtube\.com\/channel\/UCSMH2M8_eCp3TM7lxs7HC1w\/videos[^)]*\)/g,
-        '<a href="https://www.youtube.com/channel/UCSMH2M8_eCp3TM7lxs7HC1w/videos" target="_blank" rel="noopener noreferrer" class="social-link-inline youtube" aria-label="Follow us on YouTube"><i class="fab fa-youtube"></i></a>',
-      )
-
-      fixedContent = fixedContent.replace(
-        /-\s*\[Follow\]\(https:\/\/www\.instagram\.com\/clean_cuts_trees\/[^)]*\)/g,
-        '<a href="https://www.instagram.com/clean_cuts_trees/" target="_blank" rel="noopener noreferrer" class="social-link-inline instagram" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>',
-      )
-
-      // Also handle non-list format
-      // Facebook
-      fixedContent = fixedContent.replace(
-        /\[Follow\]\(https:\/\/www\.facebook\.com\/CleanCutsTrees\/[^)]*\)/g,
-        '<a href="https://www.facebook.com/CleanCutsTrees/" target="_blank" rel="noopener noreferrer" class="social-link-inline facebook" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a>',
-      )
-
-      // YouTube
-      fixedContent = fixedContent.replace(
-        /\[Follow\]\(https:\/\/www\.youtube\.com\/channel\/UCSMH2M8_eCp3TM7lxs7HC1w\/videos[^)]*\)/g,
-        '<a href="https://www.youtube.com/channel/UCSMH2M8_eCp3TM7lxs7HC1w/videos" target="_blank" rel="noopener noreferrer" class="social-link-inline youtube" aria-label="Follow us on YouTube"><i class="fab fa-youtube"></i></a>',
-      )
-
-      // Instagram
-      fixedContent = fixedContent.replace(
-        /\[Follow\]\(https:\/\/www\.instagram\.com\/clean_cuts_trees\/[^)]*\)/g,
-        '<a href="https://www.instagram.com/clean_cuts_trees/" target="_blank" rel="noopener noreferrer" class="social-link-inline instagram" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>',
-      )
-
-      // Remove empty headings at the end of content (Our Services, Service Areas, Location with no content)
-      fixedContent = fixedContent.replace(/###\s*(Our Services|Service Areas|Location)\s*$/gm, '')
-
-      // Wrap consecutive social media links in a container
-      fixedContent = fixedContent.replace(
-        /((?:<a[^>]*class="social-link-inline[^>]*>.*?<\/a>\s*){2,})/g,
-        '<div class="social-links-container">$1</div>',
-      )
 
       // Parse markdown to HTML
       const htmlContent = marked(fixedContent)
@@ -214,29 +172,6 @@ export default async function GeneralPage({ params }: Props) {
 
   return (
     <div className="general-page">
-      {/* Breadcrumb */}
-      <section className="breadcrumb">
-        <div className="container">
-          <nav className="breadcrumb-nav">
-            <Link href="/">Home</Link>
-            <span>→</span>
-            {isServicePage && (
-              <>
-                <Link href="/services">Services</Link>
-                <span>→</span>
-              </>
-            )}
-            {isServiceAreaPage && (
-              <>
-                <Link href="/service-areas">Service Areas</Link>
-                <span>→</span>
-              </>
-            )}
-            <span>{page.title}</span>
-          </nav>
-        </div>
-      </section>
-
       {/* Page Content */}
       <article className="page-content">
         <div className="container">
@@ -244,12 +179,6 @@ export default async function GeneralPage({ params }: Props) {
             <div className="page-main">
               <header className="page-header">
                 <h1 className="page-title">{page.title}</h1>
-
-                {page.excerpt && (
-                  <div className="page-excerpt">
-                    <p>{page.excerpt}</p>
-                  </div>
-                )}
               </header>
 
               <div className="page-content-body">{renderContent(page.content)}</div>
@@ -288,7 +217,7 @@ export default async function GeneralPage({ params }: Props) {
                         .replace('Tree Service ', '')
                         .replace(', UT - Clean Cuts Trees', '')}
                     </h3>
-                    <p>We're proud to provide professional tree services to this community.</p>
+                    <p>We&apos;re proud to provide professional tree services to this community.</p>
                     <div className="cta-buttons">
                       <Link href="/contact-us" className="btn btn-primary">
                         Schedule Service
@@ -306,7 +235,7 @@ export default async function GeneralPage({ params }: Props) {
             <aside className="page-sidebar">
               <div className="sidebar-widget cta-widget">
                 <h3>Need Tree Service?</h3>
-                <p>Get expert tree care from Utah's most trusted professionals.</p>
+                <p>Get expert tree care from Utah&apos;s most trusted professionals.</p>
                 <Link href="/contact-us" className="btn btn-primary">
                   Free Estimate
                 </Link>

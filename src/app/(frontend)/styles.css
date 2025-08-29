@@ -498,7 +498,18 @@ body {
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%);
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(44, 85, 48, 0.3) 0%,
+      rgba(44, 85, 48, 0.4) 70%,
+      rgba(44, 85, 48, 0.6) 90%,
+      rgba(44, 85, 48, 0.8) 100%
+    ),
+    url('/tree-bg.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: white;
   padding: 150px 0 80px 0;
   text-align: center;
@@ -533,12 +544,40 @@ body {
   flex-wrap: wrap;
 }
 
+/* Partnership Section */
+.partnership {
+  padding: 60px 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  color: #333;
+}
+
 .partnership-banner {
-  background-color: rgba(255, 255, 255, 0.1);
-  padding: 20px;
-  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 40px;
+  border-radius: 15px;
   max-width: 800px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+.partnership-image {
+  max-width: 400px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.partnership-banner p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.partnership-banner .btn {
+  margin-top: 10px;
 }
 
 /* Services Section */
@@ -868,6 +907,19 @@ body {
   .hero-buttons {
     flex-direction: column;
     align-items: center;
+  }
+
+  .partnership-image {
+    max-width: 300px;
+  }
+
+  .partnership-banner {
+    padding: 25px;
+    gap: 15px;
+  }
+
+  .partnership-banner p {
+    font-size: 1.1rem;
   }
 
   .services-grid,

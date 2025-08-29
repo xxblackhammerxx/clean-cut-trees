@@ -92,7 +92,9 @@ const ContactForm = () => {
             <span className="material-symbols-outlined">check_circle</span>
           </div>
           <h3>Thank You!</h3>
-          <p>Your message has been sent successfully. We'll get back to you within 24 hours.</p>
+          <p>
+            Your message has been sent successfully. We&apos;ll get back to you within 24 hours.
+          </p>
           <p>
             For urgent matters, please call us at <a href="tel:+18014737548">(801) 473-7548</a>
           </p>
@@ -109,7 +111,7 @@ const ContactForm = () => {
       <form onSubmit={handleSubmit} className="contact-form">
         <div className="form-header">
           <h2>Get Your Free Estimate</h2>
-          <p>Fill out the form below and we'll get back to you with a detailed quote.</p>
+          <p>Fill out the form below and we&apos;ll get back to you with a detailed quote.</p>
         </div>
 
         {submitStatus === 'error' && (
