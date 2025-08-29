@@ -1,8 +1,17 @@
+import dotenv from 'dotenv'
 import { readFileSync } from 'fs'
 import matter from 'gray-matter'
-import { join } from 'path'
+import { dirname, join } from 'path'
 import payload from 'payload'
+import { fileURLToPath } from 'url'
 import config from '../src/payload.config'
+
+// Load environment variables
+dotenv.config()
+
+// Get __dirname equivalent for ES modules
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 
 // Type for route data structure
 interface RouteData {
@@ -308,6 +317,9 @@ const extractTagsFromContent = (content: string, tagMap: Map<string, string>) =>
 export default migrateContent
 
 // Run migration if this file is executed directly
-if (require.main === module) {
+if (
+  import.meta.url === `file://${process.argv[1]}` ||
+  import.meta.url === fileURLToPath(process.argv[1])
+) {
   migrateContent()
 }

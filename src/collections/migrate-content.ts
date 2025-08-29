@@ -1,13 +1,13 @@
-import payload from 'payload'
 import { readFileSync } from 'fs'
-import { join } from 'path'
 import matter from 'gray-matter'
+import { join } from 'path'
+import payload from 'payload'
+import config from '../payload.config'
 
 const migrateContent = async () => {
   try {
     await payload.init({
-      secret: process.env.PAYLOAD_SECRET || 'your-secret-here',
-      local: true,
+      config,
     })
 
     console.log('🚀 Starting content migration...')
@@ -69,15 +69,19 @@ const migrateContent = async () => {
       }
 
       try {
-        const markdownPath = join(__dirname, '../content-migration/pages', data.file.replace('./pages/', ''))
+        const markdownPath = join(
+          __dirname,
+          '../content-migration/pages',
+          data.file.replace('./pages/', ''),
+        )
         const content = readFileSync(markdownPath, 'utf8')
-        
+
         // Parse markdown frontmatter
         const { data: frontmatter, content: body } = matter(content)
-        
+
         // Determine content type and create entry
         const contentType = determineContentType(url)
-        
+
         if (contentType === 'blog-posts') {
           await createBlogPost(url, frontmatter, body, data.slug, categoryMap, tagMap)
           stats.blogPosts++
@@ -85,7 +89,7 @@ const migrateContent = async () => {
           await createPage(url, frontmatter, body, data.slug, contentType)
           stats.pages++
         }
-        
+
         console.log(`✅ Migrated: ${url}`)
       } catch (error) {
         console.error(`❌ Failed to migrate: ${url}`, error)
@@ -100,7 +104,6 @@ const migrateContent = async () => {
     console.log(`   Categories: ${stats.categories}`)
     console.log(`   Tags: ${stats.tags}`)
     console.log(`   Errors: ${stats.errors}`)
-
   } catch (error) {
     console.error('💥 Migration failed:', error)
   }
@@ -114,7 +117,11 @@ const determineContentType = (url: string) => {
 }
 
 const createCategory = async (url: string, data: any) => {
-  const markdownPath = join(__dirname, '../content-migration/pages', data.file.replace('./pages/', ''))
+  const markdownPath = join(
+    __dirname,
+    '../content-migration/pages',
+    data.file.replace('./pages/', ''),
+  )
   const content = readFileSync(markdownPath, 'utf8')
   const { data: frontmatter } = matter(content)
 
@@ -133,7 +140,11 @@ const createCategory = async (url: string, data: any) => {
 }
 
 const createTag = async (url: string, data: any) => {
-  const markdownPath = join(__dirname, '../content-migration/pages', data.file.replace('./pages/', ''))
+  const markdownPath = join(
+    __dirname,
+    '../content-migration/pages',
+    data.file.replace('./pages/', ''),
+  )
   const content = readFileSync(markdownPath, 'utf8')
   const { data: frontmatter } = matter(content)
 
@@ -151,7 +162,14 @@ const createTag = async (url: string, data: any) => {
   })
 }
 
-const createBlogPost = async (url: string, frontmatter: any, body: string, slug: string, categoryMap: Map<string, string>, tagMap: Map<string, string>) => {
+const createBlogPost = async (
+  url: string,
+  frontmatter: any,
+  body: string,
+  slug: string,
+  categoryMap: Map<string, string>,
+  tagMap: Map<string, string>,
+) => {
   // Extract categories and tags from content or URL patterns
   const categories = extractCategoriesFromContent(body, categoryMap)
   const tags = extractTagsFromContent(body, tagMap)
@@ -174,7 +192,13 @@ const createBlogPost = async (url: string, frontmatter: any, body: string, slug:
   })
 }
 
-const createPage = async (url: string, frontmatter: any, body: string, slug: string, contentType: string) => {
+const createPage = async (
+  url: string,
+  frontmatter: any,
+  body: string,
+  slug: string,
+  contentType: string,
+) => {
   return await payload.create({
     collection: 'pages',
     data: {
@@ -211,18 +235,18 @@ const extractDateFromUrl = (url: string) => {
 const extractTitleFromUrl = (url: string) => {
   const parts = url.split('/')
   const lastPart = parts[parts.length - 2] || parts[parts.length - 1]
-  return lastPart.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())
+  return lastPart.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase())
 }
 
 const extractTitleFromSlug = (slug: string) => {
-  return slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())
+  return slug.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase())
 }
 
 const extractExcerpt = (content: string, maxLength: number = 160) => {
   // Remove markdown formatting and extract first paragraph
   const plainText = content.replace(/[#*`\[\]]/g, '').trim()
   const firstParagraph = plainText.split('\n\n')[0]
-  return firstParagraph.length > maxLength 
+  return firstParagraph.length > maxLength
     ? firstParagraph.substring(0, maxLength) + '...'
     : firstParagraph
 }
@@ -231,30 +255,38 @@ const extractCategoriesFromContent = (content: string, categoryMap: Map<string, 
   // Logic to extract categories based on content analysis
   // This is a simplified version - you might want to enhance this
   const categories = []
-  
+
   if (content.toLowerCase().includes('tree removal')) {
     const categoryId = categoryMap.get('category-tree-removal')
     if (categoryId) categories.push(categoryId)
   }
-  
-  if (content.toLowerCase().includes('tree trimming') || content.toLowerCase().includes('tree pruning')) {
+
+  if (
+    content.toLowerCase().includes('tree trimming') ||
+    content.toLowerCase().includes('tree pruning')
+  ) {
     const categoryId = categoryMap.get('category-tree-pruning')
     if (categoryId) categories.push(categoryId)
   }
-  
+
   return categories
 }
 
 const extractTagsFromContent = (content: string, tagMap: Map<string, string>) => {
   // Logic to extract tags based on content analysis
   const tags = []
-  
+
   // Extract common tree service related tags
   const commonTags = [
-    'tree removal', 'tree trimming', 'tree pruning', 'emergency service',
-    'storm damage', 'land clearing', 'municipal service'
+    'tree removal',
+    'tree trimming',
+    'tree pruning',
+    'emergency service',
+    'storm damage',
+    'land clearing',
+    'municipal service',
   ]
-  
+
   for (const tag of commonTags) {
     if (content.toLowerCase().includes(tag)) {
       const tagSlug = `tag-${tag.replace(/\s+/g, '-')}`
@@ -262,7 +294,7 @@ const extractTagsFromContent = (content: string, tagMap: Map<string, string>) =>
       if (tagId) tags.push(tagId)
     }
   }
-  
+
   return tags
 }
 

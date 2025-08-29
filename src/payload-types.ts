@@ -73,6 +73,7 @@ export interface Config {
     categories: Category;
     tags: Tag;
     pages: Page;
+    'contact-submissions': ContactSubmission;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -85,6 +86,7 @@ export interface Config {
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     tags: TagsSelect<false> | TagsSelect<true>;
     pages: PagesSelect<false> | PagesSelect<true>;
+    'contact-submissions': ContactSubmissionsSelect<false> | ContactSubmissionsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -397,6 +399,29 @@ export interface Page {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contact-submissions".
+ */
+export interface ContactSubmission {
+  id: number;
+  name: string;
+  email: string;
+  phone?: string | null;
+  service?:
+    | ('tree-removal' | 'tree-trimming' | 'emergency' | 'storm-cleanup' | 'land-clearing' | 'municipal' | 'general')
+    | null;
+  propertyType?: ('residential' | 'commercial' | 'municipal') | null;
+  urgency?: ('emergency' | 'urgent' | 'standard' | 'planning') | null;
+  message?: string | null;
+  address?: string | null;
+  preferredContact?: ('phone' | 'email' | 'text') | null;
+  bestTimeToCall?: string | null;
+  status?: ('new' | 'contacted' | 'quote-sent' | 'scheduled' | 'completed' | 'declined') | null;
+  notes?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -425,6 +450,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'pages';
         value: number | Page;
+      } | null)
+    | ({
+        relationTo: 'contact-submissions';
+        value: number | ContactSubmission;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -631,6 +660,26 @@ export interface PagesSelect<T extends boolean = true> {
       };
   publishedDate?: T;
   status?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contact-submissions_select".
+ */
+export interface ContactSubmissionsSelect<T extends boolean = true> {
+  name?: T;
+  email?: T;
+  phone?: T;
+  service?: T;
+  propertyType?: T;
+  urgency?: T;
+  message?: T;
+  address?: T;
+  preferredContact?: T;
+  bestTimeToCall?: T;
+  status?: T;
+  notes?: T;
   updatedAt?: T;
   createdAt?: T;
 }
