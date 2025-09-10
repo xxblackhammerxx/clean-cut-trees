@@ -110,45 +110,99 @@ export default async function GeneralPage({ params }: Props) {
 
     // Handle rich text content (Lexical format)
     if (content && content.root && content.root.children) {
-      return content.root.children.map((node: any, index: number) => {
+      const renderLexicalNode = (node: any, nodeIndex: number): React.ReactNode => {
         if (node.type === 'paragraph') {
           return (
-            <p key={index} className="content-paragraph">
-              {node.children?.map((child: any) => child.text || '').join('')}
+            <p key={nodeIndex} className="content-paragraph">
+              {node.children?.map((child: any, childIndex: number) => {
+                if (child.type === 'text') {
+                  return child.text || ''
+                }
+                if (child.type === 'image') {
+                  return (
+                    <img
+                      key={childIndex}
+                      src={child.src || child.value?.url || ''}
+                      alt={child.alt || child.value?.alt || ''}
+                      className="inline-image"
+                      style={{ maxWidth: '100%', height: 'auto' }}
+                    />
+                  )
+                }
+                return null
+              })}
             </p>
+          )
+        }
+        if (node.type === 'image') {
+          return (
+            <div key={nodeIndex} className="content-image">
+              <img
+                src={node.src || node.value?.url || ''}
+                alt={node.alt || node.value?.alt || ''}
+                className="content-img"
+                style={{ maxWidth: '100%', height: 'auto', margin: '1rem 0' }}
+              />
+              {node.caption && node.caption.editorState?.root?.children?.length > 0 && (
+                <p className="image-caption">
+                  {node.caption.editorState.root.children
+                    .map(
+                      (captionNode: any) =>
+                        captionNode.children?.map((child: any) => child.text || '').join('') || '',
+                    )
+                    .join('')}
+                </p>
+              )}
+            </div>
           )
         }
         if (node.type === 'heading') {
           const headingLevel = node.tag || 'h2'
+          const headingText = node.children?.map((child: any) => child.text || '').join('')
+
           if (headingLevel === 'h1') {
             return (
-              <h1 key={index} className="content-heading">
-                {node.children?.map((child: any) => child.text || '').join('')}
+              <h1 key={nodeIndex} className="content-heading">
+                {headingText}
               </h1>
             )
           }
           if (headingLevel === 'h2') {
             return (
-              <h2 key={index} className="content-heading">
-                {node.children?.map((child: any) => child.text || '').join('')}
+              <h2 key={nodeIndex} className="content-heading">
+                {headingText}
               </h2>
             )
           }
           if (headingLevel === 'h3') {
             return (
-              <h3 key={index} className="content-heading">
-                {node.children?.map((child: any) => child.text || '').join('')}
+              <h3 key={nodeIndex} className="content-heading">
+                {headingText}
               </h3>
             )
           }
           return (
-            <h2 key={index} className="content-heading">
-              {node.children?.map((child: any) => child.text || '').join('')}
+            <h2 key={nodeIndex} className="content-heading">
+              {headingText}
             </h2>
           )
         }
+        if (node.type === 'list') {
+          const ListComponent = node.listType === 'number' ? 'ol' : 'ul'
+          return (
+            <ListComponent key={nodeIndex} className="content-list">
+              {node.children?.map((listItem: any, itemIndex: number) => (
+                <li key={itemIndex} className="content-list-item">
+                  {listItem.children?.map((child: any) => child.text || '').join('')}
+                </li>
+              ))}
+            </ListComponent>
+          )
+        }
         return null
-      })
+      }
+
+      return content.root.children.map(renderLexicalNode)
     }
 
     return <p>Content not available</p>

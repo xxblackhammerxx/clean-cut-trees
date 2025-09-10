@@ -7,7 +7,7 @@ export default function FAQAccordion() {
     const handleFAQClick = (event: Event) => {
       const target = event.target as HTMLElement
       const faqQuestion = target.closest('.faq-question')
-      
+
       if (faqQuestion) {
         const faqItem = faqQuestion.closest('.faq-item')
         if (faqItem) {
@@ -18,13 +18,13 @@ export default function FAQAccordion() {
 
     // Add click listeners to all FAQ questions
     const faqQuestions = document.querySelectorAll('.faq-question')
-    faqQuestions.forEach(question => {
+    faqQuestions.forEach((question) => {
       question.addEventListener('click', handleFAQClick)
     })
 
     // Cleanup function
     return () => {
-      faqQuestions.forEach(question => {
+      faqQuestions.forEach((question) => {
         question.removeEventListener('click', handleFAQClick)
       })
     }
