@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
 const Navbar = () => {
@@ -48,7 +49,14 @@ const Navbar = () => {
       <div className="navbar-container">
         {/* Logo */}
         <Link href="/" className="navbar-logo" onClick={closeMenu}>
-          <img width={150} src="/cleancutslogo.png" alt="Clean Cuts Trees Logo" />
+          <Image 
+            src="/cleancutslogo.png" 
+            alt="Clean Cuts Trees Logo" 
+            width={150} 
+            height={50}
+            priority
+            sizes="150px"
+          />
         </Link>
 
         {/* Desktop Navigation Links */}

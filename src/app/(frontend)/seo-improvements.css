@@ -1,0 +1,384 @@
+/* SEO-focused CSS additions for Clean Cuts Trees */
+
+/* Emergency Service Styling */
+.emergency-service {
+  background: linear-gradient(135deg, #2c5530 0%, #28a745 100%);
+  color: white;
+  padding: 60px 0;
+  margin: 40px 0;
+}
+
+.emergency-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.emergency-text h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.emergency-features {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.emergency-features li {
+  padding: 8px 0;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+}
+
+.emergency-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+  flex-wrap: wrap;
+}
+
+.btn-emergency {
+  background: #fff;
+  color: #2c5530;
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn-emergency:hover {
+  background: #f8f8f8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.emergency-img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+/* Emergency Spotlight in Services Page */
+.emergency-spotlight {
+  background: #f8f9fa;
+  border: 2px solid #28a745;
+  border-radius: 8px;
+  padding: 30px;
+  margin: 40px 0;
+}
+
+.emergency-spotlight .emergency-content {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.emergency-icon {
+  flex-shrink: 0;
+}
+
+.emergency-text h3 {
+  margin: 0 0 15px 0;
+  color: #2c5530;
+  font-size: 1.8rem;
+}
+
+.emergency-text p {
+  margin-bottom: 20px;
+  color: #666;
+}
+
+/* Service Areas Section in Services Page */
+.service-areas-section {
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin: 30px 0;
+}
+
+.service-areas-section h3 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.service-areas-section > p {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #666;
+}
+
+.service-areas-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.county-group h4 {
+  color: #2c5530;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+  border-bottom: 2px solid #28a745;
+  padding-bottom: 5px;
+}
+
+.area-links {
+  list-style: none;
+  padding: 0;
+}
+
+.area-links li {
+  margin-bottom: 8px;
+}
+
+.area-links a {
+  color: #2c3e50;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.area-links a:hover {
+  color: #28a745;
+}
+
+.all-areas-link {
+  text-align: center;
+}
+
+.btn-outline {
+  border: 2px solid #28a745;
+  color: #2c5530;
+  background: transparent;
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background: #28a745;
+  color: white;
+}
+
+/* Service Areas Page Improvements */
+.service-areas-hero {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  color: white;
+  padding: 80px 0;
+  text-align: center;
+}
+
+.service-areas-hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.service-areas-hero p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.hero-cta {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.content-intro {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.content-intro h2 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.services-overview {
+  background: #f8f9fa;
+  padding: 40px;
+  border-radius: 8px;
+  margin-bottom: 50px;
+}
+
+.services-overview h3 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #2c3e50;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.service-item {
+  background: white;
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.service-item a {
+  color: #2c3e50;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.service-item a:hover {
+  color: #28a745;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .emergency-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .emergency-spotlight .emergency-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .service-areas-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .emergency-buttons {
+    justify-content: center;
+  }
+  
+  .hero-cta {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Internal Linking Improvements */
+.city-cluster-links {
+  background: #f8f9fa;
+  padding: 30px;
+  border-radius: 8px;
+  margin: 30px 0;
+}
+
+.city-cluster-links h3 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.city-links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.city-links-grid a {
+  color: #2c3e50;
+  text-decoration: none;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  transition: color 0.3s ease;
+}
+
+.city-links-grid a:hover {
+  color: #28a745;
+}
+
+/* Service Cards Enhancement */
+.service-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.service-card .service-link {
+  background: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 15px;
+  transition: background 0.3s ease;
+}
+
+.service-card .service-link:hover {
+  background: #218838;
+}
+
+/* Emergency CTA enhancements */
+.emergency-cta {
+  background: linear-gradient(135deg, #2c5530, #28a745);
+  padding: 40px;
+  border-radius: 8px;
+  text-align: center;
+  color: white;
+  margin: 40px 0;
+}
+
+.emergency-cta h3 {
+  color: white;
+  margin-bottom: 15px;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+/* Breadcrumb improvements */
+.breadcrumb {
+  background: #f8f9fa;
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.breadcrumb-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #666;
+}
+
+.breadcrumb-nav a {
+  color: #2c3e50;
+  text-decoration: none;
+}
+
+.breadcrumb-nav a:hover {
+  color: #28a745;
+}
+
+.breadcrumb-nav span {
+  color: #999;
+}

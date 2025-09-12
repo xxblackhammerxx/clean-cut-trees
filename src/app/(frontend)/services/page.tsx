@@ -4,9 +4,9 @@ import { getPayload } from 'payload'
 import config from '@/payload.config'
 
 export const metadata = {
-  title: 'Tree Services - Clean Cuts Trees | Professional Tree Care in Utah',
+  title: 'Tree Services | Removal, Trimming, Stump Grinding | Clean Cuts Trees',
   description:
-    'Explore our comprehensive tree services including tree removal, trimming, emergency service, and land clearing throughout Utah.',
+    'Explore all our tree services: removal, trimming, stump grinding, storm cleanup, land clearing, and more. Licensed, insured, and local.',
 }
 
 export default async function ServicesPage() {
@@ -34,7 +34,7 @@ export default async function ServicesPage() {
       {/* Hero Section */}
       <section className="services-hero">
         <div className="container">
-          <h1>Our Tree Services</h1>
+          <h1>Full‑Service Tree Care</h1>
           <p>Professional tree care services throughout Davis, Weber, and Salt Lake Counties</p>
         </div>
       </section>
@@ -66,6 +66,66 @@ export default async function ServicesPage() {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Emergency Service Spotlight */}
+          <div className="emergency-spotlight">
+            <div className="emergency-content">
+              <div className="emergency-icon">
+                <span className="material-symbols-outlined" style={{ fontSize: 48, color: '#2c5530' }}>
+                  emergency
+                </span>
+              </div>
+              <div className="emergency-text">
+                <h3>24/7 Emergency Tree Service</h3>
+                <p>
+                  When tree emergencies strike, we're here to help. Our certified crews respond immediately to fallen trees, storm damage, and hazardous situations.
+                </p>
+                <div className="emergency-buttons">
+                  <a href="tel:+18014737548" className="btn btn-emergency">
+                    Emergency: (801) 473-7548
+                  </a>
+                  <Link href="/services/emergency-tree-service" className="btn btn-secondary">
+                    Emergency Service Details
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Service Areas Section */}
+          <div className="service-areas-section">
+            <h3>Service Areas</h3>
+            <p>We provide professional tree services throughout Utah's most populated areas:</p>
+            <div className="service-areas-grid">
+              <div className="county-group">
+                <h4>Davis County</h4>
+                <ul className="area-links">
+                  <li><Link href="/service-areas/kaysville-ut-tree-service">Kaysville Tree Service</Link></li>
+                  <li><Link href="/service-areas/layton-ut-tree-service">Layton Tree Service</Link></li>
+                  <li><Link href="/service-areas/bountiful-ut-tree-service">Bountiful Tree Service</Link></li>
+                  <li><Link href="/service-areas/farmington-ut-tree-service">Farmington Tree Service</Link></li>
+                  <li><Link href="/service-areas/centerville-ut-tree-service">Centerville Tree Service</Link></li>
+                  <li><Link href="/service-areas/clearfield-ut-tree-service">Clearfield Tree Service</Link></li>
+                </ul>
+              </div>
+              <div className="county-group">
+                <h4>Weber County</h4>
+                <ul className="area-links">
+                  <li><Link href="/service-areas/ogden-ut-tree-service">Ogden Tree Service</Link></li>
+                  <li><Link href="/service-areas/roy-ut-tree-service">Roy Tree Service</Link></li>
+                  <li><Link href="/service-areas/north-ogden-ut-tree-service">North Ogden Tree Service</Link></li>
+                  <li><Link href="/service-areas/riverdale-ut-tree-service">Riverdale Tree Service</Link></li>
+                  <li><Link href="/service-areas/clinton-ut-tree-service">Clinton Tree Service</Link></li>
+                  <li><Link href="/service-areas/west-haven-ut-tree-service">West Haven Tree Service</Link></li>
+                </ul>
+              </div>
+            </div>
+            <div className="all-areas-link">
+              <Link href="/service-areas" className="btn btn-outline">
+                View All Service Areas →
+              </Link>
+            </div>
           </div>
 
           {/* Call to Action */}
