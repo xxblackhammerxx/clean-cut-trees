@@ -2,7 +2,26 @@
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { resendAdapter } from '@payloadcms/email-resend'
 import { payloadCloudPlugin } from '@payloadcms/payload-cloud'
-import { lexicalEditor } from '@payloadcms/richtext-lexical'
+import {
+  BlockquoteFeature,
+  BoldFeature,
+  ChecklistFeature,
+  HeadingFeature,
+  HorizontalRuleFeature,
+  InlineCodeFeature,
+  ItalicFeature,
+  lexicalEditor,
+  LinkFeature,
+  OrderedListFeature,
+  ParagraphFeature,
+  RelationshipFeature,
+  StrikethroughFeature,
+  SubscriptFeature,
+  SuperscriptFeature,
+  UnderlineFeature,
+  UnorderedListFeature,
+  UploadFeature,
+} from '@payloadcms/richtext-lexical'
 import path from 'path'
 import { buildConfig } from 'payload'
 import sharp from 'sharp'
@@ -27,7 +46,44 @@ export default buildConfig({
     },
   },
   collections: [Users, Media, BlogPosts, Categories, Tags, Pages, ContactSubmissions],
-  editor: lexicalEditor(),
+  editor: lexicalEditor({
+    features: ({ rootFeatures }) => {
+      return [
+        ...rootFeatures,
+        HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3', 'h4'] }),
+        ParagraphFeature(),
+        BoldFeature(),
+        ItalicFeature(),
+        UnderlineFeature(),
+        StrikethroughFeature(),
+        SubscriptFeature(),
+        SuperscriptFeature(),
+        InlineCodeFeature(),
+        UnorderedListFeature(),
+        OrderedListFeature(),
+        ChecklistFeature(),
+        LinkFeature({
+          enabledCollections: ['pages', 'blog-posts'],
+        }),
+        RelationshipFeature(),
+        BlockquoteFeature(),
+        UploadFeature({
+          collections: {
+            media: {
+              fields: [
+                {
+                  name: 'alt',
+                  type: 'text',
+                  required: true,
+                },
+              ],
+            },
+          },
+        }),
+        HorizontalRuleFeature(),
+      ]
+    },
+  }),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),

@@ -1,5 +1,5 @@
-import Link from 'next/link'
 import FAQAccordion from '@/components/FAQAccordion'
+import Link from 'next/link'
 
 export async function generateMetadata() {
   return {
@@ -173,8 +173,8 @@ export default function FAQPage() {
             <h2>Everything You Need to Know About Our Tree Services</h2>
             <p>
               As Utah&apos;s trusted tree service professionals, we&apos;ve compiled answers to the
-              most common questions we receive. Our certified arborists are always happy to
-              provide additional information for your specific needs.
+              most common questions we receive. Our certified arborists are always happy to provide
+              additional information for your specific needs.
             </p>
           </div>
 
