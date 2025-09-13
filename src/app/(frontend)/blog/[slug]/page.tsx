@@ -108,7 +108,7 @@ export default async function BlogPostPage({ params }: Props) {
         if (node.type === 'paragraph') {
           return (
             <p key={index} className="content-paragraph">
-              {node.children?.map((child: any, childIndex: number) => child.text || '').join('')}
+              {node.children?.map((child: any, _childIndex: number) => child.text || '').join('')}
             </p>
           )
         }
@@ -117,27 +117,27 @@ export default async function BlogPostPage({ params }: Props) {
           if (headingLevel === 'h1') {
             return (
               <h1 key={index} className="content-heading">
-                {node.children?.map((child: any, childIndex: number) => child.text || '').join('')}
+                {node.children?.map((child: any, _childIndex: number) => child.text || '').join('')}
               </h1>
             )
           }
           if (headingLevel === 'h2') {
             return (
               <h2 key={index} className="content-heading">
-                {node.children?.map((child: any, childIndex: number) => child.text || '').join('')}
+                {node.children?.map((child: any, _childIndex: number) => child.text || '').join('')}
               </h2>
             )
           }
           if (headingLevel === 'h3') {
             return (
               <h3 key={index} className="content-heading">
-                {node.children?.map((child: any, childIndex: number) => child.text || '').join('')}
+                {node.children?.map((child: any, _childIndex: number) => child.text || '').join('')}
               </h3>
             )
           }
           return (
             <h2 key={index} className="content-heading">
-              {node.children?.map((child: any, childIndex: number) => child.text || '').join('')}
+              {node.children?.map((child: any, _childIndex: number) => child.text || '').join('')}
             </h2>
           )
         }

@@ -53,7 +53,8 @@ export default async function ServiceAreasPage() {
     } else if (
       title.includes('salt lake county') ||
       title.includes('north salt lake') ||
-      title.includes('south weber')
+      title.includes('south weber') ||
+      title.includes('woods cross')
     ) {
       county = 'Salt Lake County'
     }
@@ -70,14 +71,54 @@ export default async function ServiceAreasPage() {
       {/* Hero Section */}
       <section className="service-areas-hero">
         <div className="container">
-          <h1>Service Areas</h1>
-          <p>Professional tree services throughout Northern Utah</p>
+          <h1>Tree Service Coverage Areas Throughout Utah</h1>
+          <p>Professional tree services and 24/7 emergency response throughout Northern Utah</p>
+          <div className="hero-cta">
+            <a href="tel:+18014737548" className="btn btn-emergency">
+              Emergency: (801) 473-7548
+            </a>
+            <Link href="/contact-us" className="btn btn-secondary">
+              Get Free Estimate
+            </Link>
+          </div>
         </div>
       </section>
 
       {/* Service Areas Content */}
       <section className="service-areas-content">
         <div className="container">
+          <div className="content-intro">
+            <h2>Complete Tree Services Throughout Northern Utah</h2>
+            <p>
+              Clean Cuts Trees provides comprehensive tree care services across Davis, Weber, and Salt Lake Counties. 
+              Our certified arborists deliver professional tree services with a focus on safety, efficiency, and customer satisfaction.
+            </p>
+          </div>
+
+          {/* Services Overview */}
+          <div className="services-overview">
+            <h3>Our Tree Services Include:</h3>
+            <div className="services-grid">
+              <div className="service-item">
+                <Link href="/services/emergency-tree-service">24/7 Emergency Tree Service</Link>
+              </div>
+              <div className="service-item">
+                <Link href="/services/tree-removal">Professional Tree Removal</Link>
+              </div>
+              <div className="service-item">
+                <Link href="/services/tree-trimming">Tree Trimming & Pruning</Link>
+              </div>
+              <div className="service-item">
+                <Link href="/services/storm-clean-up">Storm Damage Cleanup</Link>
+              </div>
+              <div className="service-item">
+                <Link href="/services/professional-land-clearing-services">Land Clearing Services</Link>
+              </div>
+              <div className="service-item">
+                <Link href="/services/municipal-tree-service">Municipal Tree Service</Link>
+              </div>
+            </div>
+          </div>
           <div className="areas-intro">
             <h2>Serving Northern Utah Communities</h2>
             <p>

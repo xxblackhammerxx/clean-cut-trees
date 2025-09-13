@@ -1,11 +1,13 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null)
 
   // Handle scroll effect
   useEffect(() => {
@@ -41,6 +43,11 @@ const Navbar = () => {
 
   const closeMenu = () => {
     setIsOpen(false)
+    setOpenDropdown(null)
+  }
+
+  const handleDropdownToggle = (dropdown: string) => {
+    setOpenDropdown(openDropdown === dropdown ? null : dropdown)
   }
 
   return (
@@ -48,7 +55,14 @@ const Navbar = () => {
       <div className="navbar-container">
         {/* Logo */}
         <Link href="/" className="navbar-logo" onClick={closeMenu}>
-          <img width={150} src="/cleancutslogo.png" alt="Clean Cuts Trees Logo" />
+          <Image 
+            src="/cleancutslogo.png" 
+            alt="Clean Cuts Trees Logo" 
+            width={150} 
+            height={50}
+            priority
+            sizes="150px"
+          />
         </Link>
 
         {/* Desktop Navigation Links */}
@@ -56,12 +70,105 @@ const Navbar = () => {
           <Link href="/" className="navbar-link">
             Home
           </Link>
-          <Link href="/services" className="navbar-link">
-            Services
-          </Link>
-          <Link href="/service-areas" className="navbar-link">
-            Service Areas
-          </Link>
+          
+          {/* Services Dropdown */}
+          <div 
+            className={`navbar-dropdown ${openDropdown === 'services' ? 'active' : ''}`}
+            onMouseEnter={() => handleDropdownToggle('services')}
+            onMouseLeave={() => setOpenDropdown(null)}
+          >
+            <Link href="/services" className="navbar-link dropdown-trigger">
+              Services
+              <span className="dropdown-arrow">↓</span>
+            </Link>
+            <div className="dropdown-menu">
+              <div className="dropdown-content">
+                <Link href="/services/emergency-tree-service" className="dropdown-item">
+                  Emergency Tree Service
+                </Link>
+                <Link href="/services/tree-removal" className="dropdown-item">
+                  Tree Removal
+                </Link>
+                <Link href="/services/tree-trimming" className="dropdown-item">
+                  Tree Trimming & Pruning
+                </Link>
+                <Link href="/services/storm-clean-up" className="dropdown-item">
+                  Storm Damage Cleanup
+                </Link>
+                <Link href="/services/professional-land-clearing-services" className="dropdown-item">
+                  Land Clearing
+                </Link>
+                <Link href="/services/municipal-tree-service" className="dropdown-item">
+                  Municipal Tree Service
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Service Areas Dropdown */}
+          <div 
+            className={`navbar-dropdown ${openDropdown === 'areas' ? 'active' : ''}`}
+            onMouseEnter={() => handleDropdownToggle('areas')}
+            onMouseLeave={() => setOpenDropdown(null)}
+          >
+            <Link href="/service-areas" className="navbar-link dropdown-trigger">
+              Service Areas
+              <span className="dropdown-arrow">↓</span>
+            </Link>
+            <div className="dropdown-menu dropdown-menu-wide">
+              <div className="dropdown-content">
+                <div className="dropdown-section">
+                  <h4>Davis County</h4>
+                  <Link href="/service-areas/kaysville-ut-tree-service" className="dropdown-item">
+                    Kaysville
+                  </Link>
+                  <Link href="/service-areas/layton-ut-tree-service" className="dropdown-item">
+                    Layton
+                  </Link>
+                  <Link href="/service-areas/bountiful-ut-tree-service" className="dropdown-item">
+                    Bountiful
+                  </Link>
+                  <Link href="/service-areas/farmington-ut-tree-service" className="dropdown-item">
+                    Farmington
+                  </Link>
+                  <Link href="/service-areas/centerville-ut-tree-service" className="dropdown-item">
+                    Centerville
+                  </Link>
+                  <Link href="/service-areas/clearfield-ut-tree-service" className="dropdown-item">
+                    Clearfield
+                  </Link>
+                </div>
+                <div className="dropdown-section">
+                  <h4>Weber County</h4>
+                  <Link href="/service-areas/ogden-ut-tree-service" className="dropdown-item">
+                    Ogden
+                  </Link>
+                  <Link href="/service-areas/roy-ut-tree-service" className="dropdown-item">
+                    Roy
+                  </Link>
+                  <Link href="/service-areas/north-ogden-ut-tree-service" className="dropdown-item">
+                    North Ogden
+                  </Link>
+                  <Link href="/service-areas/riverdale-ut-tree-service" className="dropdown-item">
+                    Riverdale
+                  </Link>
+                </div>
+                <div className="dropdown-section">
+                  <h4>Salt Lake County</h4>
+                  <Link href="/service-areas/north-salt-lake-ut-tree-service" className="dropdown-item">
+                    North Salt Lake
+                  </Link>
+                  <Link href="/service-areas/south-weber-ut-tree-service" className="dropdown-item">
+                    South Weber
+                  </Link>
+                  <Link href="/service-areas/woods-cross-ut-tree-service" className="dropdown-item">
+                    Woods Cross
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+          
           <Link href="/blog" className="navbar-link">
             Blog
           </Link>
@@ -91,10 +198,12 @@ const Navbar = () => {
         <div className={`mobile-menu ${isOpen ? 'open' : ''}`}>
           <div className="mobile-menu-header">
             <div className="mobile-logo">
-              <img
+              <Image
                 src="/cleancutslogo.png"
                 alt="Clean Cuts Trees Logo"
                 className="mobile-logo-image"
+                width={40}
+                height={40}
               />
               <span>Clean Cuts Trees</span>
             </div>
@@ -107,12 +216,91 @@ const Navbar = () => {
             <Link href="/" className="mobile-link" onClick={closeMenu}>
               Home
             </Link>
-            <Link href="/services" className="mobile-link" onClick={closeMenu}>
-              Services
-            </Link>
-            <Link href="/service-areas" className="mobile-link" onClick={closeMenu}>
-              Service Areas
-            </Link>
+            
+            {/* Services Section */}
+            <div className="mobile-section">
+              <Link href="/services" className="mobile-link mobile-section-title" onClick={closeMenu}>
+                Services
+              </Link>
+              <div className="mobile-submenu">
+                <Link href="/services/emergency-tree-service" className="mobile-sublink" onClick={closeMenu}>
+                  Emergency Tree Service
+                </Link>
+                <Link href="/services/tree-removal" className="mobile-sublink" onClick={closeMenu}>
+                  Tree Removal
+                </Link>
+                <Link href="/services/tree-trimming" className="mobile-sublink" onClick={closeMenu}>
+                  Tree Trimming
+                </Link>
+                <Link href="/services/storm-clean-up" className="mobile-sublink" onClick={closeMenu}>
+                  Storm Cleanup
+                </Link>
+                <Link href="/services/professional-land-clearing-services" className="mobile-sublink" onClick={closeMenu}>
+                  Land Clearing
+                </Link>
+                <Link href="/services/municipal-tree-service" className="mobile-sublink" onClick={closeMenu}>
+                  Municipal Service
+                </Link>
+              </div>
+            </div>
+            
+            {/* Service Areas Section */}
+            <div className="mobile-section">
+              <Link href="/service-areas" className="mobile-link mobile-section-title" onClick={closeMenu}>
+                Service Areas
+              </Link>
+              <div className="mobile-submenu">
+                <div className="mobile-area-group">
+                  <h5>Davis County</h5>
+                  <Link href="/service-areas/kaysville-ut-tree-service" className="mobile-sublink" onClick={closeMenu}>
+                    Kaysville
+                  </Link>
+                  <Link href="/service-areas/layton-ut-tree-service" className="mobile-sublink" onClick={closeMenu}>
+                    Layton
+                  </Link>
+                  <Link href="/service-areas/bountiful-ut-tree-service" className="mobile-sublink" onClick={closeMenu}>
+                    Bountiful
+                  </Link>
+                  <Link href="/service-areas/farmington-ut-tree-service" className="mobile-sublink" onClick={closeMenu}>
+                    Farmington
+                  </Link>
+                  <Link href="/service-areas/centerville-ut-tree-service" className="mobile-sublink" onClick={closeMenu}>
+                    Centerville
+                  </Link>
+                  <Link href="/service-areas/clearfield-ut-tree-service" className="mobile-sublink" onClick={closeMenu}>
+                    Clearfield
+                  </Link>
+                </div>
+                <div className="mobile-area-group">
+                  <h5>Weber County</h5>
+                  <Link href="/service-areas/ogden-ut-tree-service" className="mobile-sublink" onClick={closeMenu}>
+                    Ogden
+                  </Link>
+                  <Link href="/service-areas/roy-ut-tree-service" className="mobile-sublink" onClick={closeMenu}>
+                    Roy
+                  </Link>
+                  <Link href="/service-areas/north-ogden-ut-tree-service" className="mobile-sublink" onClick={closeMenu}>
+                    North Ogden
+                  </Link>
+                  <Link href="/service-areas/riverdale-ut-tree-service" className="mobile-sublink" onClick={closeMenu}>
+                    Riverdale
+                  </Link>
+                </div>
+                <div className="mobile-area-group">
+                  <h5>Salt Lake County</h5>
+                  <Link href="/service-areas/north-salt-lake-ut-tree-service" className="mobile-sublink" onClick={closeMenu}>
+                    North Salt Lake
+                  </Link>
+                  <Link href="/service-areas/south-weber-ut-tree-service" className="mobile-sublink" onClick={closeMenu}>
+                    South Weber
+                  </Link>
+                  <Link href="/service-areas/woods-cross-ut-tree-service" className="mobile-sublink" onClick={closeMenu}>
+                    Woods Cross
+                  </Link>
+                </div>
+              </div>
+            </div>
+            
             <Link href="/blog" className="mobile-link" onClick={closeMenu}>
               Blog
             </Link>

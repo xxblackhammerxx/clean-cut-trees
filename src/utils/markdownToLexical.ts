@@ -195,7 +195,7 @@ function parseInlineText(text: string): LexicalTextNode[] {
   // In a more sophisticated implementation, you'd parse **bold**, *italic*, `code`, [links](url), etc.
 
   // Handle basic formatting patterns
-  const remainingText = text
+  const _remainingText = text
 
   // Handle links: [text](url)
   const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g

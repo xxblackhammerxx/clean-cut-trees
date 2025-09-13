@@ -87,7 +87,7 @@ export default async function ServicePage({ params }: Props) {
       let assets: string[] = []
       try {
         assets = fs.readdirSync(assetsDir)
-      } catch (e) {
+      } catch (_e) {
         // assets folder not found or unreadable; leave assets empty and fallbacks will be used
         assets = []
       }
@@ -113,7 +113,7 @@ export default async function ServicePage({ params }: Props) {
           try {
             const u = new URL(src)
             origFilename = path.basename(u.pathname)
-          } catch (e) {
+          } catch (_e) {
             // not a full URL, just take basename
             origFilename = path.basename(src)
           }
@@ -123,7 +123,7 @@ export default async function ServicePage({ params }: Props) {
             const localPath = `/content-migration/assets/${found}`
             return `<img src="${localPath}" alt="${alt || ''}" class="markdown-image" />`
           }
-        } catch (err) {
+        } catch (_err) {
           // fall through to placeholder
         }
 
@@ -328,7 +328,7 @@ export default async function ServicePage({ params }: Props) {
                     <Link href="/services/tree-trimming">Tree Trimming</Link>
                   </li>
                   <li>
-                    <Link href="/services/emergency-tree-damage">Emergency Service</Link>
+                    <Link href="/services/emergency-tree-service">Emergency Service</Link>
                   </li>
                   <li>
                     <Link href="/services/storm-clean-up">Storm Cleanup</Link>

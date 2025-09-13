@@ -29,9 +29,9 @@ export default async function ContactPage() {
     limit: 1,
   })
 
-  const page = pages.docs[0]
+  const _page = pages.docs[0]
 
-  const renderContent = (content: any) => {
+  const _renderContent = (content: any) => {
     if (typeof content === 'string') {
       // Configure marked for safe HTML rendering
       marked.setOptions({

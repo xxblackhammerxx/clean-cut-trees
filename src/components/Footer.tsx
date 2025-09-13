@@ -32,13 +32,13 @@ const Footer = () => {
             <h4>Our Services</h4>
             <ul className="footer-links">
               <li>
+                <Link href="/services/emergency-tree-service">Emergency Tree Service</Link>
+              </li>
+              <li>
                 <Link href="/services/tree-removal">Tree Removal</Link>
               </li>
               <li>
                 <Link href="/services/tree-trimming">Tree Trimming</Link>
-              </li>
-              <li>
-                <Link href="/services/emergency-tree-damage">Emergency Service</Link>
               </li>
               <li>
                 <Link href="/services/storm-clean-up">Storm Cleanup</Link>
@@ -60,19 +60,19 @@ const Footer = () => {
                 <Link href="/service-areas">All Service Areas</Link>
               </li>
               <li>
-                <Link href="/kaysville-ut-tree-service">Kaysville</Link>
+                <Link href="/service-areas/kaysville-ut-tree-service">Kaysville</Link>
               </li>
               <li>
-                <Link href="/layton-ut-tree-service">Layton</Link>
+                <Link href="/service-areas/layton-ut-tree-service">Layton</Link>
               </li>
               <li>
-                <Link href="/bountiful-ut-tree-service">Bountiful</Link>
+                <Link href="/service-areas/bountiful-ut-tree-service">Bountiful</Link>
               </li>
               <li>
-                <Link href="/farmington-ut-tree-service">Farmington</Link>
+                <Link href="/service-areas/ogden-ut-tree-service">Ogden</Link>
               </li>
               <li>
-                <Link href="/centerville-ut-tree-service">Centerville</Link>
+                <Link href="/service-areas/roy-ut-tree-service">Roy</Link>
               </li>
             </ul>
           </div>
