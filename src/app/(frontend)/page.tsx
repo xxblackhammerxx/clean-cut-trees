@@ -7,7 +7,7 @@ import config from '@/payload.config'
 import './styles.css'
 
 export default async function HomePage() {
-  const headers = await getHeaders()
+  const _headers = await getHeaders()
   const payloadConfig = await config
   const payload = await getPayload({ config: payloadConfig })
 
@@ -318,7 +318,7 @@ export default async function HomePage() {
             <div className="service-detail">
               <h3>Tree Care & Tree Trimming Services</h3>
               <p>
-                Regular tree care is essential for healthy trees and safe properties. Our tree care services include professional tree trimming, pruning tree operations, tree risk assessment, and ongoing tree maintenance. Proper trimming not only improves tree health but also prevents branches from becoming hazardous during storms. Our tree care experts assess each tree's needs and provide customized tree services.
+                Regular tree care is essential for healthy trees and safe properties. Our tree care services include professional tree trimming, pruning tree operations, tree risk assessment, and ongoing tree maintenance. Proper trimming not only improves tree health but also prevents branches from becoming hazardous during storms. Our tree care experts assess each tree&apos;s needs and provide customized tree services.
               </p>
             </div>
             
@@ -522,7 +522,7 @@ export default async function HomePage() {
               <p>
                 Most trees should receive professional trimming services every 3-5 years, depending on the tree species and growth
                 rate. Fast-growing trees may need annual tree care and trimming, while slower-growing trees can go
-                longer between professional tree services. Our tree service company provides free estimates to assess your trees' trimming needs and create a tree care schedule that keeps your trees healthy and your yard safe.
+                longer between professional tree services. Our tree service company provides free estimates to assess your trees&apos; trimming needs and create a tree care schedule that keeps your trees healthy and your yard safe.
               </p>
             </div>
             <div className="faq-item">

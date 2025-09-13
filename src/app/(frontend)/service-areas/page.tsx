@@ -53,7 +53,8 @@ export default async function ServiceAreasPage() {
     } else if (
       title.includes('salt lake county') ||
       title.includes('north salt lake') ||
-      title.includes('south weber')
+      title.includes('south weber') ||
+      title.includes('woods cross')
     ) {
       county = 'Salt Lake County'
     }

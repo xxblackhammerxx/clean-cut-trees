@@ -32,7 +32,7 @@ const Footer = () => {
             <h4>Our Services</h4>
             <ul className="footer-links">
               <li>
-                <Link href="/services/emergency-tree-service">24/7 Emergency Service</Link>
+                <Link href="/services/emergency-tree-service">Emergency Tree Service</Link>
               </li>
               <li>
                 <Link href="/services/tree-removal">Tree Removal</Link>

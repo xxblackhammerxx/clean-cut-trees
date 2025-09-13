@@ -4,6 +4,9 @@ import React from 'react'
 import './styles.css'
 import './seo-improvements.css'
 
+// For now, we'll keep the font link in the head for Material Symbols
+// Future improvement: convert to next/font when Material Symbols is supported
+
 export const metadata = {
   title: 'Emergency Tree Service & Tree Care | Davis & Weber Counties | Clean Cuts Trees',
   description:

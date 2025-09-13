@@ -154,7 +154,7 @@ export default async function GeneralPage({ params }: Props) {
     return <p>Content not available</p>
   }
 
-  const getPageTypeLabel = (pageType: string) => {
+  const _getPageTypeLabel = (pageType: string) => {
     switch (pageType) {
       case 'service':
         return 'Service'

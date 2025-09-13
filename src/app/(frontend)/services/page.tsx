@@ -79,7 +79,7 @@ export default async function ServicesPage() {
               <div className="emergency-text">
                 <h3>24/7 Emergency Tree Service</h3>
                 <p>
-                  When tree emergencies strike, we're here to help. Our certified crews respond immediately to fallen trees, storm damage, and hazardous situations.
+                  When tree emergencies strike, we&apos;re here to help. Our certified crews respond immediately to fallen trees, storm damage, and hazardous situations.
                 </p>
                 <div className="emergency-buttons">
                   <a href="tel:+18014737548" className="btn btn-emergency">
@@ -96,7 +96,7 @@ export default async function ServicesPage() {
           {/* Service Areas Section */}
           <div className="service-areas-section">
             <h3>Service Areas</h3>
-            <p>We provide professional tree services throughout Utah's most populated areas:</p>
+            <p>We provide professional tree services throughout Utah&apos;s most populated areas:</p>
             <div className="service-areas-grid">
               <div className="county-group">
                 <h4>Davis County</h4>
@@ -173,7 +173,7 @@ export default async function ServicesPage() {
                   >
                     bolt
                   </span>{' '}
-                  24/7 Emergency Service
+                  Emergency Tree Service
                 </h4>
                 <p>Available around the clock for storm damage and emergencies.</p>
               </div>

@@ -77,7 +77,7 @@ export default async function ServiceAreaPage({ params }: Props) {
     // Handle markdown content
     if (typeof content === 'string') {
       // Clean up and fix content issues
-      let fixedContent = content
+      const fixedContent = content
         .replace(/!\[([^\]]*)\]\(https:\/\/cleancutstrees\.com\/wp-content\/uploads\/[^)]*\)/g, 
           '<!-- External image removed: $1 (original site no longer available) -->')
 
@@ -93,7 +93,7 @@ export default async function ServiceAreaPage({ params }: Props) {
         if (node.type === 'paragraph') {
           return (
             <p key={nodeIndex} className="content-paragraph">
-              {node.children?.map((child: any, childIndex: number) => child.text || '').join('')}
+              {node.children?.map((child: any, _childIndex: number) => child.text || '').join('')}
             </p>
           )
         }
@@ -170,10 +170,7 @@ export default async function ServiceAreaPage({ params }: Props) {
           <div className="content-wrapper">
             <div className="main-content">
               <header className="service-area-header">
-                <h1>Tree Service in {cityName}</h1>
-                {page.excerpt && (
-                  <p className="service-area-excerpt">{page.excerpt}</p>
-                )}
+                <h1>Tree Service {cityName}</h1>
               </header>
 
               <div className="service-area-body">
