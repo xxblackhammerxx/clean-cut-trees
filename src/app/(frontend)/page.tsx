@@ -47,7 +47,7 @@ export default async function HomePage() {
 
   return (
     <>
-      {/* Hero Section */}
+      {/* Hero Section MAIN PAGE */}
       <section className="hero">
         <Image
           src="/emergency-tree-service1.jpg"
