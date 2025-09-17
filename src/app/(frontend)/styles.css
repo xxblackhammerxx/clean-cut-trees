@@ -802,10 +802,11 @@ body {
 
 .partnership-image {
   max-width: 400px;
-  width: 100% !important;
-  height: auto !important;
+  width: 100%;
+  height: auto;
   border-radius: 10px;
-  position: relative !important;
+  object-fit: contain;
+  display: block;
 }
 
 .partnership-banner p {
@@ -1392,7 +1393,8 @@ body {
 
   .partnership-image {
     max-width: 100%;
-    min-width: 280px;
+    width: auto;
+    max-height: 120px;
   }
 
   .partnership-banner {
@@ -1425,6 +1427,16 @@ body {
   .features-grid,
   .areas-grid {
     grid-template-columns: 1fr;
+  }
+
+  .partnership-image {
+    max-width: 250px;
+    max-height: 100px;
+  }
+
+  .partnership-banner {
+    padding: 20px 15px;
+    gap: 12px;
   }
 }
 
@@ -3898,4 +3910,8 @@ body {
   .service-detail h3 {
     font-size: 1.2rem;
   }
+}
+
+h2 {
+  line-height: 48px !important;
 }

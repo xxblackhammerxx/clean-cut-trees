@@ -13,6 +13,19 @@ const nextConfig = {
   // Compression
   compress: true,
   
+  // Bundle analysis
+  ...(process.env.ANALYZE === 'true' ? {
+    webpack: (config, { isServer }) => {
+      if (!isServer) {
+        config.resolve.fallback = {
+          ...config.resolve.fallback,
+          fs: false,
+        };
+      }
+      return config;
+    },
+  } : {}),
+  
   // Webpack optimizations
   webpack: (webpackConfig, { dev, isServer }) => {
     webpackConfig.resolve.extensionAlias = {
@@ -23,8 +36,11 @@ const nextConfig = {
 
     // Production optimizations
     if (!dev && !isServer) {
+      // Optimize chunk splitting for better caching
       webpackConfig.optimization.splitChunks = {
         chunks: 'all',
+        minSize: 20000,
+        maxSize: 244000,
         cacheGroups: {
           default: false,
           vendors: false,
@@ -32,9 +48,29 @@ const nextConfig = {
             name: 'vendor',
             chunks: 'all',
             test: /node_modules/,
+            priority: 20,
           },
+          common: {
+            name: 'common',
+            minChunks: 2,
+            chunks: 'all',
+            priority: 10,
+            reuseExistingChunk: true,
+            enforce: true,
+          },
+          styles: {
+            name: 'styles',
+            test: /\.(css|scss|sass)$/,
+            chunks: 'all',
+            priority: 30,
+            reuseExistingChunk: true,
+          }
         },
       }
+      
+      // Tree shaking optimization
+      webpackConfig.optimization.usedExports = true;
+      webpackConfig.optimization.sideEffects = false;
     }
 
     return webpackConfig
@@ -43,6 +79,35 @@ const nextConfig = {
   // Experimental features for better performance
   experimental: {
     optimizePackageImports: ['@payloadcms/ui'],
+    webVitalsAttribution: ['CLS', 'LCP', 'FCP', 'FID', 'TTFB', 'INP'],
+  },
+  
+  // Headers for better caching
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'X-DNS-Prefetch-Control',
+            value: 'on'
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY'
+          }
+        ],
+      },
+      {
+        source: '/static/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable'
+          }
+        ],
+      }
+    ]
   },
 }
 

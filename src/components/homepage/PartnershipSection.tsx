@@ -10,9 +10,9 @@ export default function PartnershipSection() {
             src="/rsl-acfu-partnership.png"
             alt="Real Salt Lake and America First Credit Union Partnership"
             className="partnership-image"
-            width={600}
-            height={200}
-            sizes="(max-width: 480px) 280px, (max-width: 768px) 400px, 600px"
+            width={400}
+            height={133}
+            sizes="(max-width: 480px) 250px, (max-width: 768px) 300px, 400px"
             loading="lazy"
             priority={false}
           />

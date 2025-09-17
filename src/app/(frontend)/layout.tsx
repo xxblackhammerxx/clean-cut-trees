@@ -3,9 +3,7 @@ import Navbar from '@/components/Navbar'
 import React from 'react'
 import './styles.css'
 import './seo-improvements.css'
-
-// For now, we'll keep the font link in the head for Material Symbols
-// Future improvement: convert to next/font when Material Symbols is supported
+import { inter, materialSymbolsConfig } from '@/lib/fonts'
 
 export const metadata = {
   title: 'Emergency Tree Service & Tree Care | Davis & Weber Counties | Clean Cuts Trees',
@@ -40,15 +38,55 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   const { children } = props
 
   return (
-    <html lang="en">
+    <html lang="en" className={inter.variable}>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://cleancutstrees.com/" />
         
+        {/* DNS Prefetch and Preconnect for Performance */}
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+        <link rel="dns-prefetch" href="//vercel.app" />
+        <link rel="dns-prefetch" href="//cleancutstrees.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        
+        {/* Module preload for critical JavaScript */}
+        <link rel="modulepreload" href="/_next/static/chunks/webpack.js" />
+        <link rel="modulepreload" href="/_next/static/chunks/main.js" />
+        
         {/* Critical Image Preloads for Performance */}
         <link rel="preload" as="image" href="/emergency-tree-service1.jpg" />
         <link rel="preload" as="image" href="/cleancutslogo.png" />
+        
+        {/* Font Preloading for Critical Fonts */}
+        <link
+          rel="preload"
+          href="https://fonts.gstatic.com/s/materialsymbolsoutlined/v256/kJEhBvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oDMzByHX9rA6RzaxHMPdY.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin=""
+        />
+        
+        {/* Optimized Material Symbols Font Loading */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                var link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.href = '${materialSymbolsConfig.href}';
+                link.media = 'print';
+                link.onload = function() { this.media = 'all'; };
+                document.head.appendChild(link);
+              })();
+            `
+          }}
+        />
+        <noscript>
+          <link rel="stylesheet" href={materialSymbolsConfig.href} />
+        </noscript>
         
         {/* Additional SEO Meta Tags */}
         <meta name="geo.region" content="US-UT" />
@@ -61,11 +99,20 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
         <link rel="apple-touch-icon" href="/cleancutslogo.png" />
         <link rel="shortcut icon" href="/cleancutslogo.png" />
 
-        {/* Use system fonts for better performance */}
+        {/* Inline critical font styles for immediate rendering */}
         <style dangerouslySetInnerHTML={{
           __html: `
+            :root {
+              --font-inter: ${inter.style.fontFamily};
+            }
+            
+            body {
+              font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+              font-display: swap;
+            }
+            
             .material-symbols-outlined {
-              font-family: 'Material Symbols Outlined';
+              font-family: 'Material Symbols Outlined', system-ui, -apple-system, sans-serif;
               font-weight: normal;
               font-style: normal;
               font-size: 24px;
@@ -77,15 +124,151 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
               word-wrap: normal;
               direction: ltr;
               -webkit-font-feature-settings: 'liga';
+              font-feature-settings: 'liga';
               -webkit-font-smoothing: antialiased;
+              font-display: swap;
+            }
+            
+            /* Critical CSS for hero section - Inline for immediate rendering */
+            .hero {
+              position: relative;
+              min-height: 100vh;
+              display: flex;
+              align-items: center;
+              color: white;
+              overflow: hidden;
+            }
+            
+            .hero-background-container {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              z-index: -1;
+            }
+            
+            .hero-background {
+              width: 100% !important;
+              height: 100% !important;
+              object-fit: cover;
+              object-position: center;
+            }
+            
+            .hero-content {
+              position: relative;
+              z-index: 2;
+              max-width: 800px;
+              padding: 2rem;
+              text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            }
+            
+            .hero-title {
+              font-size: clamp(2rem, 5vw, 3.5rem);
+              font-weight: bold;
+              margin-bottom: 1rem;
+              line-height: 1.2;
+            }
+            
+            .hero-subtitle {
+              font-size: clamp(1.2rem, 3vw, 1.8rem);
+              margin-bottom: 1.5rem;
+              color: #f0f0f0;
+            }
+            
+            .hero-description {
+              font-size: clamp(1rem, 2vw, 1.1rem);
+              margin-bottom: 2rem;
+              line-height: 1.6;
+              color: #e0e0e0;
+            }
+            
+            .hero-buttons {
+              display: flex;
+              gap: 1rem;
+              flex-wrap: wrap;
+            }
+            
+            .btn {
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              padding: 15px 30px;
+              border-radius: 5px;
+              text-decoration: none;
+              font-weight: bold;
+              transition: all 0.3s ease;
+              border: none;
+              cursor: pointer;
+              font-size: 1rem;
+              line-height: 1;
+            }
+            
+            .btn-primary {
+              background-color: #22c55e;
+              color: white;
+            }
+            
+            .btn-primary:hover {
+              background-color: #16a34a;
+              transform: translateY(-2px);
+            }
+            
+            .btn-phone {
+              background-color: rgba(255, 255, 255, 0.1);
+              color: white;
+              border: 2px solid white;
+            }
+            
+            .btn-phone:hover {
+              background-color: white;
+              color: #333;
+            }
+            
+            .container {
+              max-width: 1200px;
+              margin: 0 auto;
+              padding: 0 1rem;
+            }
+            
+            @media (max-width: 768px) {
+              .hero {
+                min-height: 70vh;
+              }
+              
+              .hero-content {
+                padding: 1rem;
+              }
+              
+              .hero-buttons {
+                flex-direction: column;
+                align-items: stretch;
+              }
+              
+              .btn {
+                padding: 12px 24px;
+                font-size: 0.9rem;
+              }
+              
+              .container {
+                padding: 0 0.5rem;
+              }
             }
           `
         }} />
         
-        {/* Load critical fonts with font-display: swap */}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap"
-          rel="stylesheet"
+        {/* Defer non-critical CSS */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.addEventListener('load', function() {
+                var link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.href = '/css/deferred-styles.css';
+                document.head.appendChild(link);
+              });
+            `
+          }}
         />
         
         {/* Essential structured data only */}
@@ -118,7 +301,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
           }}
         />
       </head>
-      <body>
+      <body className={inter.className}>
         <Navbar />
         <main style={{ paddingTop: '100px' }}>{children}</main>
         <Footer />

@@ -2,7 +2,6 @@ import { homepageServices } from '@/data/homepage-data'
 import HeroSection from '@/components/homepage/HeroSection'
 import ServiceCard from '@/components/homepage/ServiceCard'
 import LazyLoadedSections from '@/components/homepage/LazyLoadedSections'
-import './critical.css'
 import './styles.css'
 
 // Enable static generation for better performance
