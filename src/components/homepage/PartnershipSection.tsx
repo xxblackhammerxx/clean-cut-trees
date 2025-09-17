@@ -1,5 +1,5 @@
-import Link from 'next/link'
 import OptimizedImage from '@/components/OptimizedImage'
+import Link from 'next/link'
 
 export default function PartnershipSection() {
   return (
@@ -12,8 +12,9 @@ export default function PartnershipSection() {
             className="partnership-image"
             width={600}
             height={200}
-            sizes="(max-width: 768px) 100vw, 600px"
+            sizes="(max-width: 480px) 280px, (max-width: 768px) 400px, 600px"
             loading="lazy"
+            priority={false}
           />
           <p>
             Clean Cuts Trees is a Proud Partner of <strong>Real Salt Lake</strong> & Winner of the{' '}

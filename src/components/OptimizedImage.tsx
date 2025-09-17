@@ -5,8 +5,8 @@ import { useState } from 'react'
 interface OptimizedImageProps {
   src: string
   alt: string
-  width: number
-  height: number
+  width?: number
+  height?: number
   priority?: boolean
   className?: string
   sizes?: string
@@ -18,8 +18,8 @@ interface OptimizedImageProps {
 export default function OptimizedImage({
   src,
   alt,
-  width,
-  height,
+  width = 100,
+  height = 100,
   priority = false,
   className = '',
   sizes,
@@ -62,7 +62,8 @@ export default function OptimizedImage({
     ...(fill ? { fill: true } : { width, height }),
     ...(sizes && { sizes }),
     ...(style && { style }),
-    ...(loading && { loading }),
+    // Only apply loading prop if priority is not set (priority implies eager loading)
+    ...(!priority && loading && { loading }),
   }
 
   if (hasError) {
@@ -79,12 +80,12 @@ export default function OptimizedImage({
   return (
     <div className={`relative ${fill ? 'w-full h-full' : ''}`}>
       <Image {...imageProps} />
-      {!isLoaded && (
+      {/* {!isLoaded && (
         <div
           className="absolute inset-0 bg-gray-200 animate-pulse"
           style={{ width: fill ? '100%' : width, height: fill ? '100%' : height }}
         />
-      )}
+      )} */}
     </div>
   )
 }

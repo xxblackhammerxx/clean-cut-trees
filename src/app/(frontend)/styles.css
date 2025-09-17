@@ -463,7 +463,7 @@ main {
   .navbar-link {
     font-size: 0.9rem;
   }
-  
+
   .dropdown-menu {
     min-width: 250px;
   }
@@ -493,7 +493,7 @@ main {
   .logo-tagline {
     font-size: 0.7rem;
   }
-  
+
   /* Hide dropdowns on mobile since we use mobile menu */
   .dropdown-menu {
     display: none;
@@ -697,6 +697,15 @@ body {
   overflow: hidden;
 }
 
+.hero-background-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -2;
+}
+
 .hero-background {
   z-index: -2 !important;
 }
@@ -892,7 +901,7 @@ body {
 
 /* Emergency Service Section */
 .emergency-service {
-  padding: 100px 0;
+  padding: 80px 0;
   background: linear-gradient(135deg, #f8fffe 0%, #e8f5f0 100%);
   position: relative;
 }
@@ -900,7 +909,7 @@ body {
 .emergency-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  gap: 3rem;
   align-items: center;
 }
 
@@ -909,7 +918,7 @@ body {
   background: rgba(255, 255, 255, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 24px;
-  padding: 3rem;
+  padding: 2.5rem;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
@@ -935,40 +944,50 @@ body {
   padding: 0;
   margin-bottom: 2.5rem;
   display: grid;
-  gap: 1rem;
+  gap: 0.75rem;
 }
 
 .emergency-features li {
   color: #1f2937;
-  font-size: 1rem;
-  padding: 1rem 1.5rem;
-  background: rgba(40, 167, 69, 0.1);
-  border: 1px solid rgba(40, 167, 69, 0.2);
-  border-radius: 12px;
+  font-size: 0.95rem;
+  padding: 0.875rem 1.25rem;
+  background: rgba(40, 167, 69, 0.08);
+  border: 1px solid rgba(40, 167, 69, 0.15);
+  border-radius: 10px;
   font-weight: 500;
   display: flex;
-  align-items: center;
+  text-align: left;
+  align-items: flex-start;
   transition: all 0.3s ease;
+  position: relative;
 }
 
 .emergency-features li:hover {
-  background: rgba(40, 167, 69, 0.15);
-  transform: translateY(-2px);
+  background: rgba(40, 167, 69, 0.12);
+  border-color: rgba(40, 167, 69, 0.25);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(40, 167, 69, 0.15);
 }
 
 .emergency-features li::before {
   content: '✓';
-  color: #28a745;
-  font-weight: bold;
-  font-size: 1.2rem;
-  margin-right: 0.75rem;
-  background: rgba(40, 167, 69, 0.2);
+  background: #28a745;
+  color: white;
   border-radius: 50%;
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0.75rem;
+  flex-shrink: 0;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.emergency-features li::after {
+  content: none;
 }
 
 .emergency-buttons {
@@ -1033,7 +1052,7 @@ body {
   position: relative !important;
 }
 
-.gallery-image::before {
+/* .gallery-image::before {
   content: '';
   position: absolute;
   top: 0;
@@ -1050,7 +1069,7 @@ body {
   transition: opacity 0.3s ease;
   border-radius: 20px;
   z-index: 1;
-}
+} */
 
 .gallery-image:hover::before {
   opacity: 1;
@@ -1058,38 +1077,38 @@ body {
 
 @media (max-width: 768px) {
   .emergency-service {
-    padding: 80px 0;
+    padding: 60px 0;
   }
-  
+
   .emergency-content {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+    gap: 2rem;
   }
-  
+
   .emergency-text {
-    padding: 2rem;
+    padding: 1.75rem;
   }
-  
+
   .emergency-text h2 {
     font-size: 2.25rem;
   }
-  
+
   .emergency-buttons {
     justify-content: center;
   }
-  
+
   .emergency-gallery {
     max-width: 400px;
     gap: 1rem;
   }
-  
+
   .gallery-image:nth-child(1),
   .gallery-image:nth-child(2),
   .gallery-image:nth-child(3) {
     transform: none;
     margin: 0;
   }
-  
+
   .gallery-image:nth-child(1):hover,
   .gallery-image:nth-child(2):hover,
   .gallery-image:nth-child(3):hover {
@@ -1346,7 +1365,7 @@ body {
     min-height: 60vh;
     padding: 120px 0 60px 0;
   }
-  
+
   .hero-title {
     font-size: 2.5rem;
   }
@@ -1355,7 +1374,7 @@ body {
     font-size: 1.25rem;
     padding: 0.6rem 1.5rem;
   }
-  
+
   .hero-description {
     font-size: 1.1rem;
     padding: 1.5rem 2rem;
@@ -1372,7 +1391,8 @@ body {
   }
 
   .partnership-image {
-    max-width: 300px;
+    max-width: 100%;
+    min-width: 280px;
   }
 
   .partnership-banner {
@@ -2632,7 +2652,7 @@ body {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  
+
   .service-area-header h1 {
     font-size: 2rem;
   }
@@ -2642,21 +2662,21 @@ body {
   .service-area-content {
     padding: 1rem 0 2rem;
   }
-  
+
   .main-content,
   .sidebar-widget {
     padding: 1.5rem;
   }
-  
+
   .service-area-header h1 {
     font-size: 1.8rem;
   }
-  
+
   .cta-buttons {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .cta-buttons .btn {
     width: 100%;
     max-width: 300px;
@@ -3830,7 +3850,9 @@ body {
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .service-detail:hover {
@@ -3856,17 +3878,17 @@ body {
   .comprehensive-services {
     padding: 60px 0;
   }
-  
+
   .service-details {
     grid-template-columns: 1fr;
     gap: 1.5rem;
     margin-top: 2rem;
   }
-  
+
   .service-detail {
     padding: 1.5rem;
   }
-  
+
   .service-detail h3 {
     font-size: 1.2rem;
   }

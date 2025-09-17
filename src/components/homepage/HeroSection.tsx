@@ -1,5 +1,5 @@
-import Link from 'next/link'
 import OptimizedImage from '@/components/OptimizedImage'
+import Link from 'next/link'
 
 export default function HeroSection() {
   return (
@@ -8,8 +8,7 @@ export default function HeroSection() {
         <OptimizedImage
           src="/emergency-tree-service1.jpg"
           alt="Emergency tree service hero background"
-          width={1920}
-          height={1080}
+          fill
           priority
           className="hero-background"
           sizes="100vw"
