@@ -1,9 +1,9 @@
 import Footer from '@/components/Footer'
 import Navbar from '@/components/Navbar'
-import React from 'react'
-import './styles.css'
-import './seo-improvements.css'
 import { inter, materialSymbolsConfig } from '@/lib/fonts'
+import React from 'react'
+import './seo-improvements.css'
+import './styles.css'
 
 export const metadata = {
   title: 'Emergency Tree Service & Tree Care | Davis & Weber Counties | Clean Cuts Trees',
@@ -14,7 +14,8 @@ export const metadata = {
   metadataBase: new URL('https://cleancutstrees.com'),
   openGraph: {
     title: 'Emergency Tree Service & Tree Care | Davis & Weber Counties | Clean Cuts Trees',
-    description: 'Clean Cuts Trees provides expert tree removal, trimming, and 24/7 emergency service across Davis & Weber Counties. Call now for fast, professional help.',
+    description:
+      'Clean Cuts Trees provides expert tree removal, trimming, and 24/7 emergency service across Davis & Weber Counties. Call now for fast, professional help.',
     images: [
       {
         url: '/emergency-tree-service1.jpg',
@@ -29,7 +30,8 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Emergency Tree Service & Tree Care | Davis & Weber Counties | Clean Cuts Trees',
-    description: 'Clean Cuts Trees provides expert tree removal, trimming, and 24/7 emergency service across Davis & Weber Counties. Call now for fast, professional help.',
+    description:
+      'Clean Cuts Trees provides expert tree removal, trimming, and 24/7 emergency service across Davis & Weber Counties. Call now for fast, professional help.',
     images: ['/emergency-tree-service1.jpg'],
   },
 }
@@ -43,7 +45,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://cleancutstrees.com/" />
-        
+
         {/* DNS Prefetch and Preconnect for Performance */}
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
         <link rel="dns-prefetch" href="//fonts.gstatic.com" />
@@ -51,15 +53,15 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
         <link rel="dns-prefetch" href="//cleancutstrees.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        
+
         {/* Module preload for critical JavaScript */}
         <link rel="modulepreload" href="/_next/static/chunks/webpack.js" />
         <link rel="modulepreload" href="/_next/static/chunks/main.js" />
-        
+
         {/* Critical Image Preloads for Performance */}
         <link rel="preload" as="image" href="/emergency-tree-service1.jpg" />
         <link rel="preload" as="image" href="/cleancutslogo.png" />
-        
+
         {/* Font Preloading for Critical Fonts */}
         <link
           rel="preload"
@@ -68,7 +70,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
           type="font/woff2"
           crossOrigin=""
         />
-        
+
         {/* Optimized Material Symbols Font Loading */}
         <script
           dangerouslySetInnerHTML={{
@@ -81,13 +83,13 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
                 link.onload = function() { this.media = 'all'; };
                 document.head.appendChild(link);
               })();
-            `
+            `,
           }}
         />
         <noscript>
           <link rel="stylesheet" href={materialSymbolsConfig.href} />
         </noscript>
-        
+
         {/* Additional SEO Meta Tags */}
         <meta name="geo.region" content="US-UT" />
         <meta name="geo.placename" content="Davis County, Weber County, Utah" />
@@ -100,8 +102,9 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
         <link rel="shortcut icon" href="/cleancutslogo.png" />
 
         {/* Inline critical font styles for immediate rendering */}
-        <style dangerouslySetInnerHTML={{
-          __html: `
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
             :root {
               --font-inter: ${inter.style.fontFamily};
             }
@@ -158,7 +161,6 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
             .hero-content {
               position: relative;
               z-index: 2;
-              max-width: 800px;
               padding: 2rem;
               text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             }
@@ -254,9 +256,10 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
                 padding: 0 0.5rem;
               }
             }
-          `
-        }} />
-        
+          `,
+          }}
+        />
+
         {/* Defer non-critical CSS */}
         <script
           dangerouslySetInnerHTML={{
@@ -267,37 +270,38 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
                 link.href = '/css/deferred-styles.css';
                 document.head.appendChild(link);
               });
-            `
+            `,
           }}
         />
-        
+
         {/* Essential structured data only */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "LocalBusiness",
-              "name": "Clean Cuts Trees",
-              "image": "https://cleancutstrees.com/emergency-tree-service1.jpg",
-              "description": "Emergency tree service and tree care company serving Davis and Weber Counties, Utah. 24/7 emergency tree removal, tree trimming, and professional tree services.",
-              "url": "https://cleancutstrees.com",
-              "telephone": "+1-801-473-7548",
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Fruit Heights",
-                "addressRegion": "UT",
-                "postalCode": "84037",
-                "addressCountry": "US"
+              '@context': 'https://schema.org',
+              '@type': 'LocalBusiness',
+              name: 'Clean Cuts Trees',
+              image: 'https://cleancutstrees.com/emergency-tree-service1.jpg',
+              description:
+                'Emergency tree service and tree care company serving Davis and Weber Counties, Utah. 24/7 emergency tree removal, tree trimming, and professional tree services.',
+              url: 'https://cleancutstrees.com',
+              telephone: '+1-801-473-7548',
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'Fruit Heights',
+                addressRegion: 'UT',
+                postalCode: '84037',
+                addressCountry: 'US',
               },
-              "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": 41.1220,
-                "longitude": -111.9738
+              geo: {
+                '@type': 'GeoCoordinates',
+                latitude: 41.122,
+                longitude: -111.9738,
               },
-              "areaServed": ["Davis County, UT", "Weber County, UT", "Salt Lake County, UT"],
-              "serviceType": ["Emergency Tree Service", "Tree Removal", "Tree Care", "Tree Trimming"]
-            })
+              areaServed: ['Davis County, UT', 'Weber County, UT', 'Salt Lake County, UT'],
+              serviceType: ['Emergency Tree Service', 'Tree Removal', 'Tree Care', 'Tree Trimming'],
+            }),
           }}
         />
       </head>
