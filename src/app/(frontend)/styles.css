@@ -463,7 +463,7 @@ main {
   .navbar-link {
     font-size: 0.9rem;
   }
-  
+
   .dropdown-menu {
     min-width: 250px;
   }
@@ -493,7 +493,7 @@ main {
   .logo-tagline {
     font-size: 0.7rem;
   }
-  
+
   /* Hide dropdowns on mobile since we use mobile menu */
   .dropdown-menu {
     display: none;
@@ -682,7 +682,7 @@ body {
   left: -100% !important;
   width: 100% !important;
   height: 100% !important;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent) !important;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent) !important;
   transition: left 0.6s !important;
   z-index: -1 !important;
 }
@@ -801,7 +801,9 @@ body {
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.3);
   transform: translate(-50%, -50%);
-  transition: width 0.3s, height 0.3s;
+  transition:
+    width 0.3s,
+    height 0.3s;
 }
 
 .floating-booking-button .floating-btn:hover::after {
@@ -827,7 +829,8 @@ body {
 }
 
 @keyframes floatingPulse {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
     box-shadow: 0 8px 25px rgba(40, 167, 69, 0.3);
   }
@@ -842,7 +845,7 @@ body {
     bottom: 15px;
     right: 15px;
   }
-  
+
   .floating-booking-button .floating-btn {
     padding: 10px 16px !important;
     font-size: 14px !important;
@@ -965,7 +968,7 @@ body {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .hero-buttons .btn,
   .emergency-buttons .btn,
   .about-buttons .btn,
@@ -976,12 +979,12 @@ body {
     max-width: 300px;
     text-align: center;
   }
-  
+
   .cta-buttons {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .cta-buttons .btn {
     width: 100%;
     max-width: 280px;
@@ -1142,23 +1145,24 @@ body {
 }
 
 .services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
   margin-top: 3rem;
   width: 100%;
   max-width: 100%;
+  justify-content: center;
 }
 
 .service-card {
   background: white;
+  min-width: 370px;
+  width: 370px;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: transform 0.3s ease;
   overflow: hidden;
-  width: 100%;
-  max-width: 100%;
 }
 
 .service-card:hover {
@@ -1386,36 +1390,36 @@ body {
   .emergency-service {
     padding: 80px 0;
   }
-  
+
   .emergency-content {
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
-  
+
   .emergency-text {
     padding: 2rem;
   }
-  
+
   .emergency-text h2 {
     font-size: 2.25rem;
   }
-  
+
   .emergency-buttons {
     justify-content: center;
   }
-  
+
   .emergency-gallery {
     max-width: 400px;
     gap: 1rem;
   }
-  
+
   .gallery-image:nth-child(1),
   .gallery-image:nth-child(2),
   .gallery-image:nth-child(3) {
     transform: none;
     margin: 0;
   }
-  
+
   .gallery-image:nth-child(1):hover,
   .gallery-image:nth-child(2):hover,
   .gallery-image:nth-child(3):hover {
@@ -1672,7 +1676,7 @@ body {
     min-height: 60vh;
     padding: 120px 0 60px 0;
   }
-  
+
   .hero-title {
     font-size: 2.5rem;
   }
@@ -1681,7 +1685,7 @@ body {
     font-size: 1.25rem;
     padding: 0.6rem 1.5rem;
   }
-  
+
   .hero-description {
     font-size: 1.1rem;
     padding: 1.5rem 2rem;
@@ -1710,7 +1714,6 @@ body {
     font-size: 1.1rem;
   }
 
-  .services-grid,
   .reviews-grid,
   .faq-grid {
     grid-template-columns: 1fr;
@@ -2624,13 +2627,7 @@ body {
   .promise-grid {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
-
-  .services-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-  }
 }
-
 @media (max-width: 768px) {
   .services-hero,
   .service-areas-hero {
@@ -2653,11 +2650,6 @@ body {
   .info-grid,
   .promise-grid {
     grid-template-columns: 1fr;
-  }
-
-  .services-grid {
-    grid-template-columns: 1fr;
-    gap: 15px;
   }
 
   .container {
@@ -2958,7 +2950,7 @@ body {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  
+
   .service-area-header h1 {
     font-size: 2rem;
   }
@@ -2968,21 +2960,21 @@ body {
   .service-area-content {
     padding: 1rem 0 2rem;
   }
-  
+
   .main-content,
   .sidebar-widget {
     padding: 1.5rem;
   }
-  
+
   .service-area-header h1 {
     font-size: 1.8rem;
   }
-  
+
   .cta-buttons {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .cta-buttons .btn {
     width: 100%;
     max-width: 300px;
@@ -2993,7 +2985,6 @@ body {
 .footer {
   background: linear-gradient(135deg, #2c5530 0%, #1e3a20 100%);
   color: white;
-  margin-top: 4rem;
   width: 100%;
   max-width: 100vw;
   overflow-x: hidden;
@@ -4156,7 +4147,9 @@ body {
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .service-detail:hover {
@@ -4182,17 +4175,17 @@ body {
   .comprehensive-services {
     padding: 60px 0;
   }
-  
+
   .service-details {
     grid-template-columns: 1fr;
     gap: 1.5rem;
     margin-top: 2rem;
   }
-  
+
   .service-detail {
     padding: 1.5rem;
   }
-  
+
   .service-detail h3 {
     font-size: 1.2rem;
   }

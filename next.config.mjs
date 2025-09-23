@@ -1,4 +1,5 @@
 import { withPayload } from '@payloadcms/next/withPayload'
+import redirects from './redirects.config.js'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -9,10 +10,15 @@ const nextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 31536000, // 1 year
   },
-  
+
   // Compression
   compress: true,
-  
+
+  // Redirects for URL migration
+  async redirects() {
+    return redirects
+  },
+
   // Webpack optimizations
   webpack: (webpackConfig, { dev, isServer }) => {
     webpackConfig.resolve.extensionAlias = {
@@ -39,7 +45,7 @@ const nextConfig = {
 
     return webpackConfig
   },
-  
+
   // Experimental features for better performance
   experimental: {
     optimizePackageImports: ['@payloadcms/ui'],
