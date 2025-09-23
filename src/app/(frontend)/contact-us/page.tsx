@@ -2,6 +2,7 @@ import { marked } from 'marked'
 import { getPayload } from 'payload'
 
 import ContactForm from '@/components/ContactForm'
+import BookingButton from '@/components/BookingButton'
 import config from '@/payload.config'
 
 export async function generateMetadata() {
@@ -157,6 +158,15 @@ export default async function ContactPage() {
               Get your free estimate today! We&apos;re here to help with all your tree service
               needs.
             </p>
+            <div className="contact-hero-buttons">
+              <BookingButton variant="primary" size="large">
+                Book Service Online
+              </BookingButton>
+              <a href="tel:+18014737548" className="btn btn-phone btn-large">
+                <span className="material-symbols-outlined">call</span>
+                Call Now
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -243,6 +253,9 @@ export default async function ContactPage() {
               <span className="material-symbols-outlined">emergency</span>
               Call Emergency Line: (801) 473-7548
             </a>
+            <BookingButton variant="secondary" size="medium">
+              Schedule Non-Emergency Service
+            </BookingButton>
           </div>
         </div>
       </section>

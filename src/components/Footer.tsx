@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import BookingButton from './BookingButton'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
@@ -60,6 +61,9 @@ const Footer = () => {
                 <Link href="/service-areas">All Service Areas</Link>
               </li>
               <li>
+                <span className="county-label">DAVIS COUNTY:</span>
+              </li>
+              <li>
                 <Link href="/service-areas/kaysville-ut-tree-service">Kaysville</Link>
               </li>
               <li>
@@ -69,10 +73,40 @@ const Footer = () => {
                 <Link href="/service-areas/bountiful-ut-tree-service">Bountiful</Link>
               </li>
               <li>
+                <Link href="/service-areas/farmington-ut-tree-service">Farmington</Link>
+              </li>
+              <li>
+                <Link href="/service-areas/centerville-ut-tree-service">Centerville</Link>
+              </li>
+              <li>
+                <Link href="/service-areas/clearfield-ut-tree-service">Clearfield</Link>
+              </li>
+              <li>
+                <span className="county-label">WEBER COUNTY:</span>
+              </li>
+              <li>
                 <Link href="/service-areas/ogden-ut-tree-service">Ogden</Link>
               </li>
               <li>
                 <Link href="/service-areas/roy-ut-tree-service">Roy</Link>
+              </li>
+              <li>
+                <Link href="/service-areas/north-ogden-ut-tree-service">North Ogden</Link>
+              </li>
+              <li>
+                <Link href="/service-areas/riverdale-ut-tree-service">Riverdale</Link>
+              </li>
+              <li>
+                <span className="county-label">SALT LAKE COUNTY:</span>
+              </li>
+              <li>
+                <Link href="/service-areas/north-salt-lake-ut-tree-service">North Salt Lake</Link>
+              </li>
+              <li>
+                <Link href="/service-areas/south-weber-ut-tree-service">South Weber</Link>
+              </li>
+              <li>
+                <Link href="/service-areas/woods-cross-ut-tree-service">Woods Cross</Link>
               </li>
             </ul>
           </div>
@@ -112,9 +146,9 @@ const Footer = () => {
             </div>
 
             <div className="footer-cta">
-              <Link href="/contact-us" className="footer-button">
+              <BookingButton variant="primary" size="medium" className="footer-book-btn">
                 Get Free Estimate
-              </Link>
+              </BookingButton>
             </div>
 
             {/* Social Media Links */}

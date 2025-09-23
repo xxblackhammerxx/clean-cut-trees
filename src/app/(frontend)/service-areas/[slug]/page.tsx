@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getPayload } from 'payload'
 
+import BookingButton from '@/components/BookingButton'
 import config from '@/payload.config'
 
 type Props = {
@@ -186,9 +187,9 @@ export default async function ServiceAreaPage({ params }: Props) {
                     <span className="material-symbols-outlined">call</span>
                     (801) 473-7548
                   </a>
-                  <Link href="/contact-us" className="btn btn-secondary">
+                  <BookingButton variant="secondary" size="medium">
                     Get Free Estimate
-                  </Link>
+                  </BookingButton>
                 </div>
               </div>
             </div>

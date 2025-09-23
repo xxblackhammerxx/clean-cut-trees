@@ -1,4 +1,5 @@
 import { withPayload } from '@payloadcms/next/withPayload'
+import redirects from './redirects.config.js'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -9,23 +10,30 @@ const nextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 31536000, // 1 year
   },
-  
+
   // Compression
   compress: true,
-  
+
   // Bundle analysis
-  ...(process.env.ANALYZE === 'true' ? {
-    webpack: (config, { isServer }) => {
-      if (!isServer) {
-        config.resolve.fallback = {
-          ...config.resolve.fallback,
-          fs: false,
-        };
+  ...(process.env.ANALYZE === 'true'
+    ? {
+        webpack: (config, { isServer }) => {
+          if (!isServer) {
+            config.resolve.fallback = {
+              ...config.resolve.fallback,
+              fs: false,
+            }
+          }
+          return config
+        },
       }
-      return config;
-    },
-  } : {}),
-  
+    : {}),
+
+  // Redirects for URL migration
+  async redirects() {
+    return redirects
+  },
+
   // Webpack optimizations
   webpack: (webpackConfig, { dev, isServer }) => {
     webpackConfig.resolve.extensionAlias = {
@@ -64,24 +72,24 @@ const nextConfig = {
             chunks: 'all',
             priority: 30,
             reuseExistingChunk: true,
-          }
+          },
         },
       }
-      
+
       // Tree shaking optimization
-      webpackConfig.optimization.usedExports = true;
-      webpackConfig.optimization.sideEffects = false;
+      webpackConfig.optimization.usedExports = true
+      webpackConfig.optimization.sideEffects = false
     }
 
     return webpackConfig
   },
-  
+
   // Experimental features for better performance
   experimental: {
     optimizePackageImports: ['@payloadcms/ui'],
     webVitalsAttribution: ['CLS', 'LCP', 'FCP', 'FID', 'TTFB', 'INP'],
   },
-  
+
   // Headers for better caching
   async headers() {
     return [
@@ -90,12 +98,12 @@ const nextConfig = {
         headers: [
           {
             key: 'X-DNS-Prefetch-Control',
-            value: 'on'
+            value: 'on',
           },
           {
             key: 'X-Frame-Options',
-            value: 'DENY'
-          }
+            value: 'DENY',
+          },
         ],
       },
       {
@@ -103,10 +111,10 @@ const nextConfig = {
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable'
-          }
+            value: 'public, max-age=31536000, immutable',
+          },
         ],
-      }
+      },
     ]
   },
 }

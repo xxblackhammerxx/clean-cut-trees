@@ -1,5 +1,6 @@
 import FAQAccordion from '@/components/FAQAccordion'
 import Link from 'next/link'
+import BookingButton from '@/components/BookingButton'
 
 export async function generateMetadata() {
   return {
@@ -208,9 +209,9 @@ export default function FAQPage() {
                 estimate for your tree service needs.
               </p>
               <div className="cta-buttons">
-                <Link href="/contact-us" className="btn btn-primary">
+                <BookingButton variant="primary" size="large">
                   Get Free Estimate
-                </Link>
+                </BookingButton>
                 <a href="tel:(801) 683-1851" className="btn btn-secondary">
                   Call (801) 683-1851
                 </a>

@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { getPayload } from 'payload'
 
+import BookingButton from '@/components/BookingButton'
 import config from '@/payload.config'
 
 export const metadata = {
@@ -77,9 +78,9 @@ export default async function ServiceAreasPage() {
             <a href="tel:+18014737548" className="btn btn-emergency">
               Emergency: (801) 473-7548
             </a>
-            <Link href="/contact-us" className="btn btn-secondary">
+            <BookingButton variant="secondary" size="medium">
               Get Free Estimate
-            </Link>
+            </BookingButton>
           </div>
         </div>
       </section>
@@ -226,9 +227,9 @@ export default async function ServiceAreasPage() {
               <h3>Ready to Schedule Service?</h3>
               <p>Contact us today to schedule tree service in your area.</p>
               <div className="cta-buttons">
-                <Link href="/contact-us" className="btn btn-primary">
+                <BookingButton variant="primary" size="large">
                   Get Free Estimate
-                </Link>
+                </BookingButton>
                 <Link href="tel:+18014737548" className="btn btn-phone">
                   <span
                     className="material-symbols-outlined"

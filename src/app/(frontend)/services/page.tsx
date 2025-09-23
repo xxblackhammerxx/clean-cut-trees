@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { getPayload } from 'payload'
 
+import BookingButton from '@/components/BookingButton'
 import config from '@/payload.config'
 
 export const metadata = {
@@ -36,6 +37,15 @@ export default async function ServicesPage() {
         <div className="container">
           <h1>Full‑Service Tree Care</h1>
           <p>Professional tree care services throughout Davis, Weber, and Salt Lake Counties</p>
+          <div className="services-hero-buttons">
+            <BookingButton variant="primary" size="large">
+              Schedule Service Now
+            </BookingButton>
+            <a href="tel:+18014737548" className="btn btn-phone btn-large">
+              <span className="material-symbols-outlined">call</span>
+              Call (801) 473-7548
+            </a>
+          </div>
         </div>
       </section>
 
@@ -85,7 +95,10 @@ export default async function ServicesPage() {
                   <a href="tel:+18014737548" className="btn btn-emergency">
                     Emergency: (801) 473-7548
                   </a>
-                  <Link href="/services/emergency-tree-service" className="btn btn-secondary">
+                  <BookingButton variant="secondary" size="medium">
+                    Schedule Service
+                  </BookingButton>
+                  <Link href="/services/emergency-tree-service" className="btn btn-outline">
                     Emergency Service Details
                   </Link>
                 </div>
@@ -134,9 +147,12 @@ export default async function ServicesPage() {
               <h3>Ready to Schedule Service?</h3>
               <p>Contact us today for a free estimate on any of our tree services.</p>
               <div className="cta-buttons">
-                <Link href="/contact-us" className="btn btn-primary">
+                <BookingButton variant="primary" size="large">
+                  Book Service Online
+                </BookingButton>
+                <BookingButton variant="secondary" size="large">
                   Get Free Estimate
-                </Link>
+                </BookingButton>
                 <Link href="tel:+18014737548" className="btn btn-phone">
                   <span
                     className="material-symbols-outlined"
