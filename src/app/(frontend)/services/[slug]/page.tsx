@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getPayload } from 'payload'
 
+import BookingButton from '@/components/BookingButton'
 import config from '@/payload.config'
 import fs from 'fs'
 import path from 'path'
@@ -238,9 +239,12 @@ export default async function ServicePage({ params }: Props) {
               <div className="sidebar-widget cta-widget">
                 <h3>Need Tree Service?</h3>
                 <p>Get expert tree care from Utah&apos;s most trusted professionals.</p>
-                <Link href="/contact-us" className="btn btn-primary">
+                <BookingButton variant="primary" size="medium">
+                  Book Service Online
+                </BookingButton>
+                <BookingButton variant="secondary" size="medium">
                   Free Estimate
-                </Link>
+                </BookingButton>
                 <Link href="tel:+18014737548" className="btn btn-phone">
                   <span
                     className="material-symbols-outlined"

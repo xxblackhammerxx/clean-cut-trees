@@ -1,5 +1,6 @@
 import Footer from '@/components/Footer'
 import Navbar from '@/components/Navbar'
+import FloatingBookingButton from '@/components/FloatingBookingButton'
 import React from 'react'
 import './styles.css'
 import './seo-improvements.css'
@@ -19,10 +20,10 @@ export const metadata = {
     description: 'Clean Cuts Trees provides expert tree removal, trimming, and 24/7 emergency service across Davis & Weber Counties. Call now for fast, professional help.',
     images: [
       {
-        url: '/emergency-tree-service1.jpg',
+        url: '/Emergency-Tree-Service-Team.jpg',
         width: 1200,
         height: 630,
-        alt: 'Emergency tree service - fallen tree removal by Clean Cuts Trees professional crew',
+        alt: 'Clean Cuts Trees professional emergency tree service team in Davis and Weber Counties - licensed arborists for 24/7 storm damage and tree removal',
       },
     ],
     type: 'website',
@@ -32,7 +33,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Emergency Tree Service & Tree Care | Davis & Weber Counties | Clean Cuts Trees',
     description: 'Clean Cuts Trees provides expert tree removal, trimming, and 24/7 emergency service across Davis & Weber Counties. Call now for fast, professional help.',
-    images: ['/emergency-tree-service1.jpg'],
+    images: ['/Emergency-Tree-Service-Team.jpg'],
   },
 }
 
@@ -47,7 +48,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
         <link rel="canonical" href="https://cleancutstrees.com/" />
         
         {/* Critical Image Preloads for Performance */}
-        <link rel="preload" as="image" href="/emergency-tree-service1.jpg" />
+        <link rel="preload" as="image" href="/Emergency-Tree-Service-Team.jpg" />
         <link rel="preload" as="image" href="/cleancutslogo.png" />
         
         {/* Additional SEO Meta Tags */}
@@ -88,6 +89,12 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
           rel="stylesheet"
         />
         
+        {/* HouseCallPro Online Booking Script */}
+        <script 
+          async 
+          src="https://online-booking.housecallpro.com/script.js?token=b4a00fdb66b64c1da2f367aa3c485101&orgName=Clean-Cuts-Trees"
+        />
+
         {/* Essential structured data only */}
         <script
           type="application/ld+json"
@@ -96,7 +103,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               "name": "Clean Cuts Trees",
-              "image": "https://cleancutstrees.com/emergency-tree-service1.jpg",
+              "image": "https://cleancutstrees.com/Emergency-Tree-Service-Team.jpg",
               "description": "Emergency tree service and tree care company serving Davis and Weber Counties, Utah. 24/7 emergency tree removal, tree trimming, and professional tree services.",
               "url": "https://cleancutstrees.com",
               "telephone": "+1-801-473-7548",
@@ -122,6 +129,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
         <Navbar />
         <main style={{ paddingTop: '100px' }}>{children}</main>
         <Footer />
+        <FloatingBookingButton />
       </body>
     </html>
   )

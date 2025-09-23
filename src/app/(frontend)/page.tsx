@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { getPayload } from 'payload'
 
 import config from '@/payload.config'
+import BookingButton from '@/components/BookingButton'
 import './styles.css'
 
 export default async function HomePage() {
@@ -50,8 +51,8 @@ export default async function HomePage() {
       {/* Hero Section */}
       <section className="hero">
         <Image
-          src="/emergency-tree-service1.jpg"
-          alt="Emergency tree service hero background"
+          src="/Emergency-Tree-Service-Team.jpg"
+          alt="Clean Cuts Trees professional emergency tree service team in Davis and Weber Counties - licensed arborists ready for 24/7 storm damage and tree removal"
           fill
           priority
           className="hero-background"
@@ -72,9 +73,9 @@ export default async function HomePage() {
               providing expert tree care, professional tree removal, emergency tree service, and comprehensive tree services. Our certified arborists offer emergency tree removal, tree trimming, pruning tree services, and complete tree care solutions for residential and commercial properties.
             </p>
             <div className="hero-buttons">
-              <Link href="/contact-us" className="btn btn-primary">
-                CONTACT US NOW!
-              </Link>
+              <BookingButton variant="primary" size="large">
+                🚀 BOOK ONLINE NOW!
+              </BookingButton>
               <a href="tel:+18014737548" className="btn btn-phone">
                 <span
                   className="material-symbols-outlined"
@@ -170,7 +171,10 @@ export default async function HomePage() {
                   <span className="material-symbols-outlined">call</span>
                   Emergency: (801) 473-7548
                 </a>
-                <Link href="/services/emergency-tree-service" className="btn btn-secondary">
+                <BookingButton variant="secondary" size="medium">
+                  Schedule Service
+                </BookingButton>
+                <Link href="/services/emergency-tree-service" className="btn btn-outline">
                   Learn About Emergency Service
                 </Link>
               </div>
@@ -178,8 +182,8 @@ export default async function HomePage() {
             <div className="emergency-gallery">
               <div className="gallery-image">
                 <Image 
-                  src="/emergency-tree-service1.jpg"
-                  alt="Emergency tree service - professional crew handling fallen tree near power lines"
+                  src="/Emergency-Tree-Service-Team.jpg"
+                  alt="Clean Cuts Trees professional emergency tree service team ready for 24/7 response in Davis and Weber Counties Utah"
                   className="emergency-img"
                   width={400}
                   height={300}
@@ -189,8 +193,8 @@ export default async function HomePage() {
               </div>
               <div className="gallery-image">
                 <Image 
-                  src="/emergency-tree-service1.jpg"
-                  alt="Emergency tree removal service - storm damage cleanup"
+                  src="/Emergency-tree-service2.jpg"
+                  alt="Emergency tree removal service - storm damage cleanup by Clean Cuts Trees licensed arborists"
                   className="emergency-img"
                   width={400}
                   height={300}
@@ -359,9 +363,14 @@ export default async function HomePage() {
                 inspect, prune, and trim the trees around their property as well as provide emergency tree removal, professional tree services,
                 tree care, and removal services for trees, shrubs, and bushes when needed. Our company provides comprehensive tree services with free estimates for every project.
               </p>
-              <Link href="/contact-us" className="btn btn-primary">
-                CONTACT US NOW!
-              </Link>
+              <div className="about-buttons">
+                <BookingButton variant="primary" size="large">
+                  BOOK SERVICE ONLINE
+                </BookingButton>
+                <Link href="/contact-us" className="btn btn-secondary">
+                  CONTACT US NOW!
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -605,9 +614,12 @@ export default async function HomePage() {
           </div>
 
           <div className="final-cta">
-            <Link href="/contact-us" className="btn btn-primary btn-large">
-              REQUEST A FREE ESTIMATE
-            </Link>
+            <BookingButton variant="primary" size="large">
+              📅 BOOK YOUR SERVICE NOW
+            </BookingButton>
+            <BookingButton variant="secondary" size="large">
+              💰 GET FREE ESTIMATE
+            </BookingButton>
           </div>
         </div>
       </section>

@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { getPayload } from 'payload'
 
+import BookingButton from '@/components/BookingButton'
 import config from '@/payload.config'
 
 export const metadata = {
@@ -156,9 +157,9 @@ export default async function BlogPage() {
               <div className="sidebar-widget cta-widget">
                 <h3>Need Tree Service?</h3>
                 <p>Get a free estimate from Utah&apos;s trusted tree service professionals.</p>
-                <Link href="/contact-us" className="btn btn-primary">
+                <BookingButton variant="primary" size="medium">
                   Get Free Estimate
-                </Link>
+                </BookingButton>
               </div>
             </aside>
           </div>

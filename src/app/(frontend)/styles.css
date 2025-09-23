@@ -624,6 +624,332 @@ body {
   font-size: 18px;
 }
 
+/* Booking Button Styles */
+.hcp-button {
+  background-color: #28a745 !important;
+  color: white !important;
+  border: 2px solid transparent !important;
+  font-family: inherit !important;
+  font-size: inherit !important;
+  transition: all 0.3s ease !important;
+  position: relative !important;
+  overflow: hidden !important;
+  z-index: 1 !important;
+}
+
+.hcp-button::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent) !important;
+  transition: left 0.6s !important;
+  z-index: -1 !important;
+}
+
+.hcp-button:hover::before {
+  left: 100% !important;
+}
+
+.hcp-button:hover {
+  background-color: #218838 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(40, 167, 69, 0.3);
+}
+
+.hcp-button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(40, 167, 69, 0.4);
+}
+
+.hcp-button.btn-secondary {
+  background-color: #3f0a00 !important;
+}
+
+.hcp-button.btn-secondary:hover {
+  background-color: #2a0700 !important;
+  box-shadow: 0 6px 12px rgba(63, 10, 0, 0.3);
+}
+
+.hcp-button.btn-outline {
+  background-color: transparent !important;
+  color: #28a745 !important;
+  border: 2px solid #28a745 !important;
+}
+
+.hcp-button.btn-outline:hover {
+  background-color: #28a745 !important;
+  color: white !important;
+  box-shadow: 0 6px 12px rgba(40, 167, 69, 0.3);
+}
+
+/* Button Group Layouts */
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.hero-buttons .btn,
+.hero-buttons .hcp-button {
+  min-width: 200px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.emergency-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.about-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+  justify-content: center;
+}
+
+.final-cta {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.final-cta .btn,
+.final-cta .hcp-button {
+  min-width: 250px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Floating Booking Button */
+.floating-booking-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  animation: fadeInUp 0.3s ease-out;
+}
+
+.floating-booking-button .floating-btn {
+  box-shadow: 0 8px 25px rgba(40, 167, 69, 0.3);
+  border-radius: 50px !important;
+  padding: 15px 25px !important;
+  font-weight: bold;
+  font-size: 16px !important;
+  animation: floatingPulse 3s infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.floating-booking-button .floating-btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s;
+}
+
+.floating-booking-button .floating-btn:hover::after {
+  width: 300px;
+  height: 300px;
+}
+
+.floating-booking-button .floating-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(40, 167, 69, 0.4);
+  animation: none;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatingPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 8px 25px rgba(40, 167, 69, 0.3);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 12px 35px rgba(40, 167, 69, 0.4);
+  }
+}
+
+@media (max-width: 768px) {
+  .floating-booking-button {
+    bottom: 15px;
+    right: 15px;
+  }
+  
+  .floating-booking-button .floating-btn {
+    padding: 10px 16px !important;
+    font-size: 14px !important;
+  }
+}
+
+/* Contact Page Button Styles */
+.contact-hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.emergency-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Services Page Button Styles */
+.services-hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Footer Booking Button */
+.footer-book-btn {
+  width: 100%;
+  max-width: 250px;
+  justify-self: center;
+}
+
+/* Footer Service Areas Styling */
+.footer-section ul.footer-links li .county-label {
+  color: #4a9b4f;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 0.5rem;
+  margin-bottom: 0.1rem;
+  display: block;
+  opacity: 0.9;
+}
+
+.footer-section ul.footer-links li:first-child .county-label {
+  margin-top: 0.25rem;
+}
+
+/* Compact footer styling */
+.footer-section ul.footer-links {
+  line-height: 1.4;
+}
+
+.footer-section ul.footer-links li {
+  margin-bottom: 0.25rem;
+}
+
+.footer-section ul.footer-links li a {
+  font-size: 0.9rem;
+}
+
+/* Navbar Booking Button Styles */
+.navbar-book-btn {
+  background: #28a745 !important;
+  color: white !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 25px !important;
+  font-weight: bold !important;
+  font-size: inherit !important;
+  border: none !important;
+  margin-left: 1rem;
+  transition: background 0.3s ease !important;
+}
+
+.navbar-book-btn:hover {
+  background: #218838 !important;
+}
+
+.mobile-booking-section {
+  margin: 1rem 0;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.mobile-book-btn {
+  width: 100%;
+  text-align: center;
+}
+
+/* Responsive Booking Button Adjustments */
+@media (max-width: 1024px) {
+  .navbar-book-btn {
+    display: none; /* Hide in tablet/mobile, use mobile menu version instead */
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-buttons,
+  .emergency-buttons,
+  .about-buttons,
+  .final-cta,
+  .contact-hero-buttons,
+  .services-hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .hero-buttons .btn,
+  .emergency-buttons .btn,
+  .about-buttons .btn,
+  .final-cta .btn,
+  .contact-hero-buttons .btn,
+  .services-hero-buttons .btn {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cta-buttons .btn {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
 /* Section Titles */
 .section-title {
   font-size: 2.5rem;
