@@ -1,6 +1,8 @@
 import FloatingBookingButton from '@/components/FloatingBookingButton'
 import Footer from '@/components/Footer'
 import Navbar from '@/components/Navbar'
+import WebVitals from '@/components/WebVitals'
+import WebVitalsDashboard from '@/components/WebVitalsDashboard'
 import { inter, materialSymbolsConfig } from '@/lib/fonts'
 import React from 'react'
 import './seo-improvements.css'
@@ -43,6 +45,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="en" className={inter.variable}>
       <head>
+        <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://cleancutstrees.com/" />
@@ -52,18 +55,24 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
         <link rel="dns-prefetch" href="//fonts.gstatic.com" />
         <link rel="dns-prefetch" href="//vercel.app" />
         <link rel="dns-prefetch" href="//cleancutstrees.com" />
+        <link rel="dns-prefetch" href="//online-booking.housecallpro.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 
-        {/* Module preload for critical JavaScript */}
-        <link rel="modulepreload" href="/_next/static/chunks/webpack.js" />
-        <link rel="modulepreload" href="/_next/static/chunks/main.js" />
+        {/* Add missing preconnect for Google Fonts */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
 
-        {/* Critical Image Preloads for Performance */}
-        <link rel="preload" as="image" href="/Emergency-Tree-Service-Team.jpg" />
+        {/* Critical LCP Image Preloads */}
+        <link
+          rel="preload"
+          as="image"
+          href="/Emergency-Tree-Service-Team.jpg"
+          fetchPriority="high"
+        />
         <link rel="preload" as="image" href="/cleancutslogo.png" />
 
-        {/* Font Preloading for Critical Fonts */}
+        {/* Font Preloading - Only critical font */}
         <link
           rel="preload"
           href="https://fonts.gstatic.com/s/materialsymbolsoutlined/v256/kJEhBvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oDMzByHX9rA6RzaxHMPdY.woff2"
@@ -72,7 +81,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
           crossOrigin=""
         />
 
-        {/* Optimized Material Symbols Font Loading */}
+        {/* Optimized Material Symbols Font Loading - Async to avoid render blocking */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -296,9 +305,9 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
           }}
         />
 
-        {/* HouseCallPro Online Booking Script */}
+        {/* HouseCallPro Online Booking Script - Defer for better performance */}
         <script
-          async
+          defer
           src="https://online-booking.housecallpro.com/script.js?token=b4a00fdb66b64c1da2f367aa3c485101&orgName=Clean-Cuts-Trees"
         />
 
@@ -334,6 +343,8 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
         />
       </head>
       <body className={inter.className}>
+        <WebVitals debug={process.env.NODE_ENV === 'development'} />
+        <WebVitalsDashboard />
         <Navbar />
         <main style={{ paddingTop: '100px' }}>{children}</main>
         <Footer />

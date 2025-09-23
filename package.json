@@ -7,6 +7,7 @@
   "scripts": {
     "build": "cross-env NODE_OPTIONS=\"--no-deprecation --max-old-space-size=8000\" next build",
     "build:analyze": "cross-env ANALYZE=true NODE_OPTIONS=\"--no-deprecation --max-old-space-size=8000\" next build",
+    "build:perf": "npm run optimize-images && npm run build",
     "dev": "cross-env NODE_OPTIONS=\"--no-deprecation --max-old-space-size=8000\" next dev",
     "devsafe": "rm -rf .next && cross-env NODE_OPTIONS=\"--no-deprecation --max-old-space-size=8000\" next dev",
     "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
@@ -17,7 +18,10 @@
     "test": "pnpm run test:int && pnpm run test:e2e",
     "test:e2e": "cross-env NODE_OPTIONS=\"--no-deprecation --no-experimental-strip-types\" pnpm exec playwright test",
     "test:int": "cross-env NODE_OPTIONS=--no-deprecation vitest run --config ./vitest.config.mts",
-    "lighthouse": "lighthouse http://localhost:3000 --output=html --output-path=./lighthouse-report.html --chrome-flags=\"--headless\""
+    "lighthouse": "lighthouse http://localhost:3000 --output=html --output-path=./lighthouse-report.html --chrome-flags=\"--headless\"",
+    "optimize-images": "node scripts/optimize-images.mjs",
+    "perf-audit": "npm run lighthouse && npm run build:analyze",
+    "clean-build": "rm -rf .next && npm run build"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "3.55.0",

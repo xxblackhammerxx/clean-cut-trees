@@ -1,6 +1,6 @@
 'use client'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 
 interface OptimizedImageProps {
   src: string
@@ -13,6 +13,8 @@ interface OptimizedImageProps {
   style?: React.CSSProperties
   fill?: boolean
   loading?: 'lazy' | 'eager'
+  quality?: number
+  placeholder?: 'blur' | 'empty'
 }
 
 export default function OptimizedImage({
@@ -26,13 +28,16 @@ export default function OptimizedImage({
   style,
   fill = false,
   loading = 'lazy',
+  quality = 85,
+  placeholder = 'blur',
 }: OptimizedImageProps) {
   const [isLoaded, setIsLoaded] = useState(false)
   const [hasError, setHasError] = useState(false)
 
-  // Generate a simple blur placeholder
-  const shimmer = (w: number, h: number) => `
-    <svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  // Generate optimized shimmer for better performance
+  const shimmer = useCallback(
+    (w: number, h: number) => `
+    <svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="g">
           <stop stop-color="#f6f7f8" offset="20%" />
@@ -43,36 +48,59 @@ export default function OptimizedImage({
       <rect width="${w}" height="${h}" fill="#f6f7f8" />
       <rect id="r" width="${w}" height="${h}" fill="url(#g)" />
       <animate xlink:href="#r" attributeName="x" from="-${w}" to="${w}" dur="1s" repeatCount="indefinite"  />
-    </svg>`
+    </svg>`,
+    [],
+  )
 
-  const toBase64 = (str: string) =>
-    typeof window === 'undefined' ? Buffer.from(str).toString('base64') : window.btoa(str)
+  const toBase64 = useCallback(
+    (str: string) =>
+      typeof window === 'undefined' ? Buffer.from(str).toString('base64') : window.btoa(str),
+    [],
+  )
 
   const blurDataURL = `data:image/svg+xml;base64,${toBase64(shimmer(width, height))}`
+
+  const handleLoad = useCallback(() => {
+    setIsLoaded(true)
+  }, [])
+
+  const handleError = useCallback(() => {
+    setHasError(true)
+  }, [])
+
+  // Optimized sizes prop for responsive images
+  const optimizedSizes =
+    sizes || (fill ? '100vw' : '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw')
 
   const imageProps = {
     src,
     alt,
     priority,
+    quality,
     className: `${className} ${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`,
-    onLoad: () => setIsLoaded(true),
-    onError: () => setHasError(true),
-    placeholder: 'blur' as const,
-    blurDataURL,
+    onLoad: handleLoad,
+    onError: handleError,
+    ...(placeholder === 'blur' && { placeholder: 'blur' as const, blurDataURL }),
     ...(fill ? { fill: true } : { width, height }),
-    ...(sizes && { sizes }),
+    sizes: optimizedSizes,
     ...(style && { style }),
-    // Only apply loading prop if priority is not set (priority implies eager loading)
-    ...(!priority && loading && { loading }),
+    // Use eager loading for priority images, lazy for others
+    loading: priority ? 'eager' : loading,
   }
 
   if (hasError) {
     return (
       <div
-        className={`${className} bg-gray-200 flex items-center justify-center`}
-        style={{ width: fill ? '100%' : width, height: fill ? '100%' : height, ...style }}
+        className={`${className} bg-gray-200 flex items-center justify-center text-gray-500 text-sm`}
+        style={{
+          width: fill ? '100%' : width,
+          height: fill ? '100%' : height,
+          ...style,
+        }}
+        role="img"
+        aria-label={`Failed to load image: ${alt}`}
       >
-        <span className="text-gray-500 text-sm">Image unavailable</span>
+        Image unavailable
       </div>
     )
   }
@@ -80,12 +108,6 @@ export default function OptimizedImage({
   return (
     <div className={`relative ${fill ? 'w-full h-full' : ''}`}>
       <Image {...imageProps} alt={alt} />
-      {/* {!isLoaded && (
-        <div
-          className="absolute inset-0 bg-gray-200 animate-pulse"
-          style={{ width: fill ? '100%' : width, height: fill ? '100%' : height }}
-        />
-      )} */}
     </div>
   )
 }
