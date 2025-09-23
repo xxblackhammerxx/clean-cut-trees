@@ -81,7 +81,7 @@ export function markdownToLexical(markdown: string): LexicalDocument {
         children.push({
           type: token.ordered ? 'list' : 'list',
           version: 1,
-          children: token.items.map((item: any) => ({
+          children: token.items.map((item: { text: string }) => ({
             type: 'listitem',
             version: 1,
             children: parseInlineText(item.text),

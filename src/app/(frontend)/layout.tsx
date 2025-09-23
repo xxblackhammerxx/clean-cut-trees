@@ -52,7 +52,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
         <link rel="dns-prefetch" href="//fonts.gstatic.com" />
         <link rel="dns-prefetch" href="//vercel.app" />
         <link rel="dns-prefetch" href="//cleancutstrees.com" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 
         {/* Module preload for critical JavaScript */}
@@ -232,6 +232,41 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
               max-width: 1200px;
               margin: 0 auto;
               padding: 0 1rem;
+            }
+            
+            /* Section titles - Critical for above-the-fold content */
+            .section-title {
+              display: flex;
+              justify-content: center;
+              width: 100%;
+              align-items: center;
+              font-size: clamp(2rem, 4vw, 2.5rem);
+              font-weight: bold;
+              text-align: center;
+              margin-bottom: 1rem;
+              color: #333;
+
+            }
+            
+            .section-title::after {
+              display: none !important;
+            }
+            
+            .section-subtitle {
+              font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+              text-align: center;
+              margin-bottom: 1.5rem;
+              color: #666;
+            }
+            
+            .section-description {
+              font-size: 1rem;
+              text-align: center;
+              margin-bottom: 3rem;
+              color: #555;
+              max-width: 800px;
+              margin-left: auto;
+              margin-right: auto;
             }
             
             @media (max-width: 768px) {

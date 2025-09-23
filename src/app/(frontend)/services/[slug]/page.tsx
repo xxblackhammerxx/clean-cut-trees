@@ -1,4 +1,5 @@
 import { marked } from 'marked'
+import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getPayload } from 'payload'
@@ -72,7 +73,9 @@ export default async function ServicePage({ params }: Props) {
     notFound()
   }
 
-  const renderContent = (content: any) => {
+  const renderContent = (
+    content: string | { root?: { children?: { [k: string]: unknown }[] } } | null | undefined,
+  ) => {
     if (typeof content === 'string') {
       // Configure marked for safe HTML rendering
       marked.setOptions({
@@ -145,20 +148,33 @@ export default async function ServicePage({ params }: Props) {
 
     // Handle rich text content (Lexical format)
     if (content && content.root && content.root.children) {
-      const renderLexicalNode = (node: any, nodeIndex: number): React.ReactNode => {
+      const renderLexicalNode = (
+        node: { type?: string; tag?: string; children?: unknown[]; [k: string]: unknown },
+        nodeIndex: number,
+      ): React.ReactNode => {
         if (node.type === 'paragraph') {
           return (
             <p key={nodeIndex} className="content-paragraph">
-              {node.children?.map((child: any, childIndex: number) => {
+              {(
+                node.children as {
+                  type?: string
+                  text?: string
+                  src?: string
+                  alt?: string
+                  value?: { url?: string; alt?: string }
+                }[]
+              )?.map((child, childIndex: number) => {
                 if (child.type === 'text') {
                   return child.text || ''
                 }
                 if (child.type === 'image') {
                   return (
-                    <img
+                    <Image
                       key={childIndex}
                       src={child.src || child.value?.url || ''}
                       alt={child.alt || child.value?.alt || ''}
+                      width={400}
+                      height={300}
                       className="inline-image"
                       style={{ maxWidth: '100%', height: 'auto' }}
                     />
@@ -170,11 +186,14 @@ export default async function ServicePage({ params }: Props) {
           )
         }
         if (node.type === 'upload') {
+          const nodeTyped = node as { value?: { url?: string; alt?: string } }
           return (
             <div key={nodeIndex} className="content-image">
-              <img
-                src={node.value?.url || ''}
-                alt={node.value?.alt || ''}
+              <Image
+                src={nodeTyped.value?.url || ''}
+                alt={nodeTyped.value?.alt || ''}
+                width={800}
+                height={600}
                 className="content-img"
                 style={{ maxWidth: '100%', height: 'auto', margin: '1rem 0' }}
               />
@@ -182,30 +201,50 @@ export default async function ServicePage({ params }: Props) {
           )
         }
         if (node.type === 'image') {
+          const nodeTyped = node as {
+            src?: string
+            alt?: string
+            value?: { url?: string; alt?: string }
+            caption?: {
+              editorState?: {
+                root?: {
+                  children?: { children?: { text?: string }[] }[]
+                }
+              }
+            }
+          }
           return (
             <div key={nodeIndex} className="content-image">
-              <img
-                src={node.src || node.value?.url || ''}
-                alt={node.alt || node.value?.alt || ''}
+              <Image
+                src={nodeTyped.src || nodeTyped.value?.url || ''}
+                alt={nodeTyped.alt || nodeTyped.value?.alt || ''}
+                width={800}
+                height={600}
                 className="content-img"
                 style={{ maxWidth: '100%', height: 'auto', margin: '1rem 0' }}
               />
-              {node.caption && node.caption.editorState?.root?.children?.length > 0 && (
-                <p className="image-caption">
-                  {node.caption.editorState.root.children
-                    .map(
-                      (captionNode: any) =>
-                        captionNode.children?.map((child: any) => child.text || '').join('') || '',
-                    )
-                    .join('')}
-                </p>
-              )}
+              {nodeTyped.caption &&
+                nodeTyped.caption.editorState?.root?.children &&
+                Array.isArray(nodeTyped.caption.editorState.root.children) &&
+                nodeTyped.caption.editorState.root.children.length > 0 && (
+                  <p className="image-caption">
+                    {nodeTyped.caption.editorState.root.children
+                      .map((captionNode) =>
+                        Array.isArray(captionNode.children)
+                          ? captionNode.children.map((child) => child.text || '').join('')
+                          : '',
+                      )
+                      .join('')}
+                  </p>
+                )}
             </div>
           )
         }
         if (node.type === 'heading') {
           const headingLevel = node.tag || 'h2'
-          const headingText = node.children?.map((child: any) => child.text || '').join('')
+          const headingText = (node.children as { text?: string }[])
+            ?.map((child) => child.text || '')
+            .join('')
 
           if (headingLevel === 'h1') {
             return (
@@ -238,11 +277,13 @@ export default async function ServicePage({ params }: Props) {
           const ListComponent = node.listType === 'number' ? 'ol' : 'ul'
           return (
             <ListComponent key={nodeIndex} className="content-list">
-              {node.children?.map((listItem: any, itemIndex: number) => (
-                <li key={itemIndex} className="content-list-item">
-                  {listItem.children?.map((child: any) => child.text || '').join('')}
-                </li>
-              ))}
+              {(node.children as { children?: { text?: string }[] }[])?.map(
+                (listItem, itemIndex: number) => (
+                  <li key={itemIndex} className="content-list-item">
+                    {listItem.children?.map((child) => child.text || '').join('')}
+                  </li>
+                ),
+              )}
             </ListComponent>
           )
         }

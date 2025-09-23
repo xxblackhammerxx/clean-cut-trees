@@ -124,23 +124,27 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ])
 
     // Service pages
-    const serviceRoutes = services.docs.map((service: any) => ({
-      url: `${baseUrl}/services/${service.slug}`,
-      lastModified: new Date(service.updatedAt),
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
-    }))
+    const serviceRoutes = services.docs.map(
+      (service: { slug?: string | null; updatedAt: string }) => ({
+        url: `${baseUrl}/services/${service.slug}`,
+        lastModified: new Date(service.updatedAt),
+        changeFrequency: 'monthly' as const,
+        priority: 0.8,
+      }),
+    )
 
     // Service area pages
-    const serviceAreaRoutes = serviceAreas.docs.map((area: any) => ({
-      url: `${baseUrl}/service-areas/${area.slug}`,
-      lastModified: new Date(area.updatedAt),
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    }))
+    const serviceAreaRoutes = serviceAreas.docs.map(
+      (area: { slug?: string | null; updatedAt: string }) => ({
+        url: `${baseUrl}/service-areas/${area.slug}`,
+        lastModified: new Date(area.updatedAt),
+        changeFrequency: 'monthly' as const,
+        priority: 0.7,
+      }),
+    )
 
     // Blog posts
-    const blogRoutes = blogPosts.docs.map((post: any) => ({
+    const blogRoutes = blogPosts.docs.map((post: { slug?: string | null; updatedAt: string }) => ({
       url: `${baseUrl}/blog/${post.slug}`,
       lastModified: new Date(post.updatedAt),
       changeFrequency: 'weekly' as const,

@@ -62,34 +62,45 @@ export default async function ServicesPage() {
           </div>
 
           <div className="services-grid">
-            {services.docs.map((service: any) => (
-              <div key={service.id} className="service-card">
-                <div className="service-content">
-                  <h3>{service.title.replace(' - Clean Cuts Trees', '')}</h3>
-                  {service.excerpt && <p className="service-description">{service.excerpt}</p>}
-                  <Link
-                    href={`/services/${service.slug?.replace('services-', '') || ''}`}
-                    className="service-link"
-                  >
-                    Learn More →
-                  </Link>
+            {services.docs.map(
+              (service: {
+                id: string | number
+                title: string
+                excerpt?: string | null
+                slug?: string | null
+              }) => (
+                <div key={service.id} className="service-card">
+                  <div className="service-content">
+                    <h3>{service.title.replace(' - Clean Cuts Trees', '')}</h3>
+                    {service.excerpt && <p className="service-description">{service.excerpt}</p>}
+                    <Link
+                      href={`/services/${service.slug?.replace('services-', '') || ''}`}
+                      className="service-link"
+                    >
+                      Learn More →
+                    </Link>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ),
+            )}
           </div>
 
           {/* Emergency Service Spotlight */}
           <div className="emergency-spotlight">
             <div className="emergency-content">
               <div className="emergency-icon">
-                <span className="material-symbols-outlined" style={{ fontSize: 48, color: '#2c5530' }}>
+                <span
+                  className="material-symbols-outlined"
+                  style={{ fontSize: 48, color: '#2c5530' }}
+                >
                   emergency
                 </span>
               </div>
               <div className="emergency-text">
                 <h3>24/7 Emergency Tree Service</h3>
                 <p>
-                  When tree emergencies strike, we&apos;re here to help. Our certified crews respond immediately to fallen trees, storm damage, and hazardous situations.
+                  When tree emergencies strike, we&apos;re here to help. Our certified crews respond
+                  immediately to fallen trees, storm damage, and hazardous situations.
                 </p>
                 <div className="emergency-buttons">
                   <a href="tel:+18014737548" className="btn btn-emergency">
@@ -109,28 +120,70 @@ export default async function ServicesPage() {
           {/* Service Areas Section */}
           <div className="service-areas-section">
             <h3>Service Areas</h3>
-            <p>We provide professional tree services throughout Utah&apos;s most populated areas:</p>
+            <p>
+              We provide professional tree services throughout Utah&apos;s most populated areas:
+            </p>
             <div className="service-areas-grid">
               <div className="county-group">
                 <h4>Davis County</h4>
                 <ul className="area-links">
-                  <li><Link href="/service-areas/kaysville-ut-tree-service">Kaysville Tree Service</Link></li>
-                  <li><Link href="/service-areas/layton-ut-tree-service">Layton Tree Service</Link></li>
-                  <li><Link href="/service-areas/bountiful-ut-tree-service">Bountiful Tree Service</Link></li>
-                  <li><Link href="/service-areas/farmington-ut-tree-service">Farmington Tree Service</Link></li>
-                  <li><Link href="/service-areas/centerville-ut-tree-service">Centerville Tree Service</Link></li>
-                  <li><Link href="/service-areas/clearfield-ut-tree-service">Clearfield Tree Service</Link></li>
+                  <li>
+                    <Link href="/service-areas/kaysville-ut-tree-service">
+                      Kaysville Tree Service
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/service-areas/layton-ut-tree-service">Layton Tree Service</Link>
+                  </li>
+                  <li>
+                    <Link href="/service-areas/bountiful-ut-tree-service">
+                      Bountiful Tree Service
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/service-areas/farmington-ut-tree-service">
+                      Farmington Tree Service
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/service-areas/centerville-ut-tree-service">
+                      Centerville Tree Service
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/service-areas/clearfield-ut-tree-service">
+                      Clearfield Tree Service
+                    </Link>
+                  </li>
                 </ul>
               </div>
               <div className="county-group">
                 <h4>Weber County</h4>
                 <ul className="area-links">
-                  <li><Link href="/service-areas/ogden-ut-tree-service">Ogden Tree Service</Link></li>
-                  <li><Link href="/service-areas/roy-ut-tree-service">Roy Tree Service</Link></li>
-                  <li><Link href="/service-areas/north-ogden-ut-tree-service">North Ogden Tree Service</Link></li>
-                  <li><Link href="/service-areas/riverdale-ut-tree-service">Riverdale Tree Service</Link></li>
-                  <li><Link href="/service-areas/clinton-ut-tree-service">Clinton Tree Service</Link></li>
-                  <li><Link href="/service-areas/west-haven-ut-tree-service">West Haven Tree Service</Link></li>
+                  <li>
+                    <Link href="/service-areas/ogden-ut-tree-service">Ogden Tree Service</Link>
+                  </li>
+                  <li>
+                    <Link href="/service-areas/roy-ut-tree-service">Roy Tree Service</Link>
+                  </li>
+                  <li>
+                    <Link href="/service-areas/north-ogden-ut-tree-service">
+                      North Ogden Tree Service
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/service-areas/riverdale-ut-tree-service">
+                      Riverdale Tree Service
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/service-areas/clinton-ut-tree-service">Clinton Tree Service</Link>
+                  </li>
+                  <li>
+                    <Link href="/service-areas/west-haven-ut-tree-service">
+                      West Haven Tree Service
+                    </Link>
+                  </li>
                 </ul>
               </div>
             </div>

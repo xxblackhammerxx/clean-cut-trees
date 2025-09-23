@@ -83,7 +83,9 @@ export default async function BlogPostPage({ params }: Props) {
     })
   }
 
-  const getReadingTime = (content: any) => {
+  const getReadingTime = (
+    content: string | { [k: string]: unknown } | null | undefined,
+  ): string => {
     if (!content) return '5 min read'
     const text = typeof content === 'string' ? content : JSON.stringify(content)
     const wordsPerMinute = 200
@@ -92,7 +94,9 @@ export default async function BlogPostPage({ params }: Props) {
     return `${readingTime} min read`
   }
 
-  const renderContent = (content: any) => {
+  const renderContent = (
+    content: string | { root?: { children?: { [k: string]: unknown }[] } } | null | undefined,
+  ) => {
     if (typeof content === 'string') {
       // Handle markdown or plain text content
       return content.split('\n').map((paragraph, index) => (
@@ -104,45 +108,65 @@ export default async function BlogPostPage({ params }: Props) {
 
     // Handle rich text content (Lexical format)
     if (content && content.root && content.root.children) {
-      return content.root.children.map((node: any, index: number) => {
-        if (node.type === 'paragraph') {
-          return (
-            <p key={index} className="content-paragraph">
-              {node.children?.map((child: any, _childIndex: number) => child.text || '').join('')}
-            </p>
-          )
-        }
-        if (node.type === 'heading') {
-          const headingLevel = node.tag || 'h2'
-          if (headingLevel === 'h1') {
+      return content.root.children.map(
+        (
+          node: {
+            type?: string
+            tag?: string
+            children?: { text?: string }[]
+            [k: string]: unknown
+          },
+          index: number,
+        ) => {
+          if (node.type === 'paragraph') {
             return (
-              <h1 key={index} className="content-heading">
-                {node.children?.map((child: any, _childIndex: number) => child.text || '').join('')}
-              </h1>
+              <p key={index} className="content-paragraph">
+                {node.children
+                  ?.map((child: { text?: string }, _childIndex: number) => child.text || '')
+                  .join('')}
+              </p>
             )
           }
-          if (headingLevel === 'h2') {
+          if (node.type === 'heading') {
+            const headingLevel = node.tag || 'h2'
+            if (headingLevel === 'h1') {
+              return (
+                <h1 key={index} className="content-heading">
+                  {node.children
+                    ?.map((child: { text?: string }, _childIndex: number) => child.text || '')
+                    .join('')}
+                </h1>
+              )
+            }
+            if (headingLevel === 'h2') {
+              return (
+                <h2 key={index} className="content-heading">
+                  {node.children
+                    ?.map((child: { text?: string }, _childIndex: number) => child.text || '')
+                    .join('')}
+                </h2>
+              )
+            }
+            if (headingLevel === 'h3') {
+              return (
+                <h3 key={index} className="content-heading">
+                  {node.children
+                    ?.map((child: { text?: string }, _childIndex: number) => child.text || '')
+                    .join('')}
+                </h3>
+              )
+            }
             return (
               <h2 key={index} className="content-heading">
-                {node.children?.map((child: any, _childIndex: number) => child.text || '').join('')}
+                {node.children
+                  ?.map((child: { text?: string }, _childIndex: number) => child.text || '')
+                  .join('')}
               </h2>
             )
           }
-          if (headingLevel === 'h3') {
-            return (
-              <h3 key={index} className="content-heading">
-                {node.children?.map((child: any, _childIndex: number) => child.text || '').join('')}
-              </h3>
-            )
-          }
-          return (
-            <h2 key={index} className="content-heading">
-              {node.children?.map((child: any, _childIndex: number) => child.text || '').join('')}
-            </h2>
-          )
-        }
-        return null
-      })
+          return null
+        },
+      )
     }
 
     return <p>Content not available</p>
@@ -185,11 +209,19 @@ export default async function BlogPostPage({ params }: Props) {
 
                 {post.categories && post.categories.length > 0 && (
                   <div className="post-categories">
-                    {post.categories.map((category: any) => (
-                      <span key={category.id} className="category-tag">
-                        {category.title?.replace(' - Clean Cuts Trees', '') || 'Category'}
-                      </span>
-                    ))}
+                    {post.categories.map(
+                      (category: number | { id: string | number; title?: string }) => {
+                        const categoryData =
+                          typeof category === 'number'
+                            ? { id: category, title: 'Category' }
+                            : category
+                        return (
+                          <span key={categoryData.id} className="category-tag">
+                            {categoryData.title?.replace(' - Clean Cuts Trees', '') || 'Category'}
+                          </span>
+                        )
+                      },
+                    )}
                   </div>
                 )}
               </header>
@@ -200,12 +232,17 @@ export default async function BlogPostPage({ params }: Props) {
                 <footer className="post-footer">
                   <div className="post-tags">
                     <strong>Tags: </strong>
-                    {post.tags.map((tag: any, index: number) => (
-                      <span key={tag.id}>
-                        {tag.title?.replace(' - Clean Cuts Trees', '') || 'Tag'}
-                        {index < (post.tags?.length || 0) - 1 && ', '}
-                      </span>
-                    ))}
+                    {post.tags.map(
+                      (tag: number | { id: string | number; title?: string }, index: number) => {
+                        const tagData = typeof tag === 'number' ? { id: tag, title: 'Tag' } : tag
+                        return (
+                          <span key={tagData.id}>
+                            {tagData.title?.replace(' - Clean Cuts Trees', '') || 'Tag'}
+                            {index < (post.tags?.length || 0) - 1 && ', '}
+                          </span>
+                        )
+                      },
+                    )}
                   </div>
                 </footer>
               )}
@@ -261,17 +298,29 @@ export default async function BlogPostPage({ params }: Props) {
           <div className="container">
             <h2>Related Articles</h2>
             <div className="related-posts-grid">
-              {relatedPosts.docs.map((relatedPost: any) => (
-                <div key={relatedPost.id} className="related-post-card">
-                  <h3>
-                    <Link href={`/blog/${relatedPost.slug}`}>{relatedPost.title}</Link>
-                  </h3>
-                  {relatedPost.excerpt && <p>{relatedPost.excerpt.substring(0, 120)}...</p>}
-                  <div className="related-post-meta">
-                    <span>{formatDate(relatedPost.publishedDate)}</span>
+              {relatedPosts.docs.map(
+                (relatedPost: {
+                  id: string | number
+                  slug?: string | null
+                  title: string
+                  excerpt?: string | null
+                  publishedDate?: string | null
+                }) => (
+                  <div key={relatedPost.id} className="related-post-card">
+                    <h3>
+                      <Link href={`/blog/${relatedPost.slug}`}>{relatedPost.title}</Link>
+                    </h3>
+                    {relatedPost.excerpt && <p>{relatedPost.excerpt.substring(0, 120)}...</p>}
+                    <div className="related-post-meta">
+                      <span>
+                        {relatedPost.publishedDate
+                          ? formatDate(relatedPost.publishedDate)
+                          : 'Published'}
+                      </span>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ),
+              )}
             </div>
           </div>
         </section>

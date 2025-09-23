@@ -2,6 +2,12 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import BookingButton from '@/components/BookingButton'
+import {
+  defaultServiceImage,
+  homepageServiceAreas,
+  homepageServices,
+  serviceImages,
+} from '@/data/homepage-data'
 import './styles.css'
 
 // Enable static generation for better performance
@@ -73,42 +79,31 @@ export default function HomePage() {
           </p>
 
           <div className="services-grid">
-            {services.docs.map((service: any) => {
-              // Map service slugs to their corresponding images
-              const serviceImages: { [key: string]: string } = {
-                'tree-removal': '91521393324329d774d759f0d6e984de27d05cf5.jpg',
-                'tree-trimming': '0429526e5171a025d4e084e303157911cde378f0.jpg',
-                'emergency-tree-damage': '8fbc39738ff1ee4ba34f327cb5ffaa34024b11eb.jpg',
-                'storm-clean-up': 'ce7b1b3d28de8121894f693f49d99deacc0fdfd9.jpg',
-                'municipal-tree-service': '3360c69ff26cc8732183a7edd60e6ee6f293b9ee.jpg',
-                'professional-land-clearing-services':
-                  '654766ab01c63fc2cf45c8c5bdc851dcff4ceff2.jpg',
-              }
-
-              const serviceSlug = service.slug?.replace('services-', '') || ''
-              const imagePath = serviceImages[serviceSlug]
-                ? `/assets/${serviceImages[serviceSlug]}`
-                : '/assets/6044a2199980b071066c9787705eaf1fd5e11a3e.png' // Fallback to Clean Cuts banner
+            {homepageServices.map((service, index) => {
+              // Get the image path from the service images mapping
+              const imagePath = serviceImages[service.slug]
+                ? `/assets/${serviceImages[service.slug]}`
+                : `/assets/${defaultServiceImage}` // Fallback to Clean Cuts banner
 
               return (
                 <div key={service.id} className="service-card">
                   <div className="service-image">
                     <Image
                       src={imagePath}
-                      alt={service.title.replace(' - Clean Cuts Trees', '')}
+                      alt={service.title}
                       className="service-img"
                       width={400}
                       height={300}
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      priority={services.docs.indexOf(service) < 2}
-                      loading={services.docs.indexOf(service) < 2 ? 'eager' : 'lazy'}
+                      priority={index < 2}
+                      loading={index < 2 ? 'eager' : 'lazy'}
                     />
                   </div>
                   <div className="service-content">
-                    <h3>{service.title.replace(' - Clean Cuts Trees', '')}</h3>
-                    <a href={`/services/${serviceSlug}`} className="service-link">
-                      {serviceSlug === 'emergency-tree-damage' ||
-                      serviceSlug === 'emergency-tree-service'
+                    <h3>{service.title}</h3>
+                    <a href={`/services/${service.slug}`} className="service-link">
+                      {service.slug === 'emergency-tree-damage' ||
+                      service.slug === 'emergency-tree-service'
                         ? 'Get Emergency Service →'
                         : 'Learn More →'}
                     </a>
@@ -134,12 +129,12 @@ export default function HomePage() {
                 your property and family.
               </p>
               <ul className="emergency-features">
-                <li>✓ Available 24 hours a day, 7 days a week for emergency tree service</li>
-                <li>✓ Licensed and insured emergency tree removal crews</li>
-                <li>✓ Professional equipment for safe tree removal and tree care</li>
-                <li>✓ Insurance claim assistance for tree damage</li>
-                <li>✓ Emergency tree removal services for difficult jobs</li>
-                <li>✓ Professional tree services for storm cleanup and debris removal</li>
+                <li>Available 24 hours a day, 7 days a week for emergency tree service</li>
+                <li>Licensed and insured emergency tree removal crews</li>
+                <li>Professional equipment for safe tree removal and tree care</li>
+                <li>Insurance claim assistance for tree damage</li>
+                <li>Emergency tree removal services for difficult jobs</li>
+                <li>Professional tree services for storm cleanup and debris removal</li>
               </ul>
               <div className="emergency-buttons">
                 <a href="tel:+18014737548" className="btn btn-emergency">
@@ -490,14 +485,12 @@ export default function HomePage() {
           </p>
 
           <div className="areas-grid">
-            {serviceAreas.docs.slice(0, 18).map((area: any) => (
+            {homepageServiceAreas.slice(0, 18).map((area) => (
               <div key={area.id} className="area-card">
                 <div className="area-icon">
                   <span className="material-symbols-outlined">location_on</span>
                 </div>
-                <h3>
-                  {area.title.replace('Tree Service ', '').replace(', UT - Clean Cuts Trees', '')}
-                </h3>
+                <h3>{area.title}</h3>
               </div>
             ))}
           </div>

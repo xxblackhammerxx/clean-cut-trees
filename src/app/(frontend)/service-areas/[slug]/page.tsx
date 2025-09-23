@@ -41,8 +41,11 @@ export async function generateMetadata({ params }: Props) {
   return {
     title: page.seo?.title || `${page.title} | Clean Cuts Trees`,
     description:
-      page.seo?.description || page.excerpt || `Professional tree services in ${page.title.replace(' - Clean Cuts Trees', '')}. Licensed, insured, and trusted local tree care.`,
-    keywords: page.seo?.keywords || 'tree service, tree removal, tree trimming, emergency tree service',
+      page.seo?.description ||
+      page.excerpt ||
+      `Professional tree services in ${page.title.replace(' - Clean Cuts Trees', '')}. Licensed, insured, and trusted local tree care.`,
+    keywords:
+      page.seo?.keywords || 'tree service, tree removal, tree trimming, emergency tree service',
   }
 }
 
@@ -74,13 +77,16 @@ export default async function ServiceAreaPage({ params }: Props) {
   const cityName = page.title.replace(' - Clean Cuts Trees', '').replace('Tree Service ', '')
 
   // Render content function for both markdown and rich text
-  const renderContent = (content: any) => {
+  const renderContent = (
+    content: string | { root?: { children?: { [k: string]: unknown }[] } } | null | undefined,
+  ) => {
     // Handle markdown content
     if (typeof content === 'string') {
       // Clean up and fix content issues
-      const fixedContent = content
-        .replace(/!\[([^\]]*)\]\(https:\/\/cleancutstrees\.com\/wp-content\/uploads\/[^)]*\)/g, 
-          '<!-- External image removed: $1 (original site no longer available) -->')
+      const fixedContent = content.replace(
+        /!\[([^\]]*)\]\(https:\/\/cleancutstrees\.com\/wp-content\/uploads\/[^)]*\)/g,
+        '<!-- External image removed: $1 (original site no longer available) -->',
+      )
 
       // Parse markdown to HTML
       const htmlContent = marked(fixedContent)
@@ -90,17 +96,30 @@ export default async function ServiceAreaPage({ params }: Props) {
 
     // Handle rich text content (Lexical format)
     if (content && content.root && content.root.children) {
-      const renderLexicalNode = (node: any, nodeIndex: number): React.ReactNode => {
+      const renderLexicalNode = (
+        node: {
+          type?: string
+          tag?: string
+          listType?: string
+          children?: unknown[]
+          [k: string]: unknown
+        },
+        nodeIndex: number,
+      ): React.ReactNode => {
         if (node.type === 'paragraph') {
           return (
             <p key={nodeIndex} className="content-paragraph">
-              {node.children?.map((child: any, _childIndex: number) => child.text || '').join('')}
+              {(node.children as { text?: string }[])
+                ?.map((child, _childIndex: number) => child.text || '')
+                .join('')}
             </p>
           )
         }
         if (node.type === 'heading') {
           const headingLevel = node.tag || 'h2'
-          const headingText = node.children?.map((child: any) => child.text || '').join('')
+          const headingText = (node.children as { text?: string }[])
+            ?.map((child) => child.text || '')
+            .join('')
 
           if (headingLevel === 'h1') {
             return (
@@ -133,11 +152,13 @@ export default async function ServiceAreaPage({ params }: Props) {
           const ListComponent = node.listType === 'number' ? 'ol' : 'ul'
           return (
             <ListComponent key={nodeIndex} className="content-list">
-              {node.children?.map((listItem: any, itemIndex: number) => (
-                <li key={itemIndex} className="content-list-item">
-                  {listItem.children?.map((child: any) => child.text || '').join('')}
-                </li>
-              ))}
+              {(node.children as { children?: { text?: string }[] }[])?.map(
+                (listItem, itemIndex: number) => (
+                  <li key={itemIndex} className="content-list-item">
+                    {listItem.children?.map((child) => child.text || '').join('')}
+                  </li>
+                ),
+              )}
             </ListComponent>
           )
         }
@@ -174,9 +195,7 @@ export default async function ServiceAreaPage({ params }: Props) {
                 <h1>Tree Service {cityName}</h1>
               </header>
 
-              <div className="service-area-body">
-                {renderContent(page.content)}
-              </div>
+              <div className="service-area-body">{renderContent(page.content)}</div>
 
               {/* Emergency CTA */}
               <div className="emergency-cta">
@@ -224,31 +243,46 @@ export default async function ServiceAreaPage({ params }: Props) {
                 <h3>Why Choose Clean Cuts Trees?</h3>
                 <ul className="features-list">
                   <li>
-                    <span className="material-symbols-outlined" style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}>
+                    <span
+                      className="material-symbols-outlined"
+                      style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}
+                    >
                       check_circle
                     </span>{' '}
                     Licensed & Insured
                   </li>
                   <li>
-                    <span className="material-symbols-outlined" style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}>
+                    <span
+                      className="material-symbols-outlined"
+                      style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}
+                    >
                       check_circle
                     </span>{' '}
                     24/7 Emergency Service
                   </li>
                   <li>
-                    <span className="material-symbols-outlined" style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}>
+                    <span
+                      className="material-symbols-outlined"
+                      style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}
+                    >
                       check_circle
                     </span>{' '}
                     Free Estimates
                   </li>
                   <li>
-                    <span className="material-symbols-outlined" style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}>
+                    <span
+                      className="material-symbols-outlined"
+                      style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}
+                    >
                       check_circle
                     </span>{' '}
                     ISA Certified Arborists
                   </li>
                   <li>
-                    <span className="material-symbols-outlined" style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}>
+                    <span
+                      className="material-symbols-outlined"
+                      style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}
+                    >
                       check_circle
                     </span>{' '}
                     Professional Equipment

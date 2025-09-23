@@ -37,7 +37,9 @@ export default async function BlogPage() {
     })
   }
 
-  const getReadingTime = (content: any) => {
+  const getReadingTime = (
+    content: string | { [k: string]: unknown } | null | undefined,
+  ): string => {
     if (!content) return '5 min read'
     const text = typeof content === 'string' ? content : JSON.stringify(content)
     const wordsPerMinute = 200
@@ -65,40 +67,69 @@ export default async function BlogPage() {
             {/* Main Content */}
             <div className="blog-main">
               <div className="blog-posts">
-                {blogPosts.docs.map((post: any) => (
-                  <article key={post.id} className="blog-post-card">
-                    <div className="post-content">
-                      <div className="post-meta">
-                        <span className="post-date">{formatDate(post.publishedDate)}</span>
-                        <span className="post-reading-time">{getReadingTime(post.content)}</span>
-                      </div>
-
-                      <h2 className="post-title">
-                        <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-                      </h2>
-
-                      {post.excerpt && <p className="post-excerpt">{post.excerpt}</p>}
-
-                      <div className="post-footer">
-                        <div className="post-categories">
-                          {post.categories && post.categories.length > 0 && (
-                            <>
-                              {post.categories.slice(0, 2).map((category: any) => (
-                                <span key={category.id} className="category-tag">
-                                  {category.title?.replace(' - Clean Cuts Trees', '') || 'Category'}
-                                </span>
-                              ))}
-                            </>
-                          )}
+                {blogPosts.docs.map(
+                  (post: {
+                    id: string | number
+                    slug?: string | null
+                    title: string
+                    publishedDate?: string | null
+                    content?: string | { [k: string]: unknown } | null
+                    excerpt?: string | null
+                    categories?: Array<
+                      number | { id: string | number; title?: string | null }
+                    > | null
+                  }) => (
+                    <article key={post.id} className="blog-post-card">
+                      <div className="post-content">
+                        <div className="post-meta">
+                          <span className="post-date">
+                            {post.publishedDate ? formatDate(post.publishedDate) : 'Published'}
+                          </span>
+                          <span className="post-reading-time">{getReadingTime(post.content)}</span>
                         </div>
 
-                        <Link href={`/blog/${post.slug}`} className="read-more">
-                          Read More →
-                        </Link>
+                        <h2 className="post-title">
+                          <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                        </h2>
+
+                        {post.excerpt && <p className="post-excerpt">{post.excerpt}</p>}
+
+                        <div className="post-footer">
+                          <div className="post-categories">
+                            {post.categories && post.categories.length > 0 && (
+                              <>
+                                {post.categories
+                                  .slice(0, 2)
+                                  .map(
+                                    (
+                                      category:
+                                        | number
+                                        | { id: string | number; title?: string | null },
+                                    ) => {
+                                      const categoryData =
+                                        typeof category === 'number'
+                                          ? { id: category, title: 'Category' }
+                                          : category
+                                      return (
+                                        <span key={categoryData.id} className="category-tag">
+                                          {categoryData.title?.replace(' - Clean Cuts Trees', '') ||
+                                            'Category'}
+                                        </span>
+                                      )
+                                    },
+                                  )}
+                              </>
+                            )}
+                          </div>
+
+                          <Link href={`/blog/${post.slug}`} className="read-more">
+                            Read More →
+                          </Link>
+                        </div>
                       </div>
-                    </div>
-                  </article>
-                ))}
+                    </article>
+                  ),
+                )}
               </div>
 
               {blogPosts.totalDocs === 0 && (
@@ -123,13 +154,19 @@ export default async function BlogPage() {
               <div className="sidebar-widget">
                 <h3>Categories</h3>
                 <ul className="category-list">
-                  {categories.docs.map((category: any) => (
-                    <li key={category.id}>
-                      <Link href={`/blog?category=${category.slug}`}>
-                        {category.title?.replace(' - Clean Cuts Trees', '') || 'Category'}
-                      </Link>
-                    </li>
-                  ))}
+                  {categories.docs.map(
+                    (category: {
+                      id: string | number
+                      slug?: string | null
+                      title?: string | null
+                    }) => (
+                      <li key={category.id}>
+                        <Link href={`/blog?category=${category.slug}`}>
+                          {category.title?.replace(' - Clean Cuts Trees', '') || 'Category'}
+                        </Link>
+                      </li>
+                    ),
+                  )}
                 </ul>
               </div>
 

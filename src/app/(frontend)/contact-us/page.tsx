@@ -1,8 +1,8 @@
 import { marked } from 'marked'
 import { getPayload } from 'payload'
 
-import ContactForm from '@/components/ContactForm'
 import BookingButton from '@/components/BookingButton'
+import ContactForm from '@/components/ContactForm'
 import config from '@/payload.config'
 
 export async function generateMetadata() {
@@ -32,7 +32,9 @@ export default async function ContactPage() {
 
   const _page = pages.docs[0]
 
-  const _renderContent = (content: any) => {
+  const _renderContent = (
+    content: string | { root?: { children?: { [k: string]: unknown }[] } } | null | undefined,
+  ) => {
     if (typeof content === 'string') {
       // Configure marked for safe HTML rendering
       marked.setOptions({
@@ -103,45 +105,55 @@ export default async function ContactPage() {
 
     // Handle rich text content (Lexical format)
     if (content && content.root && content.root.children) {
-      return content.root.children.map((node: any, index: number) => {
-        if (node.type === 'paragraph') {
-          return (
-            <p key={index} className="content-paragraph">
-              {node.children?.map((child: any) => child.text || '').join('')}
-            </p>
-          )
-        }
-        if (node.type === 'heading') {
-          const headingLevel = node.tag || 'h2'
-          if (headingLevel === 'h1') {
+      return content.root.children.map(
+        (
+          node: {
+            type?: string
+            tag?: string
+            children?: { text?: string }[]
+            [k: string]: unknown
+          },
+          index: number,
+        ) => {
+          if (node.type === 'paragraph') {
             return (
-              <h1 key={index} className="content-heading">
-                {node.children?.map((child: any) => child.text || '').join('')}
-              </h1>
+              <p key={index} className="content-paragraph">
+                {node.children?.map((child: { text?: string }) => child.text || '').join('')}
+              </p>
             )
           }
-          if (headingLevel === 'h2') {
+          if (node.type === 'heading') {
+            const headingLevel = node.tag || 'h2'
+            if (headingLevel === 'h1') {
+              return (
+                <h1 key={index} className="content-heading">
+                  {node.children?.map((child: { text?: string }) => child.text || '').join('')}
+                </h1>
+              )
+            }
+            if (headingLevel === 'h2') {
+              return (
+                <h2 key={index} className="content-heading">
+                  {node.children?.map((child: { text?: string }) => child.text || '').join('')}
+                </h2>
+              )
+            }
+            if (headingLevel === 'h3') {
+              return (
+                <h3 key={index} className="content-heading">
+                  {node.children?.map((child: { text?: string }) => child.text || '').join('')}
+                </h3>
+              )
+            }
             return (
               <h2 key={index} className="content-heading">
-                {node.children?.map((child: any) => child.text || '').join('')}
+                {node.children?.map((child: { text?: string }) => child.text || '').join('')}
               </h2>
             )
           }
-          if (headingLevel === 'h3') {
-            return (
-              <h3 key={index} className="content-heading">
-                {node.children?.map((child: any) => child.text || '').join('')}
-              </h3>
-            )
-          }
-          return (
-            <h2 key={index} className="content-heading">
-              {node.children?.map((child: any) => child.text || '').join('')}
-            </h2>
-          )
-        }
-        return null
-      })
+          return null
+        },
+      )
     }
 
     return <p>Content not available</p>

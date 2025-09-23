@@ -1,9 +1,86 @@
 import { marked } from 'marked'
+import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getPayload } from 'payload'
 
 import config from '@/payload.config'
+
+// Type definitions for Lexical content structure
+interface LexicalTextNode {
+  type: 'text'
+  text: string
+  [k: string]: unknown
+}
+
+interface LexicalImageNode {
+  type: 'image'
+  src?: string
+  alt?: string
+  value?: {
+    url?: string
+    alt?: string
+  }
+  [k: string]: unknown
+}
+
+interface LexicalImageMainNode {
+  type: 'image'
+  src?: string
+  alt?: string
+  value?: {
+    url?: string
+    alt?: string
+  }
+  caption?: {
+    editorState?: {
+      root?: {
+        children?: LexicalCaptionNode[]
+      }
+    }
+  }
+  [k: string]: unknown
+}
+
+interface LexicalCaptionNode {
+  children?: LexicalTextNode[]
+  type?: string
+  [k: string]: unknown
+}
+
+interface LexicalHeadingNode {
+  type: 'heading'
+  tag?: string
+  children?: LexicalTextNode[]
+  [k: string]: unknown
+}
+
+interface LexicalListNode {
+  type: 'list'
+  listType?: string
+  children?: LexicalListItemNode[]
+  [k: string]: unknown
+}
+
+interface LexicalListItemNode {
+  children?: LexicalTextNode[]
+  [k: string]: unknown
+}
+
+// More flexible type to match actual Payload structure
+type LexicalNode = {
+  type: string
+  version?: number
+  [k: string]: unknown
+}
+
+interface LexicalContent {
+  root: {
+    children: LexicalNode[]
+    [k: string]: unknown
+  }
+  [k: string]: unknown
+}
 
 type Props = {
   params: Promise<{
@@ -81,7 +158,10 @@ export default async function GeneralPage({ params }: Props) {
     notFound()
   }
 
-  const renderContent = (content: any) => {
+  const renderContent = (content: string | LexicalContent | null | undefined) => {
+    if (!content) {
+      return <p>Content not available</p>
+    }
     if (typeof content === 'string') {
       // Configure marked for safe HTML rendering
       marked.setOptions({
@@ -110,20 +190,24 @@ export default async function GeneralPage({ params }: Props) {
 
     // Handle rich text content (Lexical format)
     if (content && content.root && content.root.children) {
-      const renderLexicalNode = (node: any, nodeIndex: number): React.ReactNode => {
+      const renderLexicalNode = (node: LexicalNode, nodeIndex: number): React.ReactNode => {
         if (node.type === 'paragraph') {
+          const children = Array.isArray(node.children) ? node.children : []
           return (
             <p key={nodeIndex} className="content-paragraph">
-              {node.children?.map((child: any, childIndex: number) => {
+              {children.map((child: LexicalNode, childIndex: number) => {
                 if (child.type === 'text') {
-                  return child.text || ''
+                  return (child as { text?: string }).text || ''
                 }
                 if (child.type === 'image') {
+                  const imageChild = child as LexicalImageNode
                   return (
-                    <img
+                    <Image
                       key={childIndex}
-                      src={child.src || child.value?.url || ''}
-                      alt={child.alt || child.value?.alt || ''}
+                      src={imageChild.src || imageChild.value?.url || ''}
+                      alt={imageChild.alt || imageChild.value?.alt || ''}
+                      width={400}
+                      height={300}
                       className="inline-image"
                       style={{ maxWidth: '100%', height: 'auto' }}
                     />
@@ -135,30 +219,41 @@ export default async function GeneralPage({ params }: Props) {
           )
         }
         if (node.type === 'image') {
+          const imageNode = node as LexicalImageMainNode
           return (
             <div key={nodeIndex} className="content-image">
-              <img
-                src={node.src || node.value?.url || ''}
-                alt={node.alt || node.value?.alt || ''}
+              <Image
+                src={imageNode.src || imageNode.value?.url || ''}
+                alt={imageNode.alt || imageNode.value?.alt || ''}
+                width={800}
+                height={600}
                 className="content-img"
                 style={{ maxWidth: '100%', height: 'auto', margin: '1rem 0' }}
               />
-              {node.caption && node.caption.editorState?.root?.children?.length > 0 && (
-                <p className="image-caption">
-                  {node.caption.editorState.root.children
-                    .map(
-                      (captionNode: any) =>
-                        captionNode.children?.map((child: any) => child.text || '').join('') || '',
-                    )
-                    .join('')}
-                </p>
-              )}
+              {imageNode.caption &&
+                imageNode.caption.editorState?.root?.children &&
+                Array.isArray(imageNode.caption.editorState.root.children) &&
+                imageNode.caption.editorState.root.children.length > 0 && (
+                  <p className="image-caption">
+                    {imageNode.caption.editorState.root.children
+                      .map((captionNode: LexicalCaptionNode) => {
+                        return Array.isArray(captionNode.children)
+                          ? captionNode.children
+                              .map((child: LexicalTextNode) => child.text || '')
+                              .join('')
+                          : ''
+                      })
+                      .join('')}
+                  </p>
+                )}
             </div>
           )
         }
         if (node.type === 'heading') {
-          const headingLevel = node.tag || 'h2'
-          const headingText = node.children?.map((child: any) => child.text || '').join('')
+          const headingNode = node as LexicalHeadingNode
+          const headingLevel = headingNode.tag || 'h2'
+          const children = Array.isArray(headingNode.children) ? headingNode.children : []
+          const headingText = children.map((child: LexicalTextNode) => child.text || '').join('')
 
           if (headingLevel === 'h1') {
             return (
@@ -188,14 +283,19 @@ export default async function GeneralPage({ params }: Props) {
           )
         }
         if (node.type === 'list') {
-          const ListComponent = node.listType === 'number' ? 'ol' : 'ul'
+          const listNode = node as LexicalListNode
+          const ListComponent = listNode.listType === 'number' ? 'ol' : 'ul'
+          const children = Array.isArray(listNode.children) ? listNode.children : []
           return (
             <ListComponent key={nodeIndex} className="content-list">
-              {node.children?.map((listItem: any, itemIndex: number) => (
-                <li key={itemIndex} className="content-list-item">
-                  {listItem.children?.map((child: any) => child.text || '').join('')}
-                </li>
-              ))}
+              {children.map((listItem: LexicalListItemNode, itemIndex: number) => {
+                const itemChildren = Array.isArray(listItem.children) ? listItem.children : []
+                return (
+                  <li key={itemIndex} className="content-list-item">
+                    {itemChildren.map((child: LexicalTextNode) => child.text || '').join('')}
+                  </li>
+                )
+              })}
             </ListComponent>
           )
         }
@@ -208,7 +308,7 @@ export default async function GeneralPage({ params }: Props) {
     return <p>Content not available</p>
   }
 
-  const _getPageTypeLabel = (pageType: string) => {
+  const _getPageTypeLabel = (pageType: string): string => {
     switch (pageType) {
       case 'service':
         return 'Service'

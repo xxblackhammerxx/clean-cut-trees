@@ -27,45 +27,51 @@ export default async function ServiceAreasPage() {
   })
 
   // Group service areas by county (simplified grouping)
-  const groupedAreas = serviceAreas.docs.reduce((acc: any, area: any) => {
-    let county = 'Other'
-    const title = area.title.toLowerCase()
+  const groupedAreas = serviceAreas.docs.reduce(
+    (
+      acc: { [county: string]: { id: string | number; title: string; slug?: string | null }[] },
+      area: { id: string | number; title: string; slug?: string | null },
+    ) => {
+      let county = 'Other'
+      const title = area.title.toLowerCase()
 
-    if (
-      title.includes('davis county') ||
-      title.includes('kaysville') ||
-      title.includes('layton') ||
-      title.includes('bountiful') ||
-      title.includes('centerville') ||
-      title.includes('farmington') ||
-      title.includes('clearfield')
-    ) {
-      county = 'Davis County'
-    } else if (
-      title.includes('weber county') ||
-      title.includes('ogden') ||
-      title.includes('roy') ||
-      title.includes('riverdale') ||
-      title.includes('plain city') ||
-      title.includes('hooper') ||
-      title.includes('clinton')
-    ) {
-      county = 'Weber County'
-    } else if (
-      title.includes('salt lake county') ||
-      title.includes('north salt lake') ||
-      title.includes('south weber') ||
-      title.includes('woods cross')
-    ) {
-      county = 'Salt Lake County'
-    }
+      if (
+        title.includes('davis county') ||
+        title.includes('kaysville') ||
+        title.includes('layton') ||
+        title.includes('bountiful') ||
+        title.includes('centerville') ||
+        title.includes('farmington') ||
+        title.includes('clearfield')
+      ) {
+        county = 'Davis County'
+      } else if (
+        title.includes('weber county') ||
+        title.includes('ogden') ||
+        title.includes('roy') ||
+        title.includes('riverdale') ||
+        title.includes('plain city') ||
+        title.includes('hooper') ||
+        title.includes('clinton')
+      ) {
+        county = 'Weber County'
+      } else if (
+        title.includes('salt lake county') ||
+        title.includes('north salt lake') ||
+        title.includes('south weber') ||
+        title.includes('woods cross')
+      ) {
+        county = 'Salt Lake County'
+      }
 
-    if (!acc[county]) {
-      acc[county] = []
-    }
-    acc[county].push(area)
-    return acc
-  }, {})
+      if (!acc[county]) {
+        acc[county] = []
+      }
+      acc[county].push(area)
+      return acc
+    },
+    {},
+  )
 
   return (
     <div className="service-areas-page">
@@ -91,8 +97,9 @@ export default async function ServiceAreasPage() {
           <div className="content-intro">
             <h2>Complete Tree Services Throughout Northern Utah</h2>
             <p>
-              Clean Cuts Trees provides comprehensive tree care services across Davis, Weber, and Salt Lake Counties. 
-              Our certified arborists deliver professional tree services with a focus on safety, efficiency, and customer satisfaction.
+              Clean Cuts Trees provides comprehensive tree care services across Davis, Weber, and
+              Salt Lake Counties. Our certified arborists deliver professional tree services with a
+              focus on safety, efficiency, and customer satisfaction.
             </p>
           </div>
 
@@ -113,7 +120,9 @@ export default async function ServiceAreasPage() {
                 <Link href="/services/storm-clean-up">Storm Damage Cleanup</Link>
               </div>
               <div className="service-item">
-                <Link href="/services/professional-land-clearing-services">Land Clearing Services</Link>
+                <Link href="/services/professional-land-clearing-services">
+                  Land Clearing Services
+                </Link>
               </div>
               <div className="service-item">
                 <Link href="/services/municipal-tree-service">Municipal Tree Service</Link>
@@ -130,29 +139,41 @@ export default async function ServiceAreasPage() {
           </div>
 
           {Object.entries(groupedAreas).map(([county, areas]) => {
-            const areasList = areas as any[]
+            const areasList = areas as {
+              id: string | number
+              title: string
+              slug?: string | null
+              excerpt?: string | null
+            }[]
             return (
               <div key={county} className="county-section">
                 <h3 className="county-title">{county}</h3>
                 <div className="areas-grid">
-                  {areasList.map((area: any) => (
-                    <div key={area.id} className="area-card">
-                      <div className="area-content">
-                        <h4>
-                          {area.title
-                            .replace('Tree Service ', '')
-                            .replace(', UT - Clean Cuts Trees', '')
-                            .replace('Tree Service Tree Service ', '')}
-                        </h4>
-                        {area.excerpt && (
-                          <p className="area-description">{area.excerpt.substring(0, 120)}...</p>
-                        )}
-                        <Link href={`/${area.slug}`} className="area-link">
-                          View Service Area →
-                        </Link>
+                  {areasList.map(
+                    (area: {
+                      id: string | number
+                      title: string
+                      slug?: string | null
+                      excerpt?: string | null
+                    }) => (
+                      <div key={area.id} className="area-card">
+                        <div className="area-content">
+                          <h4>
+                            {area.title
+                              .replace('Tree Service ', '')
+                              .replace(', UT - Clean Cuts Trees', '')
+                              .replace('Tree Service Tree Service ', '')}
+                          </h4>
+                          {area.excerpt && (
+                            <p className="area-description">{area.excerpt.substring(0, 120)}...</p>
+                          )}
+                          <Link href={`/${area.slug}`} className="area-link">
+                            View Service Area →
+                          </Link>
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    ),
+                  )}
                 </div>
               </div>
             )

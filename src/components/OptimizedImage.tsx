@@ -79,7 +79,7 @@ export default function OptimizedImage({
 
   return (
     <div className={`relative ${fill ? 'w-full h-full' : ''}`}>
-      <Image {...imageProps} />
+      <Image {...imageProps} alt={alt} />
       {/* {!isLoaded && (
         <div
           className="absolute inset-0 bg-gray-200 animate-pulse"
