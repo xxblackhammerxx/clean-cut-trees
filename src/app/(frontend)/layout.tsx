@@ -9,7 +9,6 @@ import { getOptimizedImageSrc, getOptimizedMetaImageSrc } from '@/lib/optimized-
 import React from 'react'
 import './seo-improvements.css'
 
-// Get optimized image URL for meta tags
 const heroImageSrc = '/Emergency-Tree-Service-Team.jpg'
 const optimizedHeroImage = getOptimizedMetaImageSrc(heroImageSrc)
 
