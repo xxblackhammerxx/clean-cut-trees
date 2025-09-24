@@ -204,7 +204,7 @@ export default function HomePage() {
               <strong>America First Credit Union</strong> 2024 Small Business Showcase.
             </p>
             <Link href="/real-salt-lake-partnership" className="btn btn-secondary">
-              Read more
+              Read more about our partnership
             </Link>
           </div>
         </div>
