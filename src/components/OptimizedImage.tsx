@@ -1,6 +1,7 @@
 'use client'
 import Image from 'next/image'
 import { useCallback, useState } from 'react'
+import { getOptimizedImageSrc, generateSrcSet, optimizedImageMap } from '@/lib/optimized-images'
 
 interface OptimizedImageProps {
   src: string
@@ -68,12 +69,19 @@ export default function OptimizedImage({
     setHasError(true)
   }, [])
 
+  // Get optimized image source and srcSet
+  const optimizedSrc = getOptimizedImageSrc(src, width)
+  const srcSet = generateSrcSet(src)
+  
   // Optimized sizes prop for responsive images
   const optimizedSizes =
     sizes || (fill ? '100vw' : '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw')
 
+  // Check if we have optimized variants available
+  const hasOptimizedVariants = optimizedImageMap[src] && optimizedImageMap[src].length > 0
+
   const imageProps = {
-    src,
+    src: hasOptimizedVariants ? optimizedSrc : src,
     alt,
     priority,
     quality,

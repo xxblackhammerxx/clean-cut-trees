@@ -20,8 +20,11 @@
     "test:int": "cross-env NODE_OPTIONS=--no-deprecation vitest run --config ./vitest.config.mts",
     "lighthouse": "lighthouse http://localhost:3000 --output=html --output-path=./lighthouse-report.html --chrome-flags=\"--headless\"",
     "optimize-images": "node scripts/optimize-images.mjs",
+    "optimize-critical-images": "node scripts/optimize-critical-images.mjs",
     "perf-audit": "npm run lighthouse && npm run build:analyze",
-    "clean-build": "rm -rf .next && npm run build"
+    "clean-build": "rm -rf .next && npm run build",
+    "perf-full": "npm run optimize-critical-images && npm run build:perf && npm run lighthouse",
+    "verify-optimization": "node scripts/verify-optimization.mjs"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "3.55.0",

@@ -4,9 +4,14 @@ import Navbar from '@/components/Navbar'
 import WebVitals from '@/components/WebVitals'
 import WebVitalsDashboard from '@/components/WebVitalsDashboard'
 import { inter, materialSymbolsConfig } from '@/lib/fonts'
+import { getCriticalCSS, loadNonCriticalCSS } from '@/lib/critical-css'
+import { getOptimizedMetaImageSrc, getOptimizedImageSrc } from '@/lib/optimized-images'
 import React from 'react'
 import './seo-improvements.css'
-import './styles.css'
+
+// Get optimized image URL for meta tags
+const heroImageSrc = '/Emergency-Tree-Service-Team.jpg'
+const optimizedHeroImage = getOptimizedMetaImageSrc(heroImageSrc)
 
 export const metadata = {
   title: 'Emergency Tree Service & Tree Care | Davis & Weber Counties | Clean Cuts Trees',
@@ -21,7 +26,7 @@ export const metadata = {
       'Clean Cuts Trees provides expert tree removal, trimming, and 24/7 emergency service across Davis & Weber Counties. Call now for fast, professional help.',
     images: [
       {
-        url: '/Emergency-Tree-Service-Team.jpg',
+        url: optimizedHeroImage,
         width: 1200,
         height: 630,
         alt: 'Clean Cuts Trees professional emergency tree service team in Davis and Weber Counties - licensed arborists for 24/7 storm damage and tree removal',
@@ -35,12 +40,16 @@ export const metadata = {
     title: 'Emergency Tree Service & Tree Care | Davis & Weber Counties | Clean Cuts Trees',
     description:
       'Clean Cuts Trees provides expert tree removal, trimming, and 24/7 emergency service across Davis & Weber Counties. Call now for fast, professional help.',
-    images: ['/Emergency-Tree-Service-Team.jpg'],
+    images: [optimizedHeroImage],
   },
 }
 
 export default async function RootLayout(props: { children: React.ReactNode }) {
   const { children } = props
+
+  // Get optimized image sources for preloading
+  const optimizedHeroImageSrc = getOptimizedImageSrc('/Emergency-Tree-Service-Team.jpg', 1280)
+  const optimizedLogoSrc = getOptimizedImageSrc('/cleancutslogo.png')
 
   return (
     <html lang="en" className={inter.variable}>
@@ -63,14 +72,14 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
 
-        {/* Critical LCP Image Preloads */}
+        {/* Critical LCP Image Preloads - Using Optimized Versions */}
         <link
           rel="preload"
           as="image"
-          href="/Emergency-Tree-Service-Team.jpg"
+          href={optimizedHeroImageSrc}
           fetchPriority="high"
         />
-        <link rel="preload" as="image" href="/cleancutslogo.png" />
+        <link rel="preload" as="image" href={optimizedLogoSrc} />
 
         {/* Font Preloading - Only critical font */}
         <link
@@ -92,6 +101,12 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
                 link.media = 'print';
                 link.onload = function() { this.media = 'all'; };
                 document.head.appendChild(link);
+                
+                // Preload critical hero image for LCP optimization - use optimized version
+                var heroImg = new Image();
+                heroImg.src = '${optimizedHeroImageSrc}';
+                heroImg.loading = 'eager';
+                heroImg.fetchPriority = 'high';
               })();
             `,
           }}
@@ -114,194 +129,24 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
         {/* Inline critical font styles for immediate rendering */}
         <style
           dangerouslySetInnerHTML={{
-            __html: `
-            :root {
-              --font-inter: ${inter.style.fontFamily};
-            }
-            
-            body {
-              font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-              font-display: swap;
-            }
-            
-            .material-symbols-outlined {
-              font-family: 'Material Symbols Outlined', system-ui, -apple-system, sans-serif;
-              font-weight: normal;
-              font-style: normal;
-              font-size: 24px;
-              line-height: 1;
-              letter-spacing: normal;
-              text-transform: none;
-              display: inline-block;
-              white-space: nowrap;
-              word-wrap: normal;
-              direction: ltr;
-              -webkit-font-feature-settings: 'liga';
-              font-feature-settings: 'liga';
-              -webkit-font-smoothing: antialiased;
-              font-display: swap;
-            }
-            
-            /* Critical CSS for hero section - Inline for immediate rendering */
-            .hero {
-              position: relative;
-              min-height: 100vh;
-              display: flex;
-              align-items: center;
-              color: white;
-              overflow: hidden;
-            }
-            
-            .hero-background-container {
-              position: absolute;
-              top: 0;
-              left: 0;
-              width: 100%;
-              height: 100%;
-              z-index: -1;
-            }
-            
-            .hero-background {
-              width: 100% !important;
-              height: 100% !important;
-              object-fit: cover;
-              object-position: center;
-            }
-            
-            .hero-content {
-              position: relative;
-              z-index: 2;
-              padding: 2rem;
-              text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            }
-            
-            .hero-title {
-              font-size: clamp(2rem, 5vw, 3.5rem);
-              font-weight: bold;
-              margin-bottom: 1rem;
-              line-height: 1.2;
-            }
-            
-            .hero-subtitle {
-              font-size: clamp(1.2rem, 3vw, 1.8rem);
-              margin-bottom: 1.5rem;
-              color: #f0f0f0;
-            }
-            
-            .hero-description {
-              font-size: clamp(1rem, 2vw, 1.1rem);
-              margin-bottom: 2rem;
-              line-height: 1.6;
-              color: #e0e0e0;
-            }
-            
-            .hero-buttons {
-              display: flex;
-              gap: 1rem;
-              flex-wrap: wrap;
-            }
-            
-            .btn {
-              display: inline-flex;
-              align-items: center;
-              justify-content: center;
-              padding: 15px 30px;
-              border-radius: 5px;
-              text-decoration: none;
-              font-weight: bold;
-              transition: all 0.3s ease;
-              border: none;
-              cursor: pointer;
-              font-size: 1rem;
-              line-height: 1;
-            }
-            
-            .btn-primary {
-              background-color: #22c55e;
-              color: white;
-            }
-            
-            .btn-primary:hover {
-              background-color: #16a34a;
-              transform: translateY(-2px);
-            }
-            
-            .btn-phone {
-              background-color: rgba(255, 255, 255, 0.1);
-              color: white;
-              border: 2px solid white;
-            }
-            
-            .btn-phone:hover {
-              background-color: white;
-              color: #333;
-            }
-            
-            .container {
-              max-width: 1200px;
-              margin: 0 auto;
-              padding: 0 1rem;
-            }
-            
-            /* Section titles - Critical for above-the-fold content */
-            .section-title {
-              display: flex;
-              justify-content: center;
-              width: 100%;
-              align-items: center;
-              font-size: clamp(2rem, 4vw, 2.5rem);
-              font-weight: bold;
-              text-align: center;
-              margin-bottom: 1rem;
-              color: #333;
+            __html: getCriticalCSS(),
+          }}
+        />
 
-            }
-            
-            .section-title::after {
-              display: none !important;
-            }
-            
-            .section-subtitle {
-              font-size: clamp(1.1rem, 2.5vw, 1.3rem);
-              text-align: center;
-              margin-bottom: 1.5rem;
-              color: #666;
-            }
-            
-            .section-description {
-              font-size: 1rem;
-              text-align: center;
-              margin-bottom: 3rem;
-              color: #555;
-              max-width: 800px;
-              margin-left: auto;
-              margin-right: auto;
-            }
-            
-            @media (max-width: 768px) {
-              .hero {
-                min-height: 70vh;
-              }
-              
-              .hero-content {
-                padding: 1rem;
-              }
-              
-              .hero-buttons {
-                flex-direction: column;
-                align-items: stretch;
-              }
-              
-              .btn {
-                padding: 12px 24px;
-                font-size: 0.9rem;
-              }
-              
-              .container {
-                padding: 0 0.5rem;
-              }
-            }
-          `,
+        {/* Load non-critical CSS asynchronously */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              // Load main styles asynchronously
+              (function() {
+                var link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.href = '/styles.css';
+                link.media = 'print';
+                link.onload = function() { this.media = 'all'; };
+                document.head.appendChild(link);
+              })();
+            `,
           }}
         />
 
@@ -319,7 +164,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
               '@context': 'https://schema.org',
               '@type': 'LocalBusiness',
               name: 'Clean Cuts Trees',
-              image: 'https://cleancutstrees.com/Emergency-Tree-Service-Team.jpg',
+              image: `https://cleancutstrees.com${optimizedHeroImage}`,
               description:
                 'Emergency tree service and tree care company serving Davis and Weber Counties, Utah. 24/7 emergency tree removal, tree trimming, and professional tree services.',
               url: 'https://cleancutstrees.com',

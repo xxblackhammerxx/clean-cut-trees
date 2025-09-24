@@ -13,6 +13,8 @@ const nextConfig = {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     // Use loader for better caching
     loader: 'default',
+    // Optimize loading for better LCP
+    unoptimized: false,
   },
 
   // Compression
@@ -101,6 +103,14 @@ const nextConfig = {
 
       // Minimize bundle size
       webpackConfig.optimization.concatenateModules = true
+      
+      // Aggressive optimization for production
+      webpackConfig.optimization.providedExports = true
+      webpackConfig.optimization.innerGraph = true
+      
+      // Optimize module resolution
+      webpackConfig.resolve.symlinks = false
+      webpackConfig.resolve.cacheWithContext = false
     }
 
     return webpackConfig
