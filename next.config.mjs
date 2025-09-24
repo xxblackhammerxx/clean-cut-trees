@@ -103,11 +103,11 @@ const nextConfig = {
 
       // Minimize bundle size
       webpackConfig.optimization.concatenateModules = true
-      
+
       // Aggressive optimization for production
       webpackConfig.optimization.providedExports = true
       webpackConfig.optimization.innerGraph = true
-      
+
       // Optimize module resolution
       webpackConfig.resolve.symlinks = false
       webpackConfig.resolve.cacheWithContext = false

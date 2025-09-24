@@ -221,19 +221,19 @@ export const getCriticalCSS = () => {
         text-align: center;
       }
     }
-  `;
-};
+  `
+}
 
 export const loadNonCriticalCSS = () => {
   if (typeof window !== 'undefined') {
     // Load non-critical CSS asynchronously
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = '/styles/non-critical.css';
-    link.media = 'print';
+    const link = document.createElement('link')
+    link.rel = 'stylesheet'
+    link.href = '/styles/non-critical.css'
+    link.media = 'print'
     link.onload = () => {
-      link.media = 'all';
-    };
-    document.head.appendChild(link);
+      link.media = 'all'
+    }
+    document.head.appendChild(link)
   }
-};
+}

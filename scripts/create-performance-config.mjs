@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { existsSync, writeFileSync } from 'fs'
+import { writeFileSync } from 'fs'
 import { join } from 'path'
 
 const PROJECT_ROOT = process.cwd()
@@ -145,7 +145,7 @@ if (require.main === module) {
 }
 
 module.exports = { analyzeBundleStats };
-`;
+`
 
 const analyzerPath = join(PROJECT_ROOT, 'scripts/analyze-bundle.js')
 writeFileSync(analyzerPath, webpackStatsAnalyzer)

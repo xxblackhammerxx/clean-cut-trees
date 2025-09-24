@@ -2,7 +2,11 @@
 
 import { existsSync, statSync } from 'fs'
 import { join } from 'path'
-import { optimizedImageMap, getOptimizedImageSrc, getOptimizedMetaImageSrc } from '../src/lib/optimized-images.js'
+import {
+  getOptimizedImageSrc,
+  getOptimizedMetaImageSrc,
+  optimizedImageMap,
+} from '../src/lib/optimized-images.js'
 
 const PROJECT_ROOT = process.cwd()
 
@@ -16,40 +20,44 @@ let filesChecked = 0
 
 for (const [originalPath, variants] of Object.entries(optimizedImageMap)) {
   console.log(`\n${originalPath}:`)
-  
+
   // Check original file
   const originalFullPath = join(PROJECT_ROOT, 'public', originalPath)
   const originalExists = existsSync(originalFullPath)
   const originalSize = originalExists ? statSync(originalFullPath).size : 0
-  
-  console.log(`  📄 Original: ${originalExists ? '✅' : '❌'} ${originalExists ? `(${(originalSize / 1024).toFixed(1)} KB)` : 'Missing'}`)
-  
+
+  console.log(
+    `  📄 Original: ${originalExists ? '✅' : '❌'} ${originalExists ? `(${(originalSize / 1024).toFixed(1)} KB)` : 'Missing'}`,
+  )
+
   // Check variants
   let variantsSavings = 0
   for (const variant of variants) {
     const variantPath = join(PROJECT_ROOT, 'public', variant.src)
     const variantExists = existsSync(variantPath)
     const variantSize = variantExists ? statSync(variantPath).size : 0
-    
+
     if (variantExists && originalExists) {
       const savings = originalSize - variantSize
       variantsSavings += savings > 0 ? savings : 0
     }
-    
+
     const status = variantExists ? '✅' : '❌'
     const sizeInfo = variantExists ? `(${(variantSize / 1024).toFixed(1)} KB)` : 'Missing'
     console.log(`    ${variant.format.toUpperCase()} ${variant.width}w: ${status} ${sizeInfo}`)
   }
-  
+
   if (originalExists && variantsSavings > 0) {
     totalSavings += variantsSavings
     console.log(`    💾 Estimated savings: ${(variantsSavings / 1024).toFixed(1)} KB`)
   }
-  
+
   filesChecked++
 }
 
-console.log(`\n📊 Total estimated savings: ${(totalSavings / 1024 / 1024).toFixed(2)} MB across ${filesChecked} image sets`)
+console.log(
+  `\n📊 Total estimated savings: ${(totalSavings / 1024 / 1024).toFixed(2)} MB across ${filesChecked} image sets`,
+)
 
 // Test image optimization functions
 console.log('\n🧪 Testing image optimization functions:')
@@ -65,12 +73,12 @@ const testCases = [
 for (const test of testCases) {
   const optimized = getOptimizedImageSrc(test.input, test.width)
   const meta = getOptimizedMetaImageSrc(test.input)
-  
+
   console.log(`\n  ${test.description}:`)
   console.log(`    Input: ${test.input}${test.width ? ` (${test.width}w)` : ''}`)
   console.log(`    Optimized: ${optimized}`)
   console.log(`    Meta: ${meta}`)
-  
+
   // Check if optimized file exists
   const optimizedPath = join(PROJECT_ROOT, 'public', optimized)
   const exists = existsSync(optimizedPath)

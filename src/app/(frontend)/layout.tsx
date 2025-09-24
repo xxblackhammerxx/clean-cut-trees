@@ -3,9 +3,9 @@ import Footer from '@/components/Footer'
 import Navbar from '@/components/Navbar'
 import WebVitals from '@/components/WebVitals'
 import WebVitalsDashboard from '@/components/WebVitalsDashboard'
+import { getCriticalCSS } from '@/lib/critical-css'
 import { inter, materialSymbolsConfig } from '@/lib/fonts'
-import { getCriticalCSS, loadNonCriticalCSS } from '@/lib/critical-css'
-import { getOptimizedMetaImageSrc, getOptimizedImageSrc } from '@/lib/optimized-images'
+import { getOptimizedImageSrc, getOptimizedMetaImageSrc } from '@/lib/optimized-images'
 import React from 'react'
 import './seo-improvements.css'
 
@@ -73,12 +73,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
 
         {/* Critical LCP Image Preloads - Using Optimized Versions */}
-        <link
-          rel="preload"
-          as="image"
-          href={optimizedHeroImageSrc}
-          fetchPriority="high"
-        />
+        <link rel="preload" as="image" href={optimizedHeroImageSrc} fetchPriority="high" />
         <link rel="preload" as="image" href={optimizedLogoSrc} />
 
         {/* Font Preloading - Only critical font */}
