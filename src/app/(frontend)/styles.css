@@ -455,9 +455,7 @@ main {
 }
 .section-title {
   font-size: 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: block;
   width: 100%;
   text-align: center;
 }
