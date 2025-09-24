@@ -453,6 +453,14 @@ main {
   background: rgba(0, 0, 0, 0.5);
   z-index: 1000;
 }
+.section-title {
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+}
 
 /* Responsive Design */
 @media (max-width: 1024px) {
@@ -744,7 +752,7 @@ body {
   gap: 1rem;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
 }
 
 .about-buttons {
@@ -991,7 +999,7 @@ body {
   }
 }
 
-      /* Section Titles */
+/* Section Titles */
 .section-subtitle {
   font-size: 1.2rem;
   text-align: center;
@@ -1487,7 +1495,6 @@ body {
 }
 
 .about-text {
-  max-width: 800px;
   margin: 0 auto;
   text-align: center;
 }
@@ -1704,9 +1711,6 @@ body {
     margin-bottom: 2rem;
   }
 
-  .section-title {
-    font-size: 2rem;
-  }
   .section-title ::after {
     display: none !important;
   }

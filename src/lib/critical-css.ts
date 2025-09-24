@@ -57,7 +57,8 @@ export const getCriticalCSS = () => {
       z-index: 2;
       padding: 2rem;
       text-shadow: 2px 2px 4px rgb(0 0 0 / 0.5);
-      max-width: 800px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
     
     .hero-title {

@@ -135,7 +135,7 @@ export default function HomePage() {
                 <li>Professional tree services for storm cleanup and debris removal</li>
               </ul>
               <div className="emergency-buttons">
-                <a href="tel:+18014737548" className="btn btn-emergency">
+                <a href="tel:+18014737548" className="btn" style={{ color: 'black' }}>
                   <span className="material-symbols-outlined">call</span>
                   Emergency: (801) 473-7548
                 </a>
@@ -172,7 +172,7 @@ export default function HomePage() {
               </div>
               <div className="gallery-image">
                 <Image
-                  src="/Emergency-tree-service2.jpg"
+                  src="/optimized/Emergency-Tree-Service-Always-Ready-640w.webp"
                   alt="Emergency tree service - hazardous tree removal by Clean Cuts Trees"
                   className="emergency-img"
                   width={400}
@@ -326,9 +326,7 @@ export default function HomePage() {
           <div className="about-content">
             <div className="about-text">
               <h2>
-                Best and Reliable Tree Services
-                <br />
-                in all of Davis, Weber, and Salt Lake Counties
+                Best and Reliable Tree Services in all of Davis, Weber, and Salt Lake Counties
               </h2>
               <p>
                 Serving all of Davis, Salt Lake and Weber County, Utah, including and nearby areas
@@ -545,10 +543,15 @@ export default function HomePage() {
               </p>
             </div>
           </div>
-
-          <div className="faq-cta">
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              marginTop: '3rem',
+            }}
+          >
             <Link href="/faq" className="btn btn-secondary">
-              DISCOVER MORE
+              SEE MORE FAQs
             </Link>
           </div>
         </div>
