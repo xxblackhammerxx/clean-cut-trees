@@ -250,10 +250,8 @@ export default async function ContactPage() {
         </div>
       </section>
 
-      {/* Original Contact Content */}
-
       {/* Emergency CTA */}
-      <section className="emergency-cta">
+      <section className="emergency-cta" style={{ margin: 'auto', marginBottom: '32px' }}>
         <div className="container">
           <div className="emergency-box">
             <h2>Emergency Tree Service?</h2>
