@@ -50,6 +50,7 @@ export default function WhyChooseUsSection() {
               <span className="material-symbols-outlined">check_circle</span>
             </div>
             <h3>100% Satisfaction Guaranteed</h3>
+            <p>*call for details*</p>
           </div>
           <div className="feature-card">
             <div className="feature-icon">
