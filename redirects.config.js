@@ -421,7 +421,7 @@ const redirects = [
   // Service URLs - ensure consistency
   {
     source: '/services/emergency-tree-damage/',
-    destination: '/services/emergency-tree-damage',
+    destination: '/services/emergency-tree-service',
     permanent: true,
   },
   {

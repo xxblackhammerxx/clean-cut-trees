@@ -26,7 +26,7 @@ export const homepageServices: ServiceData[] = [
   {
     id: '3',
     title: 'Emergency Tree Damage',
-    slug: 'emergency-tree-damage',
+    slug: 'emergency-tree-service',
   },
   {
     id: '4',
