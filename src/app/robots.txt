@@ -1,4 +1,27 @@
 User-agent: *
 Allow: /
 
+# Block legacy WordPress paths that might cause redirect issues
+Disallow: /wp-*
+Disallow: */feed/
+Disallow: */feed
+Disallow: /tag/*/feed/
+Disallow: /tag/*/feed
+Disallow: /category/*/feed/
+Disallow: /category/*/feed
+Disallow: /author/*/feed/
+Disallow: /author/*/feed
+Disallow: /*/feed/
+Disallow: /*/feed
+Disallow: /_next/static/
+Disallow: /api/
+Disallow: /divi_overlay/
+
+# Allow important paths
+Allow: /blog
+Allow: /services
+Allow: /service-areas
+Allow: /contact-us
+Allow: /about-us
+
 Sitemap: https://cleancutstrees.com/sitemap.xml

@@ -450,6 +450,223 @@ const redirects = [
     permanent: true,
   },
 
+  // RSS Feed redirects - redirect all feed URLs to main blog
+  {
+    source: '/feed',
+    destination: '/blog',
+    permanent: true,
+  },
+  {
+    source: '/feed/',
+    destination: '/blog',
+    permanent: true,
+  },
+  {
+    source: '/tag/:slug/feed',
+    destination: '/blog',
+    permanent: true,
+  },
+  {
+    source: '/tag/:slug/feed/',
+    destination: '/blog',
+    permanent: true,
+  },
+  {
+    source: '/category/:slug/feed',
+    destination: '/blog',
+    permanent: true,
+  },
+  {
+    source: '/category/:slug/feed/',
+    destination: '/blog',
+    permanent: true,
+  },
+  {
+    source: '/author/:slug/feed',
+    destination: '/blog',
+    permanent: true,
+  },
+  {
+    source: '/author/:slug/feed/',
+    destination: '/blog',
+    permanent: true,
+  },
+  {
+    source: '/:year/:month/:day/:slug/feed',
+    destination: '/blog/:slug',
+    permanent: true,
+  },
+  {
+    source: '/:year/:month/:day/:slug/feed/',
+    destination: '/blog/:slug',
+    permanent: true,
+  },
+
+  // WordPress category and tag pages - redirect to blog
+  {
+    source: '/category/:slug',
+    destination: '/blog',
+    permanent: true,
+  },
+  {
+    source: '/category/:slug/',
+    destination: '/blog',
+    permanent: true,
+  },
+  {
+    source: '/tag/:slug',
+    destination: '/blog',
+    permanent: true,
+  },
+  {
+    source: '/tag/:slug/',
+    destination: '/blog',
+    permanent: true,
+  },
+  {
+    source: '/author/:slug',
+    destination: '/blog',
+    permanent: true,
+  },
+  {
+    source: '/author/:slug/',
+    destination: '/blog',
+    permanent: true,
+  },
+
+  // Specific category redirects based on CSV data
+  {
+    source: '/category/tree-pruning',
+    destination: '/blog',
+    permanent: true,
+  },
+  {
+    source: '/category/tree-pruning/',
+    destination: '/blog',
+    permanent: true,
+  },
+  {
+    source: '/category/land-clearing-development',
+    destination: '/services/professional-land-clearing-services',
+    permanent: true,
+  },
+  {
+    source: '/category/land-clearing-development/',
+    destination: '/services/professional-land-clearing-services',
+    permanent: true,
+  },
+  {
+    source: '/category/tree-planting',
+    destination: '/blog',
+    permanent: true,
+  },
+  {
+    source: '/category/tree-planting/',
+    destination: '/blog',
+    permanent: true,
+  },
+  {
+    source: '/category/tree-removal-services',
+    destination: '/services/tree-removal',
+    permanent: true,
+  },
+  {
+    source: '/category/tree-removal-services/',
+    destination: '/services/tree-removal',
+    permanent: true,
+  },
+  {
+    source: '/category/tree-services',
+    destination: '/services',
+    permanent: true,
+  },
+  {
+    source: '/category/tree-services/',
+    destination: '/services',
+    permanent: true,
+  },
+  {
+    source: '/category/professional-tree-services',
+    destination: '/services',
+    permanent: true,
+  },
+  {
+    source: '/category/professional-tree-services/',
+    destination: '/services',
+    permanent: true,
+  },
+  {
+    source: '/category/seasonal-tree-care-guide',
+    destination: '/blog',
+    permanent: true,
+  },
+  {
+    source: '/category/seasonal-tree-care-guide/',
+    destination: '/blog',
+    permanent: true,
+  },
+  {
+    source: '/category/general-tree-related-tips',
+    destination: '/blog',
+    permanent: true,
+  },
+  {
+    source: '/category/general-tree-related-tips/',
+    destination: '/blog',
+    permanent: true,
+  },
+
+  // WordPress pagination redirects
+  {
+    source: '/blog/page/:number',
+    destination: '/blog',
+    permanent: true,
+  },
+  {
+    source: '/blog/page/:number/',
+    destination: '/blog',
+    permanent: true,
+  },
+  {
+    source: '/category/:slug/page/:number',
+    destination: '/blog',
+    permanent: true,
+  },
+  {
+    source: '/category/:slug/page/:number/',
+    destination: '/blog',
+    permanent: true,
+  },
+
+  // WordPress media and static file redirects
+  {
+    source: '/_next/static/:path*',
+    destination: '/_next/static/:path*',
+    permanent: false,
+  },
+
+  // Legacy WordPress URLs not in current redirects
+  {
+    source: '/divi_overlay/form',
+    destination: '/contact-us',
+    permanent: true,
+  },
+  {
+    source: '/divi_overlay/form/',
+    destination: '/contact-us',
+    permanent: true,
+  },
+  {
+    source: '/service',
+    destination: '/services',
+    permanent: true,
+  },
+  {
+    source: '/service/',
+    destination: '/services',
+    permanent: true,
+  },
+
   // Legacy pages that should redirect to appropriate sections
   {
     source: '/demo',
