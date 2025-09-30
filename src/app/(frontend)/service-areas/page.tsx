@@ -231,7 +231,7 @@ export default async function ServiceAreasPage() {
                 </div>
                 <h4>Quality Guaranteed</h4>
                 <p>100% satisfaction guarantee on all our tree services.</p>
-                <p>*call for details*</p>
+                <Link href="tel:+18014737548">*call for details*</Link>
               </div>
               <div className="promise-item">
                 <div className="promise-icon">
