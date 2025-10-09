@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: Props) {
   const payload = await getPayload({ config: payloadConfig })
 
   // Look for service area pages by constructing the full slug
-  const serviceAreaSlug = `service-areas-${slug}`
+  const serviceAreaSlug = `service-areas/${slug}`
 
   const pages = await payload.find({
     collection: 'pages',
@@ -55,7 +55,7 @@ export default async function ServiceAreaPage({ params }: Props) {
   const payload = await getPayload({ config: payloadConfig })
 
   // Look for service area pages by constructing the full slug
-  const serviceAreaSlug = `service-areas-${slug}`
+  const serviceAreaSlug = `service-areas/${slug}`
 
   const pages = await payload.find({
     collection: 'pages',

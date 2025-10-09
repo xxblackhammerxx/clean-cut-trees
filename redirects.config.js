@@ -57,6 +57,12 @@ const redirects = [
   // 2) Path convention fixes
   // ─────────────────────────────────────────────────────────────
   // service_areas → service-areas
+  {
+    source: '/service_areas/:slug*',
+    destination: '/service-areas/:slug*',
+    permanent: true,
+  },
+
   // City short-path fallbacks → canonical service-area slugs
   {
     source: '/service-areas/plain-city',
