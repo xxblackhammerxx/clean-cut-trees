@@ -1,27 +1,19 @@
 User-agent: *
 Allow: /
 
-# Block legacy WordPress paths that might cause redirect issues
+# Legacy / utility
 Disallow: /wp-*
-Disallow: */feed/
-Disallow: */feed
-Disallow: /tag/*/feed/
-Disallow: /tag/*/feed
-Disallow: /category/*/feed/
-Disallow: /category/*/feed
-Disallow: /author/*/feed/
-Disallow: /author/*/feed
-Disallow: /*/feed/
-Disallow: /*/feed
-Disallow: /_next/static/
-Disallow: /api/
 Disallow: /divi_overlay/
+Disallow: /api/
+Disallow: /admin/
 
-# Allow important paths
-Allow: /blog
-Allow: /services
-Allow: /service-areas
-Allow: /contact-us
-Allow: /about-us
+# Prevent indexing of Next.js JSON data routes (safe; do NOT block /_next/static/)
+Disallow: /_next/data/
+
+# Quiet all feed endpoints (sitewide)
+Disallow: /feed$
+Disallow: /feed/$
+Disallow: /*/feed$
+Disallow: /*/feed/$
 
 Sitemap: https://cleancutstrees.com/sitemap.xml

@@ -1,63 +1,67 @@
-import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
+import { NextResponse } from 'next/server'
+
+const TRACKING_PARAMS = [
+  'utm_source',
+  'utm_medium',
+  'utm_campaign',
+  'utm_term',
+  'utm_content',
+  'gclid',
+  'fbclid',
+  '_hsenc',
+  '_hsmi',
+  'ref',
+  '_rdr',
+]
 
 export function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl
-
-  // Handle common WordPress legacy patterns that might not be caught by redirects
-  
-  // RSS Feed patterns - redirect to blog
-  if (pathname.includes('/feed') || pathname.endsWith('/feed/')) {
-    const url = request.nextUrl.clone()
-    url.pathname = '/blog'
-    return NextResponse.redirect(url, 301)
+  const url = request.nextUrl
+  const { pathname, searchParams } = url
+  if (
+    pathname.startsWith('/.well-known/') ||
+    pathname === '/favicon.ico' ||
+    pathname === '/manifest.json' ||
+    pathname === '/site.webmanifest' ||
+    pathname === '/ads.txt'
+  ) {
+    return NextResponse.next()
+  }
+  // 1) Strip tracking params → canonical URL
+  let mutated = false
+  for (const p of TRACKING_PARAMS) {
+    if (searchParams.has(p)) {
+      searchParams.delete(p)
+      mutated = true
+    }
+  }
+  if (mutated) {
+    url.search = searchParams.toString()
+    return NextResponse.redirect(url, 308)
   }
 
-  // WordPress category/tag patterns
-  if (pathname.startsWith('/category/') || pathname.startsWith('/tag/') || pathname.startsWith('/author/')) {
-    const url = request.nextUrl.clone()
-    url.pathname = '/blog'
-    return NextResponse.redirect(url, 301)
+  // 2) Archives: allow crawl, drop from index (preserve equity)
+  if (
+    pathname.startsWith('/tag/') ||
+    pathname.startsWith('/category/') ||
+    pathname.startsWith('/author/')
+  ) {
+    const res = NextResponse.next()
+    res.headers.set('x-robots-tag', 'noindex, follow')
+    return res
   }
 
-  // Handle WordPress wp-content, wp-admin, etc.
-  if (pathname.startsWith('/wp-')) {
-    const url = request.nextUrl.clone()
-    url.pathname = '/'
-    return NextResponse.redirect(url, 301)
+  // 3) Exact "feed" endpoints → /blog (for humans; robots already disallows)
+  if (/(?:^|\/)feed\/?$/.test(pathname)) {
+    const to = url.clone()
+    to.pathname = '/blog'
+    to.search = ''
+    return NextResponse.redirect(to, 301)
   }
 
-  // Handle divi overlay forms
-  if (pathname.includes('divi_overlay')) {
-    const url = request.nextUrl.clone()
-    url.pathname = '/contact-us'
-    return NextResponse.redirect(url, 301)
-  }
-
-  // Handle old service patterns
-  if (pathname === '/service' || pathname === '/service/') {
-    const url = request.nextUrl.clone()
-    url.pathname = '/services'
-    return NextResponse.redirect(url, 301)
-  }
-
-  // Handle old service-area patterns
-  if (pathname === '/service-area' || pathname === '/service-area/') {
-    const url = request.nextUrl.clone()
-    url.pathname = '/service-areas'
-    return NextResponse.redirect(url, 301)
-  }
-
-  // Handle sample-page and demo pages
-  if (pathname === '/sample-page' || pathname === '/sample-page/' || pathname === '/demo' || pathname === '/demo/') {
-    const url = request.nextUrl.clone()
-    url.pathname = '/'
-    return NextResponse.redirect(url, 301)
-  }
-
-  // Log redirects in development for debugging
+  // (Optional) dev logging
   if (process.env.NODE_ENV === 'development') {
-    console.log(`[Middleware] Processing: ${pathname}`)
+    console.log(`[Middleware] ${pathname}`)
   }
 
   return NextResponse.next()
@@ -65,15 +69,7 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    /*
-     * Match all request paths except for the ones starting with:
-     * - api (API routes)
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     * - robots.txt
-     * - sitemap.xml
-     */
-    '/((?!api|_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml).*)',
+    // exclude: api, next internals, icons/manifests, robots/sitemap, ads.txt, and .well-known
+    '/((?!api|_next/static|_next/image|_next/data|favicon.ico|robots.txt|sitemap.xml|manifest.json|site.webmanifest|ads.txt|\\.well-known).*)',
   ],
 }

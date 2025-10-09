@@ -7,7 +7,9 @@ import { getCriticalCSS } from '@/lib/critical-css'
 import { inter, materialSymbolsConfig } from '@/lib/fonts'
 import { getOptimizedImageSrc, getOptimizedMetaImageSrc } from '@/lib/optimized-images'
 import React from 'react'
+import '../global.css'
 import './seo-improvements.css'
+import './styles.css'
 
 const heroImageSrc = '/Emergency-Tree-Service-Team.jpg'
 const optimizedHeroImage = getOptimizedMetaImageSrc(heroImageSrc)
@@ -127,23 +129,6 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
           }}
         />
 
-        {/* Load non-critical CSS asynchronously */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              // Load main styles asynchronously
-              (function() {
-                var link = document.createElement('link');
-                link.rel = 'stylesheet';
-                link.href = '/styles.css';
-                link.media = 'print';
-                link.onload = function() { this.media = 'all'; };
-                document.head.appendChild(link);
-              })();
-            `,
-          }}
-        />
-
         {/* HouseCallPro Online Booking Script - Defer for better performance */}
         <script
           defer
@@ -181,7 +166,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
           }}
         />
       </head>
-      <body className={inter.className}>
+      <body className={inter.className} suppressHydrationWarning={true}>
         <WebVitals debug={process.env.NODE_ENV === 'development'} />
         <WebVitalsDashboard />
         <Navbar />

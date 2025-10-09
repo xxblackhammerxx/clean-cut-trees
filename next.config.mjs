@@ -42,6 +42,7 @@ const nextConfig = {
   async redirects() {
     return redirects
   },
+  trailingSlash: false, // Handled in redirects
 
   // Webpack optimizations
   webpack: (webpackConfig, { dev, isServer }) => {

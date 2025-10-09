@@ -2,7 +2,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import BookingButton from '@/components/BookingButton'
-import OptimizedImage from '@/components/OptimizedImage'
 import {
   defaultServiceImage,
   homepageServiceAreas,
@@ -20,14 +19,13 @@ export default function HomePage() {
     <>
       {/* Hero Section */}
       <section className="hero">
-        <OptimizedImage
-          src="/Emergency-Tree-Service-Team.jpg"
+        <Image
+          src="/optimized/Emergency-Tree-Service-Team-1600w.webp"
           alt="Clean Cuts Trees professional emergency tree service team in Davis and Weber Counties - licensed arborists ready for 24/7 storm damage and tree removal"
           fill
           priority
           className="hero-background"
           sizes="100vw"
-          quality={90}
         />
         <div className="container">
           <div className="hero-content">
