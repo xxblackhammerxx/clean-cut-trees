@@ -1,6 +1,6 @@
-import Link from 'next/link'
 import OptimizedImage from '@/components/OptimizedImage'
-import { ServiceData, serviceImages, defaultServiceImage } from '@/data/homepage-data'
+import { defaultServiceImage, ServiceData, serviceImages } from '@/data/homepage-data'
+import Link from 'next/link'
 
 interface ServiceCardProps {
   service: ServiceData
@@ -30,9 +30,7 @@ export default function ServiceCard({ service, priority = false }: ServiceCardPr
       <div className="service-content">
         <h3>{service.title.replace(' - Clean Cuts Trees', '')}</h3>
         <Link href={`/services/${serviceSlug}`} className="service-link">
-          {serviceSlug === 'emergency-tree-damage' || serviceSlug === 'emergency-tree-service'
-            ? 'Get Emergency Service →'
-            : 'Learn More →'}
+          {serviceSlug === 'emergency-tree-service' ? 'Get Emergency Service →' : 'Learn More →'}
         </Link>
       </div>
     </div>

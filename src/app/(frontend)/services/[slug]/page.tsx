@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props) {
   const payload = await getPayload({ config: payloadConfig })
 
   // Look for service pages by constructing the full slug
-  const serviceSlug = `services-${slug}`
+  const serviceSlug = `services/${slug}`
 
   const pages = await payload.find({
     collection: 'pages',
@@ -55,7 +55,7 @@ export default async function ServicePage({ params }: Props) {
   const payload = await getPayload({ config: payloadConfig })
 
   // Look for service pages by constructing the full slug
-  const serviceSlug = `services-${slug}`
+  const serviceSlug = `services/${slug}`
 
   const pages = await payload.find({
     collection: 'pages',
@@ -376,7 +376,7 @@ export default async function ServicePage({ params }: Props) {
                     <Link href="/services/emergency-tree-service">Emergency Service</Link>
                   </li>
                   <li>
-                    <Link href="/services/storm-clean-up">Storm Cleanup</Link>
+                    <Link href="/services/storm-cleanup">Storm Cleanup</Link>
                   </li>
                   <li>
                     <Link href="/services/professional-land-clearing-services">Land Clearing</Link>
@@ -463,7 +463,7 @@ export async function generateStaticParams() {
     collection: 'pages',
     where: {
       slug: {
-        like: 'services-%',
+        like: 'services/%',
       },
     },
     limit: 100,
@@ -471,7 +471,7 @@ export async function generateStaticParams() {
 
   return pages.docs
     .map((page) => ({
-      slug: page.slug?.replace('services-', '') || '',
+      slug: page.slug?.replace('services/', '') || '',
     }))
     .filter((param) => param.slug !== '')
 }

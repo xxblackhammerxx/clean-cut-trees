@@ -98,8 +98,7 @@ export default function HomePage() {
                   <div className="service-content">
                     <h3>{service.title}</h3>
                     <a href={`/services/${service.slug}`} className="service-link">
-                      {service.slug === 'emergency-tree-damage' ||
-                      service.slug === 'emergency-tree-service'
+                      {service.slug === 'emergency-tree-service'
                         ? 'Get Emergency Service →'
                         : 'Learn More →'}
                     </a>

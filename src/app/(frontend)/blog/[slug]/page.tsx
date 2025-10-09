@@ -280,7 +280,7 @@ export default async function BlogPostPage({ params }: Props) {
                     <Link href="/services/emergency-tree-service">Emergency Service</Link>
                   </li>
                   <li>
-                    <Link href="/services/storm-clean-up">Storm Cleanup</Link>
+                    <Link href="/services/storm-cleanup">Storm Cleanup</Link>
                   </li>
                   <li>
                     <Link href="/services/professional-land-clearing-services">Land Clearing</Link>

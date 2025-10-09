@@ -117,7 +117,7 @@ export default async function ServiceAreasPage() {
                 <Link href="/services/tree-trimming">Tree Trimming & Pruning</Link>
               </div>
               <div className="service-item">
-                <Link href="/services/storm-clean-up">Storm Damage Cleanup</Link>
+                <Link href="/services/storm-cleanup">Storm Damage Cleanup</Link>
               </div>
               <div className="service-item">
                 <Link href="/services/professional-land-clearing-services">

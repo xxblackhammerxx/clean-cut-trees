@@ -31,7 +31,7 @@ export const homepageServices: ServiceData[] = [
   {
     id: '4',
     title: 'Storm Clean Up',
-    slug: 'storm-clean-up',
+    slug: 'storm-cleanup',
   },
   {
     id: '5',
@@ -112,8 +112,8 @@ export const homepageServiceAreas: ServiceAreaData[] = [
 export const serviceImages: { [key: string]: string } = {
   'tree-removal': '91521393324329d774d759f0d6e984de27d05cf5.jpg',
   'tree-trimming': '0429526e5171a025d4e084e303157911cde378f0.jpg',
-  'emergency-tree-damage': '8fbc39738ff1ee4ba34f327cb5ffaa34024b11eb.jpg',
-  'storm-clean-up': 'ce7b1b3d28de8121894f693f49d99deacc0fdfd9.jpg',
+  'emergency-tree-service': '8fbc39738ff1ee4ba34f327cb5ffaa34024b11eb.jpg',
+  'storm-cleanup': 'ce7b1b3d28de8121894f693f49d99deacc0fdfd9.jpg',
   'municipal-tree-service': '3360c69ff26cc8732183a7edd60e6ee6f293b9ee.jpg',
   'professional-land-clearing-services': '654766ab01c63fc2cf45c8c5bdc851dcff4ceff2.jpg',
 }

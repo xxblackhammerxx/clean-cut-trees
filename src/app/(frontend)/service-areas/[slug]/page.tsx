@@ -225,10 +225,10 @@ export default async function ServiceAreaPage({ params }: Props) {
                     <Link href="/services/tree-trimming">Tree Trimming & Pruning</Link>
                   </li>
                   <li>
-                    <Link href="/services/emergency-tree-damage">Emergency Tree Service</Link>
+                    <Link href="/services/emergency-tree-service">Emergency Tree Service</Link>
                   </li>
                   <li>
-                    <Link href="/services/storm-clean-up">Storm Damage Cleanup</Link>
+                    <Link href="/services/storm-cleanup">Storm Damage Cleanup</Link>
                   </li>
                   <li>
                     <Link href="/services/professional-land-clearing-services">Land Clearing</Link>

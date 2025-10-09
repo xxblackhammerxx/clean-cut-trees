@@ -415,10 +415,10 @@ export default async function GeneralPage({ params }: Props) {
                       <Link href="/services/tree-trimming">Tree Trimming</Link>
                     </li>
                     <li>
-                      <Link href="/services/emergency-tree-damage">Emergency Service</Link>
+                      <Link href="/services/emergency-tree-service">Emergency Service</Link>
                     </li>
                     <li>
-                      <Link href="/services/storm-clean-up">Storm Cleanup</Link>
+                      <Link href="/services/storm-cleanup">Storm Cleanup</Link>
                     </li>
                     <li>
                       <Link href="/services/professional-land-clearing-services">

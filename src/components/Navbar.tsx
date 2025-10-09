@@ -82,65 +82,80 @@ const Navbar = () => {
               Services
               <span className="dropdown-arrow">↓</span>
             </Link>
-            <div className="dropdown-menu">
+            <div className="dropdown-menu dropdown-menu-wide">
               <div className="dropdown-content">
-                <Link href="/services/emergency-tree-service" className="dropdown-item">
-                  Emergency Tree Service
-                </Link>
-                <Link href="/services/tree-removal" className="dropdown-item">
-                  Tree Removal
-                </Link>
-                <Link href="/services/safe-tree-removal" className="dropdown-item">
-                  Safe Tree Removal
-                </Link>
-                <Link href="/services/tree-trimming" className="dropdown-item">
-                  Tree Trimming & Pruning
-                </Link>
-                <Link href="/services/fruit-tree-pruning" className="dropdown-item">
-                  Fruit Tree Pruning
-                </Link>
-                <Link href="/services/storm-clean-up" className="dropdown-item">
-                  Storm Damage Cleanup
-                </Link>
-                <Link href="/services/stump-grinding" className="dropdown-item">
-                  Stump Grinding
-                </Link>
-                <Link href="/services/tree-treatment-healthcare" className="dropdown-item">
-                  Tree Treatment & Healthcare
-                </Link>
-                <Link
-                  href="/services/professional-land-clearing-services"
-                  className="dropdown-item"
-                >
-                  Land Clearing
-                </Link>
-                <Link href="/services/municipal-tree-service" className="dropdown-item">
-                  Municipal Tree Service
-                </Link>
-                <Link
-                  href="/services/commercial-property-tree-management"
-                  className="dropdown-item"
-                >
-                  Commercial Property Management
-                </Link>
-                <Link href="/services/hoa-tree-management" className="dropdown-item">
-                  HOA Tree Management
-                </Link>
-                <Link href="/services/property-management-trees" className="dropdown-item">
-                  Property Management Trees
-                </Link>
-                <Link href="/services/hazardous-tree-removal" className="dropdown-item">
-                  Hazardous Tree Removal
-                </Link>
-                <Link href="/services/falling-branches" className="dropdown-item">
-                  Falling Branches
-                </Link>
-                <Link href="/services/landscaping-tree" className="dropdown-item">
-                  Landscaping Tree
-                </Link>
-                <Link href="/services/overgrown-trees" className="dropdown-item">
-                  Overgrown Trees
-                </Link>
+                <div className="dropdown-section">
+                  <h4>Emergency Services</h4>
+                  <Link href="/services/emergency-tree-service" className="dropdown-item">
+                    Emergency Tree Service
+                  </Link>
+                  <Link href="/services/storm-cleanup" className="dropdown-item">
+                    Storm Damage Cleanup
+                  </Link>
+                  <Link href="/services/hazardous-tree-removal" className="dropdown-item">
+                    Hazardous Tree Removal
+                  </Link>
+                  <Link href="/services/falling-branches" className="dropdown-item">
+                    Falling Branches
+                  </Link>
+                </div>
+                <div className="dropdown-section">
+                  <h4>Tree Removal</h4>
+                  <Link href="/services/tree-removal" className="dropdown-item">
+                    Tree Removal
+                  </Link>
+                  <Link href="/services/safe-tree-removal" className="dropdown-item">
+                    Safe Tree Removal
+                  </Link>
+                  <Link href="/services/overgrown-trees" className="dropdown-item">
+                    Overgrown Trees
+                  </Link>
+                </div>
+                <div className="dropdown-section">
+                  <h4>Tree Trimming & Pruning</h4>
+                  <Link href="/services/tree-trimming" className="dropdown-item">
+                    Tree Trimming & Pruning
+                  </Link>
+                  <Link href="/services/fruit-tree-pruning" className="dropdown-item">
+                    Fruit Tree Pruning
+                  </Link>
+                </div>
+                <div className="dropdown-section">
+                  <h4>Property Management</h4>
+                  <Link
+                    href="/services/commercial-property-tree-management"
+                    className="dropdown-item"
+                  >
+                    Commercial Property Management
+                  </Link>
+                  <Link href="/services/hoa-tree-management" className="dropdown-item">
+                    HOA Tree Management
+                  </Link>
+                  <Link href="/services/property-management-trees" className="dropdown-item">
+                    Property Management Trees
+                  </Link>
+                  <Link href="/services/municipal-tree-service" className="dropdown-item">
+                    Municipal Tree Service
+                  </Link>
+                </div>
+                <div className="dropdown-section">
+                  <h4>Additional Services</h4>
+                  <Link href="/services/stump-grinding" className="dropdown-item">
+                    Stump Grinding
+                  </Link>
+                  <Link href="/services/tree-treatment-healthcare" className="dropdown-item">
+                    Tree Treatment & Healthcare
+                  </Link>
+                  <Link
+                    href="/services/professional-land-clearing-services"
+                    className="dropdown-item"
+                  >
+                    Land Clearing
+                  </Link>
+                  <Link href="/services/landscaping-tree" className="dropdown-item">
+                    Landscaping Tree
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -317,117 +332,140 @@ const Navbar = () => {
                 Services
               </Link>
               <div className="mobile-submenu">
-                <Link
-                  href="/services/emergency-tree-service"
-                  className="mobile-sublink"
-                  onClick={closeMenu}
-                >
-                  Emergency Tree Service
-                </Link>
-                <Link href="/services/tree-removal" className="mobile-sublink" onClick={closeMenu}>
-                  Tree Removal
-                </Link>
-                <Link
-                  href="/services/safe-tree-removal"
-                  className="mobile-sublink"
-                  onClick={closeMenu}
-                >
-                  Safe Tree Removal
-                </Link>
-                <Link href="/services/tree-trimming" className="mobile-sublink" onClick={closeMenu}>
-                  Tree Trimming & Pruning
-                </Link>
-                <Link
-                  href="/services/fruit-tree-pruning"
-                  className="mobile-sublink"
-                  onClick={closeMenu}
-                >
-                  Fruit Tree Pruning
-                </Link>
-                <Link
-                  href="/services/storm-clean-up"
-                  className="mobile-sublink"
-                  onClick={closeMenu}
-                >
-                  Storm Cleanup
-                </Link>
-                <Link
-                  href="/services/stump-grinding"
-                  className="mobile-sublink"
-                  onClick={closeMenu}
-                >
-                  Stump Grinding
-                </Link>
-                <Link
-                  href="/services/tree-treatment-healthcare"
-                  className="mobile-sublink"
-                  onClick={closeMenu}
-                >
-                  Tree Treatment & Healthcare
-                </Link>
-                <Link
-                  href="/services/professional-land-clearing-services"
-                  className="mobile-sublink"
-                  onClick={closeMenu}
-                >
-                  Land Clearing
-                </Link>
-                <Link
-                  href="/services/municipal-tree-service"
-                  className="mobile-sublink"
-                  onClick={closeMenu}
-                >
-                  Municipal Service
-                </Link>
-                <Link
-                  href="/services/commercial-property-tree-management"
-                  className="mobile-sublink"
-                  onClick={closeMenu}
-                >
-                  Commercial Property Management
-                </Link>
-                <Link
-                  href="/services/hoa-tree-management"
-                  className="mobile-sublink"
-                  onClick={closeMenu}
-                >
-                  HOA Tree Management
-                </Link>
-                <Link
-                  href="/services/property-management-trees"
-                  className="mobile-sublink"
-                  onClick={closeMenu}
-                >
-                  Property Management Trees
-                </Link>
-                <Link
-                  href="/services/hazardous-tree-removal"
-                  className="mobile-sublink"
-                  onClick={closeMenu}
-                >
-                  Hazardous Tree Removal
-                </Link>
-                <Link
-                  href="/services/falling-branches"
-                  className="mobile-sublink"
-                  onClick={closeMenu}
-                >
-                  Falling Branches
-                </Link>
-                <Link
-                  href="/services/landscaping-tree"
-                  className="mobile-sublink"
-                  onClick={closeMenu}
-                >
-                  Landscaping Tree
-                </Link>
-                <Link
-                  href="/services/overgrown-trees"
-                  className="mobile-sublink"
-                  onClick={closeMenu}
-                >
-                  Overgrown Trees
-                </Link>
+                <div className="mobile-area-group">
+                  <h5>Emergency Services</h5>
+                  <Link
+                    href="/services/emergency-tree-service"
+                    className="mobile-sublink"
+                    onClick={closeMenu}
+                  >
+                    Emergency Tree Service
+                  </Link>
+                  <Link
+                    href="/services/storm-cleanup"
+                    className="mobile-sublink"
+                    onClick={closeMenu}
+                  >
+                    Storm Damage Cleanup
+                  </Link>
+                  <Link
+                    href="/services/hazardous-tree-removal"
+                    className="mobile-sublink"
+                    onClick={closeMenu}
+                  >
+                    Hazardous Tree Removal
+                  </Link>
+                  <Link
+                    href="/services/falling-branches"
+                    className="mobile-sublink"
+                    onClick={closeMenu}
+                  >
+                    Falling Branches
+                  </Link>
+                </div>
+                <div className="mobile-area-group">
+                  <h5>Tree Removal</h5>
+                  <Link
+                    href="/services/tree-removal"
+                    className="mobile-sublink"
+                    onClick={closeMenu}
+                  >
+                    Tree Removal
+                  </Link>
+                  <Link
+                    href="/services/safe-tree-removal"
+                    className="mobile-sublink"
+                    onClick={closeMenu}
+                  >
+                    Safe Tree Removal
+                  </Link>
+                  <Link
+                    href="/services/overgrown-trees"
+                    className="mobile-sublink"
+                    onClick={closeMenu}
+                  >
+                    Overgrown Trees
+                  </Link>
+                </div>
+                <div className="mobile-area-group">
+                  <h5>Tree Trimming & Pruning</h5>
+                  <Link
+                    href="/services/tree-trimming"
+                    className="mobile-sublink"
+                    onClick={closeMenu}
+                  >
+                    Tree Trimming & Pruning
+                  </Link>
+                  <Link
+                    href="/services/fruit-tree-pruning"
+                    className="mobile-sublink"
+                    onClick={closeMenu}
+                  >
+                    Fruit Tree Pruning
+                  </Link>
+                </div>
+                <div className="mobile-area-group">
+                  <h5>Property Management</h5>
+                  <Link
+                    href="/services/commercial-property-tree-management"
+                    className="mobile-sublink"
+                    onClick={closeMenu}
+                  >
+                    Commercial Property Management
+                  </Link>
+                  <Link
+                    href="/services/hoa-tree-management"
+                    className="mobile-sublink"
+                    onClick={closeMenu}
+                  >
+                    HOA Tree Management
+                  </Link>
+                  <Link
+                    href="/services/property-management-trees"
+                    className="mobile-sublink"
+                    onClick={closeMenu}
+                  >
+                    Property Management Trees
+                  </Link>
+                  <Link
+                    href="/services/municipal-tree-service"
+                    className="mobile-sublink"
+                    onClick={closeMenu}
+                  >
+                    Municipal Tree Service
+                  </Link>
+                </div>
+                <div className="mobile-area-group">
+                  <h5>Additional Services</h5>
+                  <Link
+                    href="/services/stump-grinding"
+                    className="mobile-sublink"
+                    onClick={closeMenu}
+                  >
+                    Stump Grinding
+                  </Link>
+                  <Link
+                    href="/services/tree-treatment-healthcare"
+                    className="mobile-sublink"
+                    onClick={closeMenu}
+                  >
+                    Tree Treatment & Healthcare
+                  </Link>
+                  <Link
+                    href="/services/professional-land-clearing-services"
+                    className="mobile-sublink"
+                    onClick={closeMenu}
+                  >
+                    Land Clearing
+                  </Link>
+                  <Link
+                    href="/services/landscaping-tree"
+                    className="mobile-sublink"
+                    onClick={closeMenu}
+                  >
+                    Landscaping Tree
+                  </Link>
+                </div>
               </div>
             </div>
 
