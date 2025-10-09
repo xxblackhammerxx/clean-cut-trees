@@ -151,7 +151,11 @@ const Navbar = () => {
             onMouseEnter={() => handleDropdownToggle('areas')}
             onMouseLeave={() => setOpenDropdown(null)}
           >
-            <Link href="/service-areas" className="navbar-link dropdown-trigger">
+            <Link
+              href="/service-areas"
+              className="navbar-link dropdown-trigger"
+              style={{ minWidth: '140px' }}
+            >
               Service Areas
               <span className="dropdown-arrow">↓</span>
             </Link>
@@ -241,18 +245,15 @@ const Navbar = () => {
                 </div>
                 <div className="dropdown-section">
                   <h4>Southern Utah</h4>
-                  <Link
-                    href="/service-areas/st-george-ut-tree-service"
-                    className="dropdown-item priority-area"
-                  >
-                    St. George ⭐
+                  <Link href="/service-areas/st-george-ut-tree-service" className="dropdown-item p">
+                    St. George
                   </Link>
                 </div>
               </div>
             </div>
           </div>
 
-          <Link href="/service-partners" className="navbar-link">
+          <Link href="/service-partners" style={{ minWidth: '150px' }} className="navbar-link">
             Service Partners
           </Link>
           <Link href="/blog" className="navbar-link">

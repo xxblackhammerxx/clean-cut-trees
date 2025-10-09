@@ -82,11 +82,12 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 150px;
+  height: 120px;
 }
 
 .navbar-logo {
   display: flex;
+  min-width: 120px;
   align-items: center;
   gap: 12px;
   text-decoration: none;
@@ -124,7 +125,7 @@ main {
 .navbar-menu {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .navbar-link {
@@ -192,12 +193,12 @@ main {
 }
 
 .dropdown-menu-wide {
-  min-width: 420px;
+  min-width: 600px;
 }
 
 .dropdown-menu-wide .dropdown-content {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 16px;
 }
 
@@ -247,6 +248,7 @@ main {
 .navbar-phone {
   background: #28a745;
   color: white;
+  min-width: 180px;
   padding: 0.5rem 1rem;
   border-radius: 25px;
   text-decoration: none;
@@ -270,6 +272,12 @@ main {
   border: none;
   cursor: pointer;
   padding: 0;
+}
+
+@media (min-width: 769px) {
+  .mobile-menu-button {
+    display: none !important;
+  }
 }
 
 .hamburger-line {
@@ -472,6 +480,12 @@ main {
 
   .dropdown-menu {
     min-width: 250px;
+  }
+}
+
+@media (min-width: 769px) {
+  .navbar-menu {
+    display: flex !important;
   }
 }
 
@@ -3428,14 +3442,18 @@ body {
 }
 
 .footer-contact {
+  display: flex;
+  width: 100%;
+  gap: 16px;
   margin-bottom: 1.5rem;
 }
 
 .contact-item {
   display: flex;
-  align-items: center;
+  align-items: start;
   gap: 0.75rem;
   margin-bottom: 1.5rem;
+  min-width: 200px;
 }
 
 .contact-icon {
@@ -4504,7 +4522,7 @@ body {
 
 .service-details {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(2, minmax(300px, 2fr));
   gap: 2rem;
   margin-top: 3rem;
 }

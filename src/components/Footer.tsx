@@ -82,6 +82,9 @@ const Footer = () => {
                 <Link href="/service-areas/clearfield-ut-tree-service">Clearfield</Link>
               </li>
               <li>
+                <Link href="/service-areas/woods-cross-ut-tree-service">Woods Cross</Link>
+              </li>
+              <li>
                 <span className="county-label">WEBER COUNTY:</span>
               </li>
               <li>
@@ -97,16 +100,40 @@ const Footer = () => {
                 <Link href="/service-areas/riverdale-ut-tree-service">Riverdale</Link>
               </li>
               <li>
+                <Link href="/service-areas/south-weber-ut-tree-service">South Weber</Link>
+              </li>
+              <li>
                 <span className="county-label">SALT LAKE COUNTY:</span>
+              </li>
+              <li>
+                <Link href="/service-areas/salt-lake-city-ut-tree-service">Salt Lake City</Link>
+              </li>
+              <li>
+                <Link href="/service-areas/west-valley-city-ut-tree-service">West Valley City</Link>
+              </li>
+              <li>
+                <Link href="/service-areas/murray-ut-tree-service">Murray</Link>
+              </li>
+              <li>
+                <Link href="/service-areas/sandy-ut-tree-service">Sandy</Link>
               </li>
               <li>
                 <Link href="/service-areas/north-salt-lake-ut-tree-service">North Salt Lake</Link>
               </li>
               <li>
-                <Link href="/service-areas/south-weber-ut-tree-service">South Weber</Link>
+                <Link href="/service-areas/south-jordan-ut-tree-service">South Jordan</Link>
               </li>
               <li>
-                <Link href="/service-areas/woods-cross-ut-tree-service">Woods Cross</Link>
+                <Link href="/service-areas/west-jordan-ut-tree-service">West Jordan</Link>
+              </li>
+              <li>
+                <Link href="/service-areas/draper-ut-tree-service">Draper</Link>
+              </li>
+              <li>
+                <span className="county-label">SOUTHERN UTAH:</span>
+              </li>
+              <li>
+                <Link href="/service-areas/st-george-ut-tree-service">St. George ⭐</Link>
               </li>
             </ul>
           </div>

@@ -18,26 +18,27 @@ declare global {
   }
 }
 
-export default function BookingButton({ 
-  variant = 'primary', 
-  size = 'medium', 
+export default function BookingButton({
+  variant = 'primary',
+  size = 'medium',
   className = '',
-  children = 'Book Online'
+  children = 'Book Online',
 }: BookingButtonProps) {
   const baseClasses = 'hcp-button'
   const variantClasses = {
     primary: 'btn btn-primary',
-    secondary: 'btn btn-secondary', 
-    outline: 'btn btn-outline'
+    secondary: 'btn btn-secondary',
+    outline: 'btn btn-outline',
   }
-  
+
   const sizeClasses = {
     small: 'btn-small',
     medium: '',
-    large: 'btn-large'
+    large: 'btn-large',
   }
-  
-  const buttonClasses = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`.trim()
+
+  const buttonClasses =
+    `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`.trim()
 
   const handleClick = () => {
     if (typeof window !== 'undefined' && window.HCPWidget) {
@@ -49,11 +50,12 @@ export default function BookingButton({
   }
 
   return (
-    <button 
-      data-token="b4a00fdb66b64c1da2f367aa3c485101" 
-      data-orgname="Clean-Cuts-Trees" 
+    <button
+      data-token="b4a00fdb66b64c1da2f367aa3c485101"
+      data-orgname="Clean-Cuts-Trees"
       className={buttonClasses}
       onClick={handleClick}
+      style={{ minWidth: '120px' }}
     >
       {children}
     </button>
