@@ -80,10 +80,6 @@
   transition: color 0.3s ease;
 }
 
-.service-link:hover {
-  color: #16a34a;
-}
-
 /* Loading skeleton for lazy components */
 .loading-skeleton {
   border-radius: 8px;
