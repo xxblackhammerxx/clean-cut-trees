@@ -1,5 +1,8 @@
 import FloatingBookingButton from '@/components/FloatingBookingButton'
 import Footer from '@/components/Footer'
+import GoogleAnalytics from '@/components/GoogleAnalytics'
+import GoogleTagManager from '@/components/GoogleTagManager'
+import GoogleTagManagerNoScript from '@/components/GoogleTagManagerNoScript'
 import Navbar from '@/components/Navbar'
 import WebVitals from '@/components/WebVitals'
 import WebVitalsDashboard from '@/components/WebVitalsDashboard'
@@ -52,6 +55,10 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   const optimizedHeroImageSrc = getOptimizedImageSrc('/Emergency-Tree-Service-Team.jpg', 1280)
   const optimizedLogoSrc = getOptimizedImageSrc('/cleancutslogo.png')
 
+  // Google tracking IDs
+  const gaId = 'G-XXXXXXXXXX' // Replace with your actual Google Analytics 4 ID when you get it
+  const gtmId = 'GTM-WLVGKH2M'
+
   return (
     <html lang="en" className={inter.variable}>
       <head>
@@ -66,8 +73,13 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
         <link rel="dns-prefetch" href="//vercel.app" />
         <link rel="dns-prefetch" href="//cleancutstrees.com" />
         <link rel="dns-prefetch" href="//online-booking.housecallpro.com" />
+        <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="//www.google-analytics.com" />
+        <link rel="dns-prefetch" href="//analytics.google.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://www.google-analytics.com" />
 
         {/* Add missing preconnect for Google Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -165,8 +177,16 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
             }),
           }}
         />
+        {/* Google Analytics */}
+        {gaId !== 'G-XXXXXXXXXX' && <GoogleAnalytics gaId={gaId} />}
+
+        {/* Google Tag Manager */}
+        <GoogleTagManager gtmId={gtmId} />
       </head>
       <body className={inter.className} suppressHydrationWarning={true}>
+        {/* Google Tag Manager (noscript) - Must be immediately after opening body tag */}
+        <GoogleTagManagerNoScript gtmId={gtmId} />
+
         <WebVitals debug={process.env.NODE_ENV === 'development'} />
         <WebVitalsDashboard />
         <Navbar />

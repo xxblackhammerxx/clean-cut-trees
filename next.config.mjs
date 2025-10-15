@@ -147,6 +147,11 @@ const nextConfig = {
             key: 'Referrer-Policy',
             value: 'origin-when-cross-origin',
           },
+          {
+            key: 'Content-Security-Policy',
+            value:
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://tagmanager.google.com https://online-booking.housecallpro.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com;",
+          },
         ],
       },
       {
