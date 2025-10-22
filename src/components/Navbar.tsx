@@ -268,9 +268,9 @@ const Navbar = () => {
             </div>
           </div>
 
-          <Link href="/service-partners" style={{ minWidth: '150px' }} className="navbar-link">
+          {/* <Link href="/service-partners" style={{ minWidth: '150px' }} className="navbar-link">
             Service Partners
-          </Link>
+          </Link> */}
           <Link href="/blog" className="navbar-link">
             Blog
           </Link>
@@ -641,9 +641,9 @@ const Navbar = () => {
               </div>
             </div>
 
-            <Link href="/service-partners" className="mobile-link" onClick={closeMenu}>
+            {/* <Link href="/service-partners" className="mobile-link" onClick={closeMenu}>
               Service Partners
-            </Link>
+            </Link> */}
             <Link href="/blog" className="mobile-link" onClick={closeMenu}>
               Blog
             </Link>
