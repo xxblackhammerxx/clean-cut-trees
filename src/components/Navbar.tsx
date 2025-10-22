@@ -640,7 +640,7 @@ const Navbar = () => {
                 </div>
               </div>
             </div>
-
+            {/* TODO: bring back when we have actual partners */}
             {/* <Link href="/service-partners" className="mobile-link" onClick={closeMenu}>
               Service Partners
             </Link> */}
