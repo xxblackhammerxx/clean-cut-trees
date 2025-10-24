@@ -7,6 +7,13 @@ export const BlogPosts: CollectionConfig = {
     defaultColumns: ['title', 'publishedDate', 'status'],
     description: 'Manage blog posts and articles',
   },
+  access: {
+    // Uncomment these if you want public API access:
+    // create: () => true, // Allow anyone to create blog posts
+    // read: () => true,   // Allow anyone to read blog posts
+    // update: ({ req: { user } }) => !!user, // Only authenticated users can update
+    // delete: ({ req: { user } }) => !!user, // Only authenticated users can delete
+  },
   fields: [
     {
       name: 'title',
@@ -24,6 +31,33 @@ export const BlogPosts: CollectionConfig = {
     {
       name: 'content',
       type: 'richText',
+    },
+    {
+      name: 'faq',
+      type: 'array',
+      label: 'Frequently Asked Questions',
+      admin: {
+        description: 'Add FAQ section to your blog post',
+        initCollapsed: true,
+      },
+      fields: [
+        {
+          name: 'question',
+          type: 'text',
+          required: true,
+          admin: {
+            description: 'The question being asked',
+          },
+        },
+        {
+          name: 'answer',
+          type: 'richText',
+          required: true,
+          admin: {
+            description: 'The answer to the question',
+          },
+        },
+      ],
     },
     {
       name: 'excerpt',
