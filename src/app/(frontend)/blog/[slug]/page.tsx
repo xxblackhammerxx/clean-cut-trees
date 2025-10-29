@@ -4,6 +4,7 @@ import { getPayload } from 'payload'
 
 import config from '@/payload.config'
 
+import PageSidebar from '@/components/PageSidebar'
 type Props = {
   params: Promise<{
     slug: string
@@ -248,46 +249,7 @@ export default async function BlogPostPage({ params }: Props) {
               )}
             </div>
 
-            {/* Sidebar */}
-            <aside className="post-sidebar">
-              <div className="sidebar-widget cta-widget">
-                <h3>Need Professional Tree Service?</h3>
-                <p>Our certified arborists are ready to help with all your tree care needs.</p>
-                <Link href="/contact-us" className="btn btn-primary">
-                  Get Free Estimate
-                </Link>
-                <Link href="tel:+18014737548" className="btn btn-phone">
-                  <span
-                    className="material-symbols-outlined"
-                    style={{ verticalAlign: 'middle', fontSize: 20, marginRight: 4 }}
-                  >
-                    call
-                  </span>
-                  (801) 473-7548
-                </Link>
-              </div>
-
-              <div className="sidebar-widget">
-                <h3>Our Services</h3>
-                <ul className="services-list">
-                  <li>
-                    <Link href="/services/tree-removal">Tree Removal</Link>
-                  </li>
-                  <li>
-                    <Link href="/services/tree-trimming">Tree Trimming</Link>
-                  </li>
-                  <li>
-                    <Link href="/services/emergency-tree-service">Emergency Service</Link>
-                  </li>
-                  <li>
-                    <Link href="/services/storm-cleanup">Storm Cleanup</Link>
-                  </li>
-                  <li>
-                    <Link href="/services/professional-land-clearing-services">Land Clearing</Link>
-                  </li>
-                </ul>
-              </div>
-            </aside>
+            <PageSidebar />
           </div>
         </div>
       </article>

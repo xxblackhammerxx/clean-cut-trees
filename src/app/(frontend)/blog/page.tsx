@@ -4,6 +4,7 @@ import { getPayload } from 'payload'
 import BookingButton from '@/components/BookingButton'
 import config from '@/payload.config'
 
+import PageSidebar from '@/components/PageSidebar'
 export const metadata = {
   title: 'Blog - Clean Cuts Trees | Tree Care Tips & News',
   description:
@@ -149,56 +150,7 @@ export default async function BlogPage() {
               )}
             </div>
 
-            {/* Sidebar */}
-            <aside className="blog-sidebar">
-              <div className="sidebar-widget">
-                <h3>Categories</h3>
-                <ul className="category-list">
-                  {categories.docs.map(
-                    (category: {
-                      id: string | number
-                      slug?: string | null
-                      title?: string | null
-                    }) => (
-                      <li key={category.id}>
-                        <Link href={`/blog?category=${category.slug}`}>
-                          {category.title?.replace(' - Clean Cuts Trees', '') || 'Category'}
-                        </Link>
-                      </li>
-                    ),
-                  )}
-                </ul>
-              </div>
-
-              <div className="sidebar-widget">
-                <h3>Popular Topics</h3>
-                <ul className="topics-list">
-                  <li>
-                    <Link href="/blog?tag=tree-removal">Tree Removal</Link>
-                  </li>
-                  <li>
-                    <Link href="/blog?tag=tree-trimming">Tree Trimming</Link>
-                  </li>
-                  <li>
-                    <Link href="/blog?tag=tree-pruning">Tree Pruning</Link>
-                  </li>
-                  <li>
-                    <Link href="/blog?tag=emergency-service">Emergency Service</Link>
-                  </li>
-                  <li>
-                    <Link href="/blog?tag=storm-damage">Storm Damage</Link>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="sidebar-widget cta-widget">
-                <h3>Need Tree Service?</h3>
-                <p>Get a free estimate from Utah&apos;s trusted tree service professionals.</p>
-                <BookingButton variant="primary" size="medium">
-                  Get Free Estimate
-                </BookingButton>
-              </div>
-            </aside>
+            <PageSidebar />
           </div>
         </div>
       </section>
