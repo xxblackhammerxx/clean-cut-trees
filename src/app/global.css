@@ -43,3 +43,7 @@
     color: white;
   }
 }
+
+.service-list {
+  list-style-type: disc;
+}

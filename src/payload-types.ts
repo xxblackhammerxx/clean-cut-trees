@@ -269,6 +269,36 @@ export interface BlogPost {
     [k: string]: unknown;
   } | null;
   /**
+   * Add FAQ section to your blog post
+   */
+  faq?:
+    | {
+        /**
+         * The question being asked
+         */
+        question: string;
+        /**
+         * The answer to the question
+         */
+        answer: {
+          root: {
+            type: string;
+            children: {
+              type: string;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  /**
    * Brief description for blog listing and SEO
    */
   excerpt?: string | null;
@@ -582,6 +612,13 @@ export interface BlogPostsSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
   content?: T;
+  faq?:
+    | T
+    | {
+        question?: T;
+        answer?: T;
+        id?: T;
+      };
   excerpt?: T;
   featuredImage?: T;
   publishedDate?: T;
