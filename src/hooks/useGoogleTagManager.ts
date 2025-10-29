@@ -5,13 +5,13 @@ import { useCallback } from 'react'
 // Extend the global window object to include dataLayer
 declare global {
   interface Window {
-    dataLayer: any[]
+    dataLayer: Record<string, unknown>[]
   }
 }
 
 export interface GTMEvent {
   event: string
-  [key: string]: any
+  [key: string]: unknown
 }
 
 export const useGoogleTagManager = () => {

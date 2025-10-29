@@ -212,7 +212,7 @@ export default async function ServicesPage() {
                     style={{ verticalAlign: 'middle', fontSize: 20, marginRight: 4 }}
                   >
                     call
-                  </span>{' '}
+                  </span>
                   (801) 473-7548
                 </Link>
               </div>
@@ -229,7 +229,7 @@ export default async function ServicesPage() {
                     style={{ verticalAlign: 'middle', fontSize: 22, marginRight: 4 }}
                   >
                     workspace_premium
-                  </span>{' '}
+                  </span>
                   Licensed & Insured
                 </h4>
                 <p>Fully licensed, bonded, and insured for your peace of mind.</p>
@@ -241,7 +241,7 @@ export default async function ServicesPage() {
                     style={{ verticalAlign: 'middle', fontSize: 22, marginRight: 4 }}
                   >
                     bolt
-                  </span>{' '}
+                  </span>
                   Emergency Tree Service
                 </h4>
                 <p>Available around the clock for storm damage and emergencies.</p>
@@ -253,7 +253,7 @@ export default async function ServicesPage() {
                     style={{ verticalAlign: 'middle', fontSize: 22, marginRight: 4 }}
                   >
                     savings
-                  </span>{' '}
+                  </span>
                   Free Estimates
                 </h4>
                 <p>No-obligation quotes for all our tree services.</p>
@@ -265,7 +265,7 @@ export default async function ServicesPage() {
                     style={{ verticalAlign: 'middle', fontSize: 22, marginRight: 4 }}
                   >
                     diversity_3
-                  </span>{' '}
+                  </span>
                   Family Owned
                 </h4>
                 <p>Local, family-owned business serving Utah since 2010.</p>

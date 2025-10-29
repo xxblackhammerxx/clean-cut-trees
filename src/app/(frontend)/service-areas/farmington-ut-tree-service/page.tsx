@@ -22,7 +22,6 @@ export default function ServiceAreasfarmingtonUtTreeServicePage() {
               </header>
 
               <div className="page-content-body">
-                {' '}
                 <StructuredData cityName="Farmington" phoneNumber="(801) 473-7548" />
                 <div className="markdown-content service-area-content">
                   <h2 className="service-heading section-heading">
@@ -38,7 +37,7 @@ export default function ServiceAreasfarmingtonUtTreeServicePage() {
                   </p>
 
                   <h2 className="service-heading section-heading">
-                    Local Expertise: Understanding Farmington's Urban Canopy
+                    Local Expertise: Understanding Farmington&apos;s Urban Canopy
                   </h2>
 
                   <p className="service-paragraph section-paragraph">
@@ -68,7 +67,7 @@ export default function ServiceAreasfarmingtonUtTreeServicePage() {
                   </h3>
 
                   <p className="service-paragraph section-paragraph">
-                    Our arborists maintain detailed knowledge of each species' requirements:
+                    Our arborists maintain detailed knowledge of each species&apos; requirements:
                   </p>
 
                   <ul className="service-list section-list">
@@ -91,7 +90,7 @@ export default function ServiceAreasfarmingtonUtTreeServicePage() {
                   </h2>
 
                   <p className="service-paragraph section-paragraph">
-                    Farmington's unique location and environmental conditions present specific
+                    Farmington&apos;s unique location and environmental conditions present specific
                     challenges that our experienced team addresses with proven, scientific
                     approaches:
                   </p>
@@ -104,7 +103,7 @@ export default function ServiceAreasfarmingtonUtTreeServicePage() {
                     Historic irrigation systems: Our team has developed specialized protocols to
                     address this common issue in Farmington. Through comprehensive assessment and
                     targeted treatment plans, we provide effective solutions that protect your
-                    trees' long-term health.
+                    trees&apos; long-term health.
                   </p>
 
                   <p className="service-paragraph section-paragraph">
@@ -124,7 +123,7 @@ export default function ServiceAreasfarmingtonUtTreeServicePage() {
                   </h3>
 
                   <p className="service-paragraph section-paragraph">
-                    We provide specialized services tailored to Farmington's distinct areas:
+                    We provide specialized services tailored to Farmington&apos;s distinct areas:
                   </p>
 
                   <p className="service-paragraph section-paragraph">
@@ -140,7 +139,7 @@ export default function ServiceAreasfarmingtonUtTreeServicePage() {
                   </p>
 
                   <p className="service-paragraph section-paragraph">
-                    East bench: Our specialized knowledge of this area's environmental factors
+                    East bench: Our specialized knowledge of this area&apos;s environmental factors
                     ensures optimal tree care outcomes for residents and businesses.
                   </p>
 
@@ -186,7 +185,7 @@ export default function ServiceAreasfarmingtonUtTreeServicePage() {
 
                   <p className="service-paragraph section-paragraph">
                     Our ISA-certified arborists employ scientifically-proven pruning techniques
-                    specifically adapted to Farmington's environmental conditions:
+                    specifically adapted to Farmington&apos;s environmental conditions:
                   </p>
 
                   <p className="service-paragraph section-paragraph">
@@ -206,7 +205,7 @@ export default function ServiceAreasfarmingtonUtTreeServicePage() {
                   </p>
 
                   <p className="service-paragraph section-paragraph">
-                    Seasonal Timing: Our pruning schedules are optimized for Farmington's climate
+                    Seasonal Timing: Our pruning schedules are optimized for Farmington&apos;s climate
                     patterns to promote rapid healing and minimize stress.
                   </p>
 
@@ -215,7 +214,7 @@ export default function ServiceAreasfarmingtonUtTreeServicePage() {
                   </h3>
 
                   <p className="service-paragraph section-paragraph">
-                    Farmington's weather patterns can create urgent tree care situations. Our
+                    Farmington&apos;s weather patterns can create urgent tree care situations. Our
                     emergency response team provides immediate assistance for:
                   </p>
 
@@ -335,7 +334,7 @@ export default function ServiceAreasfarmingtonUtTreeServicePage() {
                   </h3>
 
                   <p className="service-paragraph section-paragraph">
-                    We're proud to provide specialized care for trees near Farmington Bay, Lagoon
+                    We&apos;re proud to provide specialized care for trees near Farmington Bay, Lagoon
                     Amusement Park area, Historic downtown, ensuring these community assets remain
                     healthy and beautiful for future generations.
                   </p>
@@ -367,7 +366,7 @@ export default function ServiceAreasfarmingtonUtTreeServicePage() {
                       Utah state contractor licensing and bonding
                     </li>
                     <li className="service-list-item section-list-item">
-                      Comprehensive liability and workers' compensation insurance
+                      Comprehensive liability and workers&apos; compensation insurance
                     </li>
                     <li className="service-list-item section-list-item">
                       Ongoing professional development and training
@@ -448,7 +447,7 @@ export default function ServiceAreasfarmingtonUtTreeServicePage() {
                   </h3>
 
                   <p className="service-paragraph section-paragraph">
-                    Farmington's summer conditions require specialized attention:
+                    Farmington&apos;s summer conditions require specialized attention:
                   </p>
 
                   <ul className="service-list section-list">
@@ -474,7 +473,7 @@ export default function ServiceAreasfarmingtonUtTreeServicePage() {
                   </h3>
 
                   <p className="service-paragraph section-paragraph">
-                    Preparing trees for Farmington's winter conditions:
+                    Preparing trees for Farmington&apos;s winter conditions:
                   </p>
 
                   <ul className="service-list section-list">
@@ -632,7 +631,7 @@ export default function ServiceAreasfarmingtonUtTreeServicePage() {
                   </p>
 
                   <p className="service-paragraph section-paragraph">
-                    "The arborists' expertise in handling our mature trees was evident from their
+                    "The arborists&apos; expertise in handling our mature trees was evident from their
                     initial assessment through project completion. Highly recommend their services."
                     - Jennifer L., Farmington property owner
                   </p>
@@ -642,7 +641,7 @@ export default function ServiceAreasfarmingtonUtTreeServicePage() {
                   </h2>
 
                   <p className="service-paragraph section-paragraph">
-                    When you choose Clean Cuts Trees for your Farmington property, you're partnering
+                    When you choose Clean Cuts Trees for your Farmington property, you&apos;re partnering
                     with true tree care professionals who combine extensive local experience with
                     industry-leading expertise. Our commitment to safety, quality, and customer
                     satisfaction has made us the trusted choice for hundreds of Farmington
@@ -650,9 +649,9 @@ export default function ServiceAreasfarmingtonUtTreeServicePage() {
                   </p>
 
                   <p className="service-paragraph section-paragraph">
-                    Don't compromise on the health and safety of your trees. Contact our
+                    Don&apos;t compromise on the health and safety of your trees. Contact our
                     ISA-certified arborists today for a comprehensive evaluation of your tree care
-                    needs. We're available 24/7 for emergencies and offer convenient scheduling for
+                    needs. We&apos;re available 24/7 for emergencies and offer convenient scheduling for
                     routine services throughout Davis County.
                   </p>
 
@@ -670,20 +669,6 @@ export default function ServiceAreasfarmingtonUtTreeServicePage() {
                     tree health care. Licensed, insured, and ISA-certified arborists available
                     24/7.*
                   </p>
-
-                  <p className="service-paragraph section-paragraph">---</p>
-
-                  <p className="service-paragraph section-paragraph">
-                    Word Count: Approximately 1,650 words
-                  </p>
-
-                  <p className="service-paragraph section-paragraph">
-                    Service Area: Farmington, Davis County, Utah (84025)
-                  </p>
-
-                  <p className="service-paragraph section-paragraph">
-                    Focus: Historic tree preservation and water management
-                  </p>
                 </div>
               </div>
 
@@ -691,7 +676,7 @@ export default function ServiceAreasfarmingtonUtTreeServicePage() {
               <div className="service-area-cta">
                 <div className="cta-box">
                   <h3>Serving Farmington</h3>
-                  <p>We're proud to provide professional tree services to this community.</p>
+                  <p>We&apos;re proud to provide professional tree services to this community.</p>
                   <div className="cta-buttons">
                     <Link href="/contact-us" className="btn btn-primary">
                       Schedule Service
@@ -708,7 +693,7 @@ export default function ServiceAreasfarmingtonUtTreeServicePage() {
             <aside className="page-sidebar">
               <div className="sidebar-widget cta-widget">
                 <h3>Need Tree Service?</h3>
-                <p>Get expert tree care from Utah's most trusted professionals.</p>
+                <p>Get expert tree care from Utah&apos;s most trusted professionals.</p>
                 <Link href="/contact-us" className="btn btn-primary">
                   Free Estimate
                 </Link>
@@ -718,7 +703,7 @@ export default function ServiceAreasfarmingtonUtTreeServicePage() {
                     style={{ verticalAlign: 'middle', fontSize: 20, marginRight: 4 }}
                   >
                     call
-                  </span>{' '}
+                  </span>
                   (801) 473-7548
                 </Link>
               </div>
@@ -753,7 +738,7 @@ export default function ServiceAreasfarmingtonUtTreeServicePage() {
                       style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}
                     >
                       check_circle
-                    </span>{' '}
+                    </span>
                     Licensed & Insured
                   </li>
                   <li>
@@ -762,7 +747,7 @@ export default function ServiceAreasfarmingtonUtTreeServicePage() {
                       style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}
                     >
                       check_circle
-                    </span>{' '}
+                    </span>
                     24/7 Emergency Service
                   </li>
                   <li>
@@ -771,7 +756,7 @@ export default function ServiceAreasfarmingtonUtTreeServicePage() {
                       style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}
                     >
                       check_circle
-                    </span>{' '}
+                    </span>
                     Free Estimates
                   </li>
                   <li>
@@ -780,7 +765,7 @@ export default function ServiceAreasfarmingtonUtTreeServicePage() {
                       style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}
                     >
                       check_circle
-                    </span>{' '}
+                    </span>
                     Family Owned & Operated
                   </li>
                   <li>
@@ -789,7 +774,7 @@ export default function ServiceAreasfarmingtonUtTreeServicePage() {
                       style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}
                     >
                       check_circle
-                    </span>{' '}
+                    </span>
                     Professional Equipment
                   </li>
                   <li>
@@ -798,7 +783,7 @@ export default function ServiceAreasfarmingtonUtTreeServicePage() {
                       style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}
                     >
                       check_circle
-                    </span>{' '}
+                    </span>
                     Satisfaction Guaranteed
                   </li>
                 </ul>

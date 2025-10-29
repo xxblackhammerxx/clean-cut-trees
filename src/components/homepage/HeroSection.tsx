@@ -39,7 +39,7 @@ export default function HeroSection() {
               style={{ verticalAlign: 'middle', fontSize: 20, marginRight: 4 }}
             >
               call
-            </span>{' '}
+            </span>
             (801) 473-7548
           </a>
         </div>

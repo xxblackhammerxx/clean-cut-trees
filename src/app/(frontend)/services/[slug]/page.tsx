@@ -333,7 +333,7 @@ export default async function ServicePage({ params }: Props) {
                         style={{ verticalAlign: 'middle', fontSize: 20, marginRight: 4 }}
                       >
                         call
-                      </span>{' '}
+                      </span>
                       (801) 473-7548
                     </Link>
                   </div>
@@ -358,7 +358,7 @@ export default async function ServicePage({ params }: Props) {
                     style={{ verticalAlign: 'middle', fontSize: 20, marginRight: 4 }}
                   >
                     call
-                  </span>{' '}
+                  </span>
                   (801) 473-7548
                 </Link>
               </div>
@@ -396,7 +396,7 @@ export default async function ServicePage({ params }: Props) {
                       style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}
                     >
                       check_circle
-                    </span>{' '}
+                    </span>
                     Licensed & Insured
                   </li>
                   <li>
@@ -405,7 +405,7 @@ export default async function ServicePage({ params }: Props) {
                       style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}
                     >
                       check_circle
-                    </span>{' '}
+                    </span>
                     24/7 Emergency Service
                   </li>
                   <li>
@@ -414,7 +414,7 @@ export default async function ServicePage({ params }: Props) {
                       style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}
                     >
                       check_circle
-                    </span>{' '}
+                    </span>
                     Free Estimates
                   </li>
                   <li>
@@ -423,7 +423,7 @@ export default async function ServicePage({ params }: Props) {
                       style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}
                     >
                       check_circle
-                    </span>{' '}
+                    </span>
                     Family Owned & Operated
                   </li>
                   <li>
@@ -432,7 +432,7 @@ export default async function ServicePage({ params }: Props) {
                       style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}
                     >
                       check_circle
-                    </span>{' '}
+                    </span>
                     Professional Equipment
                   </li>
                   <li>
@@ -441,7 +441,7 @@ export default async function ServicePage({ params }: Props) {
                       style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}
                     >
                       check_circle
-                    </span>{' '}
+                    </span>
                     Satisfaction Guaranteed
                   </li>
                 </ul>

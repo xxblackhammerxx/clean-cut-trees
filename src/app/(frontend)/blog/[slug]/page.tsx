@@ -262,7 +262,7 @@ export default async function BlogPostPage({ params }: Props) {
                     style={{ verticalAlign: 'middle', fontSize: 20, marginRight: 4 }}
                   >
                     call
-                  </span>{' '}
+                  </span>
                   (801) 473-7548
                 </Link>
               </div>

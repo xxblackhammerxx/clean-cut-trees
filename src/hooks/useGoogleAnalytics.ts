@@ -5,8 +5,8 @@ import { useCallback } from 'react'
 // Extend the global window object to include gtag
 declare global {
   interface Window {
-    gtag: (command: string, targetId: string, config?: any) => void
-    dataLayer: any[]
+    gtag: (command: string, targetId: string, config?: Record<string, unknown>) => void
+    dataLayer: Record<string, unknown>[]
   }
 }
 
@@ -15,7 +15,7 @@ export interface EventOptions {
   category: string
   label?: string
   value?: number
-  custom_parameters?: Record<string, any>
+  custom_parameters?: Record<string, unknown>
 }
 
 export const useGoogleAnalytics = () => {

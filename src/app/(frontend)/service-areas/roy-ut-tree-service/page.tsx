@@ -10,9 +10,6 @@ export const metadata: Metadata = {
 }
 
 export default function ServiceAreasroyUtTreeServicePage() {
-  const isServicePage = false
-  const isServiceAreaPage = true
-
   return (
     <div className="general-page">
       <article className="page-content">
@@ -24,7 +21,6 @@ export default function ServiceAreasroyUtTreeServicePage() {
               </header>
 
               <div className="page-content-body">
-                {' '}
                 <StructuredData cityName="Roy" phoneNumber="(801) 473-7548" />
                 <div className="markdown-content service-area-content">
                   <h2 className="service-heading section-heading">
@@ -40,7 +36,7 @@ export default function ServiceAreasroyUtTreeServicePage() {
                   </p>
 
                   <h2 className="service-heading section-heading">
-                    Local Expertise: Understanding Roy's Urban Canopy
+                    Local Expertise: Understanding Roy&apos;s Urban Canopy
                   </h2>
 
                   <p className="service-paragraph section-paragraph">
@@ -70,7 +66,7 @@ export default function ServiceAreasroyUtTreeServicePage() {
                   </h3>
 
                   <p className="service-paragraph section-paragraph">
-                    Our arborists maintain detailed knowledge of each species' requirements:
+                    Our arborists maintain detailed knowledge of each species&apos; requirements:
                   </p>
 
                   <ul className="service-list section-list">
@@ -93,7 +89,7 @@ export default function ServiceAreasroyUtTreeServicePage() {
                   </h2>
 
                   <p className="service-paragraph section-paragraph">
-                    Roy's unique location and environmental conditions present specific challenges
+                    Roy&apos;s unique location and environmental conditions present specific challenges
                     that our experienced team addresses with proven, scientific approaches:
                   </p>
 
@@ -104,7 +100,7 @@ export default function ServiceAreasroyUtTreeServicePage() {
                   <p className="service-paragraph section-paragraph">
                     Wind exposure from west: Our team has developed specialized protocols to address
                     this common issue in Roy. Through comprehensive assessment and targeted
-                    treatment plans, we provide effective solutions that protect your trees'
+                    treatment plans, we provide effective solutions that protect your trees&apos;
                     long-term health.
                   </p>
 
@@ -125,7 +121,7 @@ export default function ServiceAreasroyUtTreeServicePage() {
                   </h3>
 
                   <p className="service-paragraph section-paragraph">
-                    We provide specialized services tailored to Roy's distinct areas:
+                    We provide specialized services tailored to Roy&apos;s distinct areas:
                   </p>
 
                   <p className="service-paragraph section-paragraph">
@@ -140,7 +136,7 @@ export default function ServiceAreasroyUtTreeServicePage() {
                   </p>
 
                   <p className="service-paragraph section-paragraph">
-                    Midland area: Our specialized knowledge of this area's environmental factors
+                    Midland area: Our specialized knowledge of this area&apos;s environmental factors
                     ensures optimal tree care outcomes for residents and businesses.
                   </p>
 
@@ -186,7 +182,7 @@ export default function ServiceAreasroyUtTreeServicePage() {
 
                   <p className="service-paragraph section-paragraph">
                     Our ISA-certified arborists employ scientifically-proven pruning techniques
-                    specifically adapted to Roy's environmental conditions:
+                    specifically adapted to Roy&apos;s environmental conditions:
                   </p>
 
                   <p className="service-paragraph section-paragraph">
@@ -206,7 +202,7 @@ export default function ServiceAreasroyUtTreeServicePage() {
                   </p>
 
                   <p className="service-paragraph section-paragraph">
-                    Seasonal Timing: Our pruning schedules are optimized for Roy's climate patterns
+                    Seasonal Timing: Our pruning schedules are optimized for Roy&apos;s climate patterns
                     to promote rapid healing and minimize stress.
                   </p>
 
@@ -215,7 +211,7 @@ export default function ServiceAreasroyUtTreeServicePage() {
                   </h3>
 
                   <p className="service-paragraph section-paragraph">
-                    Roy's weather patterns can create urgent tree care situations. Our emergency
+                    Roy&apos;s weather patterns can create urgent tree care situations. Our emergency
                     response team provides immediate assistance for:
                   </p>
 
@@ -335,7 +331,7 @@ export default function ServiceAreasroyUtTreeServicePage() {
                   </h3>
 
                   <p className="service-paragraph section-paragraph">
-                    We're proud to provide specialized care for trees near Roy City Park, Weber
+                    We&apos;re proud to provide specialized care for trees near Roy City Park, Weber
                     County Fairgrounds proximity, FrontRunner station area, ensuring these community
                     assets remain healthy and beautiful for future generations.
                   </p>
@@ -367,7 +363,7 @@ export default function ServiceAreasroyUtTreeServicePage() {
                       Utah state contractor licensing and bonding
                     </li>
                     <li className="service-list-item section-list-item">
-                      Comprehensive liability and workers' compensation insurance
+                      Comprehensive liability and workers&apos; compensation insurance
                     </li>
                     <li className="service-list-item section-list-item">
                       Ongoing professional development and training
@@ -448,7 +444,7 @@ export default function ServiceAreasroyUtTreeServicePage() {
                   </h3>
 
                   <p className="service-paragraph section-paragraph">
-                    Roy's summer conditions require specialized attention:
+                    Roy&apos;s summer conditions require specialized attention:
                   </p>
 
                   <ul className="service-list section-list">
@@ -474,7 +470,7 @@ export default function ServiceAreasroyUtTreeServicePage() {
                   </h3>
 
                   <p className="service-paragraph section-paragraph">
-                    Preparing trees for Roy's winter conditions:
+                    Preparing trees for Roy&apos;s winter conditions:
                   </p>
 
                   <ul className="service-list section-list">
@@ -632,8 +628,8 @@ export default function ServiceAreasroyUtTreeServicePage() {
                   </p>
 
                   <p className="service-paragraph section-paragraph">
-                    "The arborists' expertise in handling our mature trees was evident from their
-                    initial assessment through project completion. Highly recommend their services."
+                    &quot;The arborists&apos; expertise in handling our mature trees was evident from their
+                    initial assessment through project completion. Highly recommend their services.&quot;
                     - Jennifer L., Roy property owner
                   </p>
 
@@ -642,7 +638,7 @@ export default function ServiceAreasroyUtTreeServicePage() {
                   </h2>
 
                   <p className="service-paragraph section-paragraph">
-                    When you choose Clean Cuts Trees for your Roy property, you're partnering with
+                    When you choose Clean Cuts Trees for your Roy property, you&apos;re partnering with
                     true tree care professionals who combine extensive local experience with
                     industry-leading expertise. Our commitment to safety, quality, and customer
                     satisfaction has made us the trusted choice for hundreds of Roy homeowners and
@@ -650,9 +646,9 @@ export default function ServiceAreasroyUtTreeServicePage() {
                   </p>
 
                   <p className="service-paragraph section-paragraph">
-                    Don't compromise on the health and safety of your trees. Contact our
+                    Don&apos;t compromise on the health and safety of your trees. Contact our
                     ISA-certified arborists today for a comprehensive evaluation of your tree care
-                    needs. We're available 24/7 for emergencies and offer convenient scheduling for
+                    needs. We&apos;re available 24/7 for emergencies and offer convenient scheduling for
                     routine services throughout Weber County.
                   </p>
 
@@ -670,71 +666,15 @@ export default function ServiceAreasroyUtTreeServicePage() {
                     tree health care. Licensed, insured, and ISA-certified arborists available
                     24/7.*
                   </p>
-
-                  <p className="service-paragraph section-paragraph">---</p>
-
-                  <p className="service-paragraph section-paragraph">
-                    Word Count: Approximately 1,650 words
-                  </p>
-
-                  <p className="service-paragraph section-paragraph">
-                    Service Area: Roy, Weber County, Utah (84067)
-                  </p>
-
-                  <p className="service-paragraph section-paragraph">
-                    Focus: New community tree establishment and wind protection
-                  </p>
                 </div>
               </div>
-
-              {/* Service-specific CTAs */}
-              {isServicePage && (
-                <div className="service-cta">
-                  <div className="cta-box">
-                    <h3>Ready to Get Started?</h3>
-                    <p>Contact us today for a free estimate on this service.</p>
-                    <div className="cta-buttons">
-                      <Link href="/contact-us" className="btn btn-primary">
-                        Get Free Estimate
-                      </Link>
-                      <Link href="tel:+18014737548" className="btn btn-phone">
-                        <span
-                          className="material-symbols-outlined"
-                          style={{ verticalAlign: 'middle', fontSize: 20, marginRight: 4 }}
-                        >
-                          call
-                        </span>{' '}
-                        (801) 473-7548
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* Service Area specific CTAs */}
-              {isServiceAreaPage && (
-                <div className="service-area-cta">
-                  <div className="cta-box">
-                    <h3>Serving Roy</h3>
-                    <p>We're proud to provide professional tree services to this community.</p>
-                    <div className="cta-buttons">
-                      <Link href="/contact-us" className="btn btn-primary">
-                        Schedule Service
-                      </Link>
-                      <Link href="tel:+18014737548" className="btn btn-phone">
-                        📞 Call Now
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              )}
             </div>
 
             {/* Sidebar */}
             <aside className="page-sidebar">
               <div className="sidebar-widget cta-widget">
                 <h3>Need Tree Service?</h3>
-                <p>Get expert tree care from Utah's most trusted professionals.</p>
+                <p>Get expert tree care from Utah&apos;s most trusted professionals.</p>
                 <Link href="/contact-us" className="btn btn-primary">
                   Free Estimate
                 </Link>
@@ -744,61 +684,10 @@ export default function ServiceAreasroyUtTreeServicePage() {
                     style={{ verticalAlign: 'middle', fontSize: 20, marginRight: 4 }}
                   >
                     call
-                  </span>{' '}
+                  </span>
                   (801) 473-7548
                 </Link>
               </div>
-
-              {isServicePage && (
-                <div className="sidebar-widget">
-                  <h3>Our Services</h3>
-                  <ul className="services-list">
-                    <li>
-                      <Link href="/services/tree-removal">Tree Removal</Link>
-                    </li>
-                    <li>
-                      <Link href="/services/tree-trimming">Tree Trimming</Link>
-                    </li>
-                    <li>
-                      <Link href="/services/emergency-tree-service">Emergency Service</Link>
-                    </li>
-                    <li>
-                      <Link href="/services/storm-cleanup">Storm Cleanup</Link>
-                    </li>
-                    <li>
-                      <Link href="/services/professional-land-clearing-services">
-                        Land Clearing
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/services/municipal-tree-service">Municipal Service</Link>
-                    </li>
-                  </ul>
-                </div>
-              )}
-
-              {isServiceAreaPage && (
-                <div className="sidebar-widget">
-                  <h3>Service Areas</h3>
-                  <ul className="areas-list">
-                    <li>
-                      <Link href="/service-areas/kaysville-ut-tree-service">Kaysville</Link>
-                    </li>
-                    <li>
-                      <Link href="/service-areas/layton-ut-tree-service">Layton</Link>
-                    </li>
-                    <li>
-                      <Link href="/service-areas/bountiful-ut-tree-service">Bountiful</Link>
-                    </li>
-                    <li>
-                      <Link href="/service-areas/farmington-ut-tree-service">Farmington</Link>
-                    </li>
-                    <li>
-                      <Link href="/service-areas/centerville-ut-tree-service">Centerville</Link>
-                    </li>
-                  </ul>
-                </div>
-              )}
 
               <div className="sidebar-widget">
                 <h3>Why Choose Clean Cuts Trees?</h3>
@@ -809,7 +698,7 @@ export default function ServiceAreasroyUtTreeServicePage() {
                       style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}
                     >
                       check_circle
-                    </span>{' '}
+                    </span>
                     Licensed & Insured
                   </li>
                   <li>
@@ -818,7 +707,7 @@ export default function ServiceAreasroyUtTreeServicePage() {
                       style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}
                     >
                       check_circle
-                    </span>{' '}
+                    </span>
                     24/7 Emergency Service
                   </li>
                   <li>
@@ -827,7 +716,7 @@ export default function ServiceAreasroyUtTreeServicePage() {
                       style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}
                     >
                       check_circle
-                    </span>{' '}
+                    </span>
                     Free Estimates
                   </li>
                   <li>
@@ -836,7 +725,7 @@ export default function ServiceAreasroyUtTreeServicePage() {
                       style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}
                     >
                       check_circle
-                    </span>{' '}
+                    </span>
                     Family Owned & Operated
                   </li>
                   <li>
@@ -845,7 +734,7 @@ export default function ServiceAreasroyUtTreeServicePage() {
                       style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}
                     >
                       check_circle
-                    </span>{' '}
+                    </span>
                     Professional Equipment
                   </li>
                   <li>
@@ -854,7 +743,7 @@ export default function ServiceAreasroyUtTreeServicePage() {
                       style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}
                     >
                       check_circle
-                    </span>{' '}
+                    </span>
                     Satisfaction Guaranteed
                   </li>
                 </ul>

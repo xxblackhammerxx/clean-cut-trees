@@ -10,9 +10,6 @@ export const metadata: Metadata = {
 }
 
 export default function ServiceAreasmurrayUtTreeServicePage() {
-  const isServicePage = false
-  const isServiceAreaPage = true
-
   return (
     <div className="general-page">
       <article className="page-content">
@@ -39,7 +36,7 @@ export default function ServiceAreasmurrayUtTreeServicePage() {
                     exceptional community of 50,637 residents at 4,330 feet elevation.
                   </p>
                   <h2 key={3} className="content-heading">
-                    Local Expertise: Understanding Murray's Urban Forest
+                    Local Expertise: Understanding Murray&apos;s Urban Forest
                   </h2>
                   <p key={4}>
                     At 4,330 feet elevation, Murray presents unique environmental conditions that
@@ -64,19 +61,19 @@ export default function ServiceAreasmurrayUtTreeServicePage() {
                     Comprehensive Species Management
                   </h3>
                   <p key={8}>
-                    Our arborists maintain detailed knowledge of each species' requirements:
+                    Our arborists maintain detailed knowledge of each species&apos; requirements:
                     Flowering Crab: Strategic pruning and health monitoring, Austrian Pine:
                     Strategic pruning and health monitoring, Colorado Blue Spruce: Strategic pruning
                     and health monitoring, Sycamore: Strategic pruning and health monitoring,
                     Ornamental Pear: Strategic pruning and health monitoring. This specialized
-                    knowledge ensures that every tree on your Murray property receives care that's
+                    knowledge ensures that every tree on your Murray property receives care that&apos;s
                     perfectly suited to its species-specific needs and local growing conditions.
                   </p>
                   <h2 key={9} className="content-heading">
                     Addressing Murray-Specific Tree Care Challenges
                   </h2>
                   <p key={10}>
-                    Murray's unique location and environmental conditions present specific
+                    Murray&apos;s unique location and environmental conditions present specific
                     challenges that our experienced team addresses with proven, scientific
                     approaches focused on mature tree preservation and heritage tree care.
                   </p>
@@ -86,7 +83,7 @@ export default function ServiceAreasmurrayUtTreeServicePage() {
                   <p key={12}>
                     Mature tree management: Our team has developed specialized protocols to address
                     this common issue in Murray. Through comprehensive assessment and targeted
-                    treatment plans, we provide effective solutions that protect your trees'
+                    treatment plans, we provide effective solutions that protect your trees&apos;
                     long-term health. Property line conflicts: This environmental factor
                     significantly impacts tree health in Murray. Our preventive care programs and
                     responsive treatment options ensure your trees remain healthy and structurally
@@ -98,7 +95,7 @@ export default function ServiceAreasmurrayUtTreeServicePage() {
                     Neighborhood-Specific Services
                   </h3>
                   <p key={14}>
-                    We provide specialized services tailored to Murray's distinct areas: Fashion
+                    We provide specialized services tailored to Murray&apos;s distinct areas: Fashion
                     Place: Our team understands the unique characteristics and tree care needs of
                     this area, providing services that preserve community character while ensuring
                     tree health and safety. Vine Street Historic: Our team understands the unique
@@ -130,21 +127,21 @@ export default function ServiceAreasmurrayUtTreeServicePage() {
                   </h3>
                   <p key={19}>
                     Our ISA-certified arborists employ scientifically-proven pruning techniques
-                    specifically adapted to Murray's environmental conditions. Structural Pruning:
+                    specifically adapted to Murray&apos;s environmental conditions. Structural Pruning:
                     Essential for young trees to develop proper architecture and reduce future
                     hazards. Our techniques promote strong branch structure and optimal canopy
                     development. Health Pruning: Removal of dead, diseased, and damaged branches to
                     improve overall tree health and prevent the spread of pathogens common in Salt
                     Lake County. Crown Management: Specialized techniques including crown cleaning,
                     thinning, raising, and reduction to improve tree structure while maintaining
-                    natural form. Seasonal Timing: Our pruning schedules are optimized for Murray's
+                    natural form. Seasonal Timing: Our pruning schedules are optimized for Murray&apos;s
                     climate patterns to promote rapid healing and minimize stress.
                   </p>
                   <h3 key={20} className="content-heading">
                     24/7 Emergency Tree Services
                   </h3>
                   <p key={21}>
-                    Murray's weather patterns can create urgent tree care situations. Our emergency
+                    Murray&apos;s weather patterns can create urgent tree care situations. Our emergency
                     response team provides immediate assistance for storm damage assessment and
                     hazard mitigation, emergency tree removal from structures and roadways, utility
                     line clearance coordinated with local providers, temporary stabilization and
@@ -181,9 +178,9 @@ export default function ServiceAreasmurrayUtTreeServicePage() {
                     Local Landmark and Feature Care
                   </h3>
                   <p key={27}>
-                    We're proud to provide specialized care for trees near Murray Park, Fashion
+                    We&apos;re proud to provide specialized care for trees near Murray Park, Fashion
                     Place Mall, Murray City Cemetery, ensuring these community assets remain healthy
-                    and beautiful for future generations while supporting Murray's commitment to
+                    and beautiful for future generations while supporting Murray&apos;s commitment to
                     urban forestry and environmental stewardship.
                   </p>
                   <h2 key={28} className="content-heading">
@@ -206,7 +203,7 @@ export default function ServiceAreasmurrayUtTreeServicePage() {
                     Our team maintains the highest industry standards: ISA (International Society of
                     Arboriculture) Certified Arborists, Tree Care Industry Association (TCIA)
                     accreditation, Utah state contractor licensing and bonding, comprehensive
-                    liability and workers' compensation insurance, and ongoing professional
+                    liability and workers&apos; compensation insurance, and ongoing professional
                     development and training. These credentials ensure you receive the most
                     qualified and professional tree care services available.
                   </p>
@@ -249,7 +246,7 @@ export default function ServiceAreasmurrayUtTreeServicePage() {
                     Summer Management (June-August)
                   </h3>
                   <p key={41}>
-                    Murray's summer conditions require specialized attention: drought stress
+                    Murray&apos;s summer conditions require specialized attention: drought stress
                     monitoring and irrigation consultation, heat stress mitigation strategies for
                     vulnerable species, pest and disease management during peak activity periods,
                     emergency storm response and damage assessment, and crown maintenance for safety
@@ -259,7 +256,7 @@ export default function ServiceAreasmurrayUtTreeServicePage() {
                     Fall Preparation (September-November)
                   </h3>
                   <p key={43}>
-                    Preparing trees for Murray's winter conditions: structural pruning before winter
+                    Preparing trees for Murray&apos;s winter conditions: structural pruning before winter
                     weather events, fertilization programs for root development, winter protection
                     installation for sensitive species, hazard tree identification and mitigation,
                     and comprehensive property assessments to ensure trees are ready for winter
@@ -310,7 +307,7 @@ export default function ServiceAreasmurrayUtTreeServicePage() {
                     expectations." - Sarah M., Murray resident. "After storm damage, their emergency
                     response team was prompt and professional. They safely removed a large tree from
                     our roof and completed thorough cleanup." - Michael R., Murray homeowner. "The
-                    arborists' expertise in handling our mature trees was evident from their initial
+                    arborists&apos; expertise in handling our mature trees was evident from their initial
                     assessment through project completion. Highly recommend their services." -
                     Jennifer L., Murray property owner.
                   </p>
@@ -318,16 +315,16 @@ export default function ServiceAreasmurrayUtTreeServicePage() {
                     Contact Clean Cut Trees for Expert Murray Tree Care
                   </h2>
                   <p key={53}>
-                    When you choose Clean Cut Trees for your Murray property, you're partnering with
+                    When you choose Clean Cut Trees for your Murray property, you&apos;re partnering with
                     true tree care professionals who combine extensive local experience with
                     industry-leading expertise. Our commitment to safety, quality, and customer
                     satisfaction has made us the trusted choice for hundreds of Murray homeowners
                     and businesses throughout Salt Lake County.
                   </p>
                   <p key={54}>
-                    Don't compromise on the health and safety of your trees. Contact our
+                    Don&apos;t compromise on the health and safety of your trees. Contact our
                     ISA-certified arborists today for a comprehensive evaluation of your tree care
-                    needs. We're available 24/7 for emergencies and offer convenient scheduling for
+                    needs. We&apos;re available 24/7 for emergencies and offer convenient scheduling for
                     routine services throughout Salt Lake County.
                   </p>
                   <h3 key={55} className="content-heading">
@@ -340,55 +337,13 @@ export default function ServiceAreasmurrayUtTreeServicePage() {
                   </p>
                 </>
               </div>
-
-              {/* Service-specific CTAs */}
-              {isServicePage && (
-                <div className="service-cta">
-                  <div className="cta-box">
-                    <h3>Ready to Get Started?</h3>
-                    <p>Contact us today for a free estimate on this service.</p>
-                    <div className="cta-buttons">
-                      <Link href="/contact-us" className="btn btn-primary">
-                        Get Free Estimate
-                      </Link>
-                      <Link href="tel:+18014737548" className="btn btn-phone">
-                        <span
-                          className="material-symbols-outlined"
-                          style={{ verticalAlign: 'middle', fontSize: 20, marginRight: 4 }}
-                        >
-                          call
-                        </span>{' '}
-                        (801) 473-7548
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* Service Area specific CTAs */}
-              {isServiceAreaPage && (
-                <div className="service-area-cta">
-                  <div className="cta-box">
-                    <h3>Serving Murray</h3>
-                    <p>We're proud to provide professional tree services to this community.</p>
-                    <div className="cta-buttons">
-                      <Link href="/contact-us" className="btn btn-primary">
-                        Schedule Service
-                      </Link>
-                      <Link href="tel:+18014737548" className="btn btn-phone">
-                        📞 Call Now
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              )}
             </div>
 
             {/* Sidebar */}
             <aside className="page-sidebar">
               <div className="sidebar-widget cta-widget">
                 <h3>Need Tree Service?</h3>
-                <p>Get expert tree care from Utah's most trusted professionals.</p>
+                <p>Get expert tree care from Utah&apos;s most trusted professionals.</p>
                 <Link href="/contact-us" className="btn btn-primary">
                   Free Estimate
                 </Link>
@@ -398,61 +353,10 @@ export default function ServiceAreasmurrayUtTreeServicePage() {
                     style={{ verticalAlign: 'middle', fontSize: 20, marginRight: 4 }}
                   >
                     call
-                  </span>{' '}
+                  </span>
                   (801) 473-7548
                 </Link>
               </div>
-
-              {isServicePage && (
-                <div className="sidebar-widget">
-                  <h3>Our Services</h3>
-                  <ul className="services-list">
-                    <li>
-                      <Link href="/services/tree-removal">Tree Removal</Link>
-                    </li>
-                    <li>
-                      <Link href="/services/tree-trimming">Tree Trimming</Link>
-                    </li>
-                    <li>
-                      <Link href="/services/emergency-tree-service">Emergency Service</Link>
-                    </li>
-                    <li>
-                      <Link href="/services/storm-cleanup">Storm Cleanup</Link>
-                    </li>
-                    <li>
-                      <Link href="/services/professional-land-clearing-services">
-                        Land Clearing
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/services/municipal-tree-service">Municipal Service</Link>
-                    </li>
-                  </ul>
-                </div>
-              )}
-
-              {isServiceAreaPage && (
-                <div className="sidebar-widget">
-                  <h3>Service Areas</h3>
-                  <ul className="areas-list">
-                    <li>
-                      <Link href="/service-areas/kaysville-ut-tree-service">Kaysville</Link>
-                    </li>
-                    <li>
-                      <Link href="/service-areas/layton-ut-tree-service">Layton</Link>
-                    </li>
-                    <li>
-                      <Link href="/service-areas/bountiful-ut-tree-service">Bountiful</Link>
-                    </li>
-                    <li>
-                      <Link href="/service-areas/farmington-ut-tree-service">Farmington</Link>
-                    </li>
-                    <li>
-                      <Link href="/service-areas/centerville-ut-tree-service">Centerville</Link>
-                    </li>
-                  </ul>
-                </div>
-              )}
 
               <div className="sidebar-widget">
                 <h3>Why Choose Clean Cuts Trees?</h3>
@@ -463,7 +367,7 @@ export default function ServiceAreasmurrayUtTreeServicePage() {
                       style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}
                     >
                       check_circle
-                    </span>{' '}
+                    </span>
                     Licensed & Insured
                   </li>
                   <li>
@@ -472,7 +376,7 @@ export default function ServiceAreasmurrayUtTreeServicePage() {
                       style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}
                     >
                       check_circle
-                    </span>{' '}
+                    </span>
                     24/7 Emergency Service
                   </li>
                   <li>
@@ -481,7 +385,7 @@ export default function ServiceAreasmurrayUtTreeServicePage() {
                       style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}
                     >
                       check_circle
-                    </span>{' '}
+                    </span>
                     Free Estimates
                   </li>
                   <li>
@@ -490,7 +394,7 @@ export default function ServiceAreasmurrayUtTreeServicePage() {
                       style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}
                     >
                       check_circle
-                    </span>{' '}
+                    </span>
                     Family Owned & Operated
                   </li>
                   <li>
@@ -499,7 +403,7 @@ export default function ServiceAreasmurrayUtTreeServicePage() {
                       style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}
                     >
                       check_circle
-                    </span>{' '}
+                    </span>
                     Professional Equipment
                   </li>
                   <li>
@@ -508,7 +412,7 @@ export default function ServiceAreasmurrayUtTreeServicePage() {
                       style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}
                     >
                       check_circle
-                    </span>{' '}
+                    </span>
                     Satisfaction Guaranteed
                   </li>
                 </ul>

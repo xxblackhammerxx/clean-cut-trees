@@ -1,5 +1,5 @@
 'use client'
-import { generateSrcSet, getOptimizedImageSrc, optimizedImageMap } from '@/lib/optimized-images'
+import { getOptimizedImageSrc, optimizedImageMap } from '@/lib/optimized-images'
 import Image from 'next/image'
 import { useCallback, useState } from 'react'
 
@@ -69,9 +69,8 @@ export default function OptimizedImage({
     setHasError(true)
   }, [])
 
-  // Get optimized image source and srcSet
+  // Get optimized image source
   const optimizedSrc = getOptimizedImageSrc(src, width)
-  const srcSet = generateSrcSet(src)
 
   // Optimized sizes prop for responsive images
   const optimizedSizes =

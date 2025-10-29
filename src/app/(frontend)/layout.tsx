@@ -81,10 +81,6 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
 
-        {/* Add missing preconnect for Google Fonts */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-
         {/* Critical LCP Image Preloads - Using Optimized Versions */}
         <link rel="preload" as="image" href={optimizedHeroImageSrc} fetchPriority="high" />
         <link rel="preload" as="image" href={optimizedLogoSrc} />

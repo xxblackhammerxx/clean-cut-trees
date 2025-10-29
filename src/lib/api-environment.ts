@@ -66,7 +66,7 @@ export async function checkAPIHealth(baseUrl: string = 'http://localhost:3000') 
       try {
         const response = await fetch(`${baseUrl}${endpoint}`)
         results.customAPIs.endpoints[endpoint] = response.status !== 404
-      } catch (error) {
+      } catch (_error) {
         results.customAPIs.endpoints[endpoint] = false
       }
     }
@@ -82,7 +82,7 @@ export async function checkAPIHealth(baseUrl: string = 'http://localhost:3000') 
     try {
       const response = await fetch(`${baseUrl}${endpoint}`)
       results.nativeAPIs.endpoints[endpoint] = response.status < 500
-    } catch (error) {
+    } catch (_error) {
       results.nativeAPIs.endpoints[endpoint] = false
     }
   }

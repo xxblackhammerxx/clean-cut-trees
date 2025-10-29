@@ -9,6 +9,12 @@ interface WebVitalsProps {
   debug?: boolean
 }
 
+interface NavigatorWithConnection extends Navigator {
+  connection?: {
+    effectiveType?: string
+  }
+}
+
 export default function WebVitals({
   enableConsoleLogging = true,
   enableAnalytics = true,
@@ -73,7 +79,7 @@ export default function WebVitals({
             : null,
         connection:
           typeof navigator !== 'undefined' && 'connection' in navigator
-            ? (navigator as any).connection?.effectiveType
+            ? (navigator as NavigatorWithConnection).connection?.effectiveType
             : null,
       }
 
@@ -93,8 +99,8 @@ export default function WebVitals({
     }
 
     // Send to Vercel Analytics if available
-    if (isProd && typeof window !== 'undefined' && 'va' in window) {
-      ;(window as any).va('track', 'Web Vital', {
+    if (isProd && typeof window !== 'undefined' && 'va' in window && window.va) {
+      window.va('track', 'Web Vital', {
         metric: metric.name,
         value: metric.value,
         rating: metric.rating,

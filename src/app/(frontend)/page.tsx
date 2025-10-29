@@ -50,7 +50,7 @@ export default function HomePage() {
                   style={{ verticalAlign: 'middle', fontSize: 20, marginRight: 4 }}
                 >
                   call
-                </span>{' '}
+                </span>
                 (801) 473-7548
               </a>
             </div>
@@ -197,7 +197,7 @@ export default function HomePage() {
               loading="lazy"
             />
             <p>
-              Clean Cuts Trees is a Proud Partner of <strong>Real Salt Lake</strong> & Winner of the{' '}
+              Clean Cuts Trees is a Proud Partner of <strong>Real Salt Lake</strong> & Winner of the
               <strong>America First Credit Union</strong> 2024 Small Business Showcase.
             </p>
             <Link href="/real-salt-lake-partnership" className="btn btn-secondary">
@@ -574,7 +574,7 @@ export default function HomePage() {
                   style={{ verticalAlign: 'middle', fontSize: 22, marginRight: 4 }}
                 >
                   location_on
-                </span>{' '}
+                </span>
                 Location
               </h3>
               <p>Fruit Heights, UT 84037</p>
@@ -586,7 +586,7 @@ export default function HomePage() {
                   style={{ verticalAlign: 'middle', fontSize: 22, marginRight: 4 }}
                 >
                   call
-                </span>{' '}
+                </span>
                 Phone
               </h3>
               <p>
@@ -600,7 +600,7 @@ export default function HomePage() {
                   style={{ verticalAlign: 'middle', fontSize: 22, marginRight: 4 }}
                 >
                   mail
-                </span>{' '}
+                </span>
                 Email
               </h3>
               <p>

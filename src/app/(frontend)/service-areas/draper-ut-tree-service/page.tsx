@@ -10,9 +10,6 @@ export const metadata: Metadata = {
 }
 
 export default function ServiceAreasdraperUtTreeServicePage() {
-  const isServicePage = false
-  const isServiceAreaPage = true
-
   return (
     <div className="general-page">
       <article className="page-content">
@@ -341,48 +338,6 @@ export default function ServiceAreasdraperUtTreeServicePage() {
                   </p>
                 </>
               </div>
-
-              {/* Service-specific CTAs */}
-              {isServicePage && (
-                <div className="service-cta">
-                  <div className="cta-box">
-                    <h3>Ready to Get Started?</h3>
-                    <p>Contact us today for a free estimate on this service.</p>
-                    <div className="cta-buttons">
-                      <Link href="/contact-us" className="btn btn-primary">
-                        Get Free Estimate
-                      </Link>
-                      <Link href="tel:+18014737548" className="btn btn-phone">
-                        <span
-                          className="material-symbols-outlined"
-                          style={{ verticalAlign: 'middle', fontSize: 20, marginRight: 4 }}
-                        >
-                          call
-                        </span>{' '}
-                        (801) 473-7548
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* Service Area specific CTAs */}
-              {isServiceAreaPage && (
-                <div className="service-area-cta">
-                  <div className="cta-box">
-                    <h3>Serving Draper</h3>
-                    <p>We're proud to provide professional tree services to this community.</p>
-                    <div className="cta-buttons">
-                      <Link href="/contact-us" className="btn btn-primary">
-                        Schedule Service
-                      </Link>
-                      <Link href="tel:+18014737548" className="btn btn-phone">
-                        📞 Call Now
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              )}
             </div>
 
             {/* Sidebar */}
@@ -399,61 +354,10 @@ export default function ServiceAreasdraperUtTreeServicePage() {
                     style={{ verticalAlign: 'middle', fontSize: 20, marginRight: 4 }}
                   >
                     call
-                  </span>{' '}
+                  </span>
                   (801) 473-7548
                 </Link>
               </div>
-
-              {isServicePage && (
-                <div className="sidebar-widget">
-                  <h3>Our Services</h3>
-                  <ul className="services-list">
-                    <li>
-                      <Link href="/services/tree-removal">Tree Removal</Link>
-                    </li>
-                    <li>
-                      <Link href="/services/tree-trimming">Tree Trimming</Link>
-                    </li>
-                    <li>
-                      <Link href="/services/emergency-tree-service">Emergency Service</Link>
-                    </li>
-                    <li>
-                      <Link href="/services/storm-cleanup">Storm Cleanup</Link>
-                    </li>
-                    <li>
-                      <Link href="/services/professional-land-clearing-services">
-                        Land Clearing
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/services/municipal-tree-service">Municipal Service</Link>
-                    </li>
-                  </ul>
-                </div>
-              )}
-
-              {isServiceAreaPage && (
-                <div className="sidebar-widget">
-                  <h3>Service Areas</h3>
-                  <ul className="areas-list">
-                    <li>
-                      <Link href="/service-areas/kaysville-ut-tree-service">Kaysville</Link>
-                    </li>
-                    <li>
-                      <Link href="/service-areas/layton-ut-tree-service">Layton</Link>
-                    </li>
-                    <li>
-                      <Link href="/service-areas/bountiful-ut-tree-service">Bountiful</Link>
-                    </li>
-                    <li>
-                      <Link href="/service-areas/farmington-ut-tree-service">Farmington</Link>
-                    </li>
-                    <li>
-                      <Link href="/service-areas/centerville-ut-tree-service">Centerville</Link>
-                    </li>
-                  </ul>
-                </div>
-              )}
 
               <div className="sidebar-widget">
                 <h3>Why Choose Clean Cuts Trees?</h3>
@@ -464,7 +368,7 @@ export default function ServiceAreasdraperUtTreeServicePage() {
                       style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}
                     >
                       check_circle
-                    </span>{' '}
+                    </span>
                     Licensed & Insured
                   </li>
                   <li>
@@ -473,7 +377,7 @@ export default function ServiceAreasdraperUtTreeServicePage() {
                       style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}
                     >
                       check_circle
-                    </span>{' '}
+                    </span>
                     24/7 Emergency Service
                   </li>
                   <li>
@@ -482,7 +386,7 @@ export default function ServiceAreasdraperUtTreeServicePage() {
                       style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}
                     >
                       check_circle
-                    </span>{' '}
+                    </span>
                     Free Estimates
                   </li>
                   <li>
@@ -491,7 +395,7 @@ export default function ServiceAreasdraperUtTreeServicePage() {
                       style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}
                     >
                       check_circle
-                    </span>{' '}
+                    </span>
                     Family Owned & Operated
                   </li>
                   <li>
@@ -500,7 +404,7 @@ export default function ServiceAreasdraperUtTreeServicePage() {
                       style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}
                     >
                       check_circle
-                    </span>{' '}
+                    </span>
                     Professional Equipment
                   </li>
                   <li>
@@ -509,7 +413,7 @@ export default function ServiceAreasdraperUtTreeServicePage() {
                       style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}
                     >
                       check_circle
-                    </span>{' '}
+                    </span>
                     Satisfaction Guaranteed
                   </li>
                 </ul>

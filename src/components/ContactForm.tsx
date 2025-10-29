@@ -277,7 +277,7 @@ const ContactForm = () => {
           </button>
 
           <p className="form-note">
-            * Required fields. We typically respond within 24 hours. For emergencies, call{' '}
+            * Required fields. We typically respond within 24 hours. For emergencies, call
             <a href="tel:+18014737548">(801) 473-7548</a>
           </p>
         </div>

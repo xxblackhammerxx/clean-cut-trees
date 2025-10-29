@@ -1,6 +1,6 @@
 import config from '@/payload.config'
 import { NextRequest, NextResponse } from 'next/server'
-import { getPayload } from 'payload'
+import { getPayload, Where } from 'payload'
 
 // Only allow in development environment
 function checkEnvironment() {
@@ -87,7 +87,7 @@ export async function GET(request: NextRequest) {
     const pageType = searchParams.get('pageType')
     const status = searchParams.get('status') || 'published'
 
-    const whereClause: any = {
+    const whereClause: Where = {
       status: {
         equals: status,
       },

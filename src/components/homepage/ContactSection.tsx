@@ -20,7 +20,7 @@ export default function ContactSection() {
                 style={{ verticalAlign: 'middle', fontSize: 22, marginRight: 4 }}
               >
                 location_on
-              </span>{' '}
+              </span>
               Location
             </h3>
             <p>Fruit Heights, UT 84037</p>
@@ -32,7 +32,7 @@ export default function ContactSection() {
                 style={{ verticalAlign: 'middle', fontSize: 22, marginRight: 4 }}
               >
                 call
-              </span>{' '}
+              </span>
               Phone
             </h3>
             <p>
@@ -46,7 +46,7 @@ export default function ContactSection() {
                 style={{ verticalAlign: 'middle', fontSize: 22, marginRight: 4 }}
               >
                 mail
-              </span>{' '}
+              </span>
               Email
             </h3>
             <p>

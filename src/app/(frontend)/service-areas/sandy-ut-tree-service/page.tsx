@@ -10,9 +10,6 @@ export const metadata: Metadata = {
 }
 
 export default function ServiceAreassandyUtTreeServicePage() {
-  const isServicePage = false
-  const isServiceAreaPage = true
-
   return (
     <div className="general-page">
       <article className="page-content">
@@ -39,7 +36,7 @@ export default function ServiceAreassandyUtTreeServicePage() {
                     exceptional community of 96,904 residents at 4,449 feet elevation.
                   </p>
                   <h2 key={3} className="content-heading">
-                    Local Expertise: Understanding Sandy's Urban Forest
+                    Local Expertise: Understanding Sandy&apos;s Urban Forest
                   </h2>
                   <p key={4}>
                     At 4,449 feet elevation, Sandy presents unique environmental conditions that
@@ -64,21 +61,21 @@ export default function ServiceAreassandyUtTreeServicePage() {
                     Comprehensive Species Management
                   </h3>
                   <p key={8}>
-                    Our arborists maintain detailed knowledge of each species' requirements: Gambel
-                    Oak: Strategic pruning and health monitoring, Douglas Fir: Strategic pruning and
-                    health monitoring, Ponderosa Pine: Strategic pruning and health monitoring,
-                    Bigtooth Maple: Strategic pruning and health monitoring, Utah Juniper: Strategic
-                    pruning and health monitoring. This specialized knowledge ensures that every
-                    tree on your Sandy property receives care that's perfectly suited to its
-                    species-specific needs and local growing conditions.
+                    Our arborists maintain detailed knowledge of each species&apos; requirements:
+                    Gambel Oak: Strategic pruning and health monitoring, Douglas Fir: Strategic
+                    pruning and health monitoring, Ponderosa Pine: Strategic pruning and health
+                    monitoring, Bigtooth Maple: Strategic pruning and health monitoring, Utah
+                    Juniper: Strategic pruning and health monitoring. This specialized knowledge
+                    ensures that every tree on your Sandy property receives care that&apos;s
+                    perfectly suited to its species-specific needs and local growing conditions.
                   </p>
                   <h2 key={9} className="content-heading">
                     Addressing Sandy-Specific Tree Care Challenges
                   </h2>
                   <p key={10}>
-                    Sandy's unique location and environmental conditions present specific challenges
-                    that our experienced team addresses with proven, scientific approaches focused
-                    on foothills tree care and wildfire risk management.
+                    Sandy&apos;s unique location and environmental conditions present specific
+                    challenges that our experienced team addresses with proven, scientific
+                    approaches focused on foothills tree care and wildfire risk management.
                   </p>
                   <h3 key={11} className="content-heading">
                     Primary Challenge Management
@@ -86,7 +83,7 @@ export default function ServiceAreassandyUtTreeServicePage() {
                   <p key={12}>
                     Foothills environment: Our team has developed specialized protocols to address
                     this common issue in Sandy. Through comprehensive assessment and targeted
-                    treatment plans, we provide effective solutions that protect your trees'
+                    treatment plans, we provide effective solutions that protect your trees&apos;
                     long-term health. Wildfire risk zones: This environmental factor significantly
                     impacts tree health in Sandy. Our preventive care programs and responsive
                     treatment options ensure your trees remain healthy and structurally sound. Steep
@@ -98,20 +95,20 @@ export default function ServiceAreassandyUtTreeServicePage() {
                     Neighborhood-Specific Services
                   </h3>
                   <p key={14}>
-                    We provide specialized services tailored to Sandy's distinct areas: Alta Canyon:
+                    We provide specialized services tailored to Sandy&apos;s distinct areas: Alta
+                    Canyon: Our team understands the unique characteristics and tree care needs of
+                    this area, providing services that preserve community character while ensuring
+                    tree health and safety. Crescent: Our team understands the unique
+                    characteristics and tree care needs of this area, providing services that
+                    preserve community character while ensuring tree health and safety. Falcon
+                    Hills: Our team understands the unique characteristics and tree care needs of
+                    this area, providing services that preserve community character while ensuring
+                    tree health and safety. Bell Canyon: Our team understands the unique
+                    characteristics and tree care needs of this area, providing services that
+                    preserve community character while ensuring tree health and safety. Dimple Dell:
                     Our team understands the unique characteristics and tree care needs of this
                     area, providing services that preserve community character while ensuring tree
-                    health and safety. Crescent: Our team understands the unique characteristics and
-                    tree care needs of this area, providing services that preserve community
-                    character while ensuring tree health and safety. Falcon Hills: Our team
-                    understands the unique characteristics and tree care needs of this area,
-                    providing services that preserve community character while ensuring tree health
-                    and safety. Bell Canyon: Our team understands the unique characteristics and
-                    tree care needs of this area, providing services that preserve community
-                    character while ensuring tree health and safety. Dimple Dell: Our team
-                    understands the unique characteristics and tree care needs of this area,
-                    providing services that preserve community character while ensuring tree health
-                    and safety.
+                    health and safety.
                   </p>
                   <h2 key={15} className="content-heading">
                     Comprehensive Tree Services for Sandy Properties
@@ -133,26 +130,26 @@ export default function ServiceAreassandyUtTreeServicePage() {
                   </h3>
                   <p key={19}>
                     Our ISA-certified arborists employ scientifically-proven pruning techniques
-                    specifically adapted to Sandy's environmental conditions. Structural Pruning:
-                    Essential for young trees to develop proper architecture and reduce future
-                    hazards. Our techniques promote strong branch structure and optimal canopy
-                    development. Health Pruning: Removal of dead, diseased, and damaged branches to
-                    improve overall tree health and prevent the spread of pathogens common in Salt
-                    Lake County. Crown Management: Specialized techniques including crown cleaning,
-                    thinning, raising, and reduction to improve tree structure while maintaining
-                    natural form. Seasonal Timing: Our pruning schedules are optimized for Sandy's
-                    climate patterns to promote rapid healing and minimize stress.
+                    specifically adapted to Sandy&apos;s environmental conditions. Structural
+                    Pruning: Essential for young trees to develop proper architecture and reduce
+                    future hazards. Our techniques promote strong branch structure and optimal
+                    canopy development. Health Pruning: Removal of dead, diseased, and damaged
+                    branches to improve overall tree health and prevent the spread of pathogens
+                    common in Salt Lake County. Crown Management: Specialized techniques including
+                    crown cleaning, thinning, raising, and reduction to improve tree structure while
+                    maintaining natural form. Seasonal Timing: Our pruning schedules are optimized
+                    for Sandy&apos;s climate patterns to promote rapid healing and minimize stress.
                   </p>
                   <h3 key={20} className="content-heading">
                     24/7 Emergency Tree Services
                   </h3>
                   <p key={21}>
-                    Sandy's weather patterns can create urgent tree care situations. Our emergency
-                    response team provides immediate assistance for storm damage assessment and
-                    hazard mitigation, emergency tree removal from structures and roadways, utility
-                    line clearance coordinated with local providers, temporary stabilization and
-                    support systems, and comprehensive storm cleanup services throughout Salt Lake
-                    County.
+                    Sandy&apos;s weather patterns can create urgent tree care situations. Our
+                    emergency response team provides immediate assistance for storm damage
+                    assessment and hazard mitigation, emergency tree removal from structures and
+                    roadways, utility line clearance coordinated with local providers, temporary
+                    stabilization and support systems, and comprehensive storm cleanup services
+                    throughout Salt Lake County.
                   </p>
                   <h2 key={22} className="content-heading">
                     Advanced Tree Health Care and Diagnostics
@@ -184,10 +181,10 @@ export default function ServiceAreassandyUtTreeServicePage() {
                     Local Landmark and Feature Care
                   </h3>
                   <p key={27}>
-                    We're proud to provide specialized care for trees near Dimple Dell Regional
+                    We&apos;re proud to provide specialized care for trees near Dimple Dell Regional
                     Park, Bell Canyon, Lone Peak, ensuring these community assets remain healthy and
-                    beautiful for future generations while supporting Sandy's commitment to urban
-                    forestry and environmental stewardship.
+                    beautiful for future generations while supporting Sandy&apos;s commitment to
+                    urban forestry and environmental stewardship.
                   </p>
                   <h2 key={28} className="content-heading">
                     Why Sandy Residents Choose Clean Cut Trees
@@ -209,7 +206,7 @@ export default function ServiceAreassandyUtTreeServicePage() {
                     Our team maintains the highest industry standards: ISA (International Society of
                     Arboriculture) Certified Arborists, Tree Care Industry Association (TCIA)
                     accreditation, Utah state contractor licensing and bonding, comprehensive
-                    liability and workers' compensation insurance, and ongoing professional
+                    liability and workers&apos; compensation insurance, and ongoing professional
                     development and training. These credentials ensure you receive the most
                     qualified and professional tree care services available.
                   </p>
@@ -252,7 +249,7 @@ export default function ServiceAreassandyUtTreeServicePage() {
                     Summer Management (June-August)
                   </h3>
                   <p key={41}>
-                    Sandy's summer conditions require specialized attention: drought stress
+                    Sandy&apos;s summer conditions require specialized attention: drought stress
                     monitoring and irrigation consultation, heat stress mitigation strategies for
                     vulnerable species, pest and disease management during peak activity periods,
                     emergency storm response and damage assessment, and crown maintenance for safety
@@ -262,11 +259,11 @@ export default function ServiceAreassandyUtTreeServicePage() {
                     Fall Preparation (September-November)
                   </h3>
                   <p key={43}>
-                    Preparing trees for Sandy's winter conditions: structural pruning before winter
-                    weather events, fertilization programs for root development, winter protection
-                    installation for sensitive species, hazard tree identification and mitigation,
-                    and comprehensive property assessments to ensure trees are ready for winter
-                    challenges.
+                    Preparing trees for Sandy&apos;s winter conditions: structural pruning before
+                    winter weather events, fertilization programs for root development, winter
+                    protection installation for sensitive species, hazard tree identification and
+                    mitigation, and comprehensive property assessments to ensure trees are ready for
+                    winter challenges.
                   </p>
                   <h3 key={44} className="content-heading">
                     Winter Care (December-February)
@@ -308,30 +305,30 @@ export default function ServiceAreassandyUtTreeServicePage() {
                     Customer Testimonials from Sandy Residents
                   </h2>
                   <p key={51}>
-                    "Clean Cut Trees provided exceptional service for our property in Alta Canyon.
-                    Their knowledge of local tree species and professional approach exceeded our
-                    expectations." - Sarah M., Sandy resident. "After storm damage, their emergency
-                    response team was prompt and professional. They safely removed a large tree from
-                    our roof and completed thorough cleanup." - Michael R., Sandy homeowner. "The
-                    arborists' expertise in handling our mature trees was evident from their initial
-                    assessment through project completion. Highly recommend their services." -
-                    Jennifer L., Sandy property owner.
+                    &ldquo;Clean Cut Trees provided exceptional service for our property in Alta
+                    Canyon. Their knowledge of local tree species and professional approach exceeded
+                    our expectations.&rdquo; - Sarah M., Sandy resident. &ldquo;After storm damage,
+                    their emergency response team was prompt and professional. They safely removed a
+                    large tree from our roof and completed thorough cleanup.&rdquo; - Michael R.,
+                    Sandy homeowner. &ldquo;The arborists&apos; expertise in handling our mature
+                    trees was evident from their initial assessment through project completion.
+                    Highly recommend their services.&rdquo; - Jennifer L., Sandy property owner.
                   </p>
                   <h2 key={52} className="content-heading">
                     Contact Clean Cut Trees for Expert Sandy Tree Care
                   </h2>
                   <p key={53}>
-                    When you choose Clean Cut Trees for your Sandy property, you're partnering with
+                    When you choose Clean Cut Trees for your Sandy property, you&apos;re partnering with
                     true tree care professionals who combine extensive local experience with
                     industry-leading expertise. Our commitment to safety, quality, and customer
                     satisfaction has made us the trusted choice for hundreds of Sandy homeowners and
                     businesses throughout Salt Lake County.
                   </p>
                   <p key={54}>
-                    Don't compromise on the health and safety of your trees. Contact our
+                    Don&apos;t compromise on the health and safety of your trees. Contact our
                     ISA-certified arborists today for a comprehensive evaluation of your tree care
-                    needs. We're available 24/7 for emergencies and offer convenient scheduling for
-                    routine services throughout Salt Lake County.
+                    needs. We&apos;re available 24/7 for emergencies and offer convenient scheduling
+                    for routine services throughout Salt Lake County.
                   </p>
                   <h3 key={55} className="content-heading">
                     Sandy Tree Service Estimate: (801) 473-7548
@@ -343,55 +340,13 @@ export default function ServiceAreassandyUtTreeServicePage() {
                   </p>
                 </>
               </div>
-
-              {/* Service-specific CTAs */}
-              {isServicePage && (
-                <div className="service-cta">
-                  <div className="cta-box">
-                    <h3>Ready to Get Started?</h3>
-                    <p>Contact us today for a free estimate on this service.</p>
-                    <div className="cta-buttons">
-                      <Link href="/contact-us" className="btn btn-primary">
-                        Get Free Estimate
-                      </Link>
-                      <Link href="tel:+18014737548" className="btn btn-phone">
-                        <span
-                          className="material-symbols-outlined"
-                          style={{ verticalAlign: 'middle', fontSize: 20, marginRight: 4 }}
-                        >
-                          call
-                        </span>{' '}
-                        (801) 473-7548
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* Service Area specific CTAs */}
-              {isServiceAreaPage && (
-                <div className="service-area-cta">
-                  <div className="cta-box">
-                    <h3>Serving Sandy</h3>
-                    <p>We're proud to provide professional tree services to this community.</p>
-                    <div className="cta-buttons">
-                      <Link href="/contact-us" className="btn btn-primary">
-                        Schedule Service
-                      </Link>
-                      <Link href="tel:+18014737548" className="btn btn-phone">
-                        📞 Call Now
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              )}
             </div>
 
             {/* Sidebar */}
             <aside className="page-sidebar">
               <div className="sidebar-widget cta-widget">
                 <h3>Need Tree Service?</h3>
-                <p>Get expert tree care from Utah's most trusted professionals.</p>
+                <p>Get expert tree care from Utah&apos;s most trusted professionals.</p>
                 <Link href="/contact-us" className="btn btn-primary">
                   Free Estimate
                 </Link>
@@ -401,61 +356,10 @@ export default function ServiceAreassandyUtTreeServicePage() {
                     style={{ verticalAlign: 'middle', fontSize: 20, marginRight: 4 }}
                   >
                     call
-                  </span>{' '}
+                  </span>
                   (801) 473-7548
                 </Link>
               </div>
-
-              {isServicePage && (
-                <div className="sidebar-widget">
-                  <h3>Our Services</h3>
-                  <ul className="services-list">
-                    <li>
-                      <Link href="/services/tree-removal">Tree Removal</Link>
-                    </li>
-                    <li>
-                      <Link href="/services/tree-trimming">Tree Trimming</Link>
-                    </li>
-                    <li>
-                      <Link href="/services/emergency-tree-service">Emergency Service</Link>
-                    </li>
-                    <li>
-                      <Link href="/services/storm-cleanup">Storm Cleanup</Link>
-                    </li>
-                    <li>
-                      <Link href="/services/professional-land-clearing-services">
-                        Land Clearing
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/services/municipal-tree-service">Municipal Service</Link>
-                    </li>
-                  </ul>
-                </div>
-              )}
-
-              {isServiceAreaPage && (
-                <div className="sidebar-widget">
-                  <h3>Service Areas</h3>
-                  <ul className="areas-list">
-                    <li>
-                      <Link href="/service-areas/kaysville-ut-tree-service">Kaysville</Link>
-                    </li>
-                    <li>
-                      <Link href="/service-areas/layton-ut-tree-service">Layton</Link>
-                    </li>
-                    <li>
-                      <Link href="/service-areas/bountiful-ut-tree-service">Bountiful</Link>
-                    </li>
-                    <li>
-                      <Link href="/service-areas/farmington-ut-tree-service">Farmington</Link>
-                    </li>
-                    <li>
-                      <Link href="/service-areas/centerville-ut-tree-service">Centerville</Link>
-                    </li>
-                  </ul>
-                </div>
-              )}
 
               <div className="sidebar-widget">
                 <h3>Why Choose Clean Cuts Trees?</h3>
@@ -466,7 +370,7 @@ export default function ServiceAreassandyUtTreeServicePage() {
                       style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}
                     >
                       check_circle
-                    </span>{' '}
+                    </span>
                     Licensed & Insured
                   </li>
                   <li>
@@ -475,7 +379,7 @@ export default function ServiceAreassandyUtTreeServicePage() {
                       style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}
                     >
                       check_circle
-                    </span>{' '}
+                    </span>
                     24/7 Emergency Service
                   </li>
                   <li>
@@ -484,7 +388,7 @@ export default function ServiceAreassandyUtTreeServicePage() {
                       style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}
                     >
                       check_circle
-                    </span>{' '}
+                    </span>
                     Free Estimates
                   </li>
                   <li>
@@ -493,7 +397,7 @@ export default function ServiceAreassandyUtTreeServicePage() {
                       style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}
                     >
                       check_circle
-                    </span>{' '}
+                    </span>
                     Family Owned & Operated
                   </li>
                   <li>
@@ -502,7 +406,7 @@ export default function ServiceAreassandyUtTreeServicePage() {
                       style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}
                     >
                       check_circle
-                    </span>{' '}
+                    </span>
                     Professional Equipment
                   </li>
                   <li>
@@ -511,7 +415,7 @@ export default function ServiceAreassandyUtTreeServicePage() {
                       style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}
                     >
                       check_circle
-                    </span>{' '}
+                    </span>
                     Satisfaction Guaranteed
                   </li>
                 </ul>

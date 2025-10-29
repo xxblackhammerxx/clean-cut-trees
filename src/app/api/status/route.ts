@@ -1,7 +1,7 @@
 import { getEnvironmentStatus } from '@/lib/api-environment'
 import { NextRequest, NextResponse } from 'next/server'
 
-export async function GET(request: NextRequest) {
+export async function GET(_request: NextRequest) {
   const status = getEnvironmentStatus()
 
   const apiStatus = {

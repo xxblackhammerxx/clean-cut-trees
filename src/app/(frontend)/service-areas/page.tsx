@@ -188,7 +188,7 @@ export default async function ServiceAreasPage() {
                   style={{ verticalAlign: 'middle', fontSize: 22, marginRight: 4 }}
                 >
                   emergency
-                </span>{' '}
+                </span>
                 24/7 Emergency Tree Service
               </h3>
               <p>
@@ -201,7 +201,7 @@ export default async function ServiceAreasPage() {
                   style={{ verticalAlign: 'middle', fontSize: 20, marginRight: 4 }}
                 >
                   call
-                </span>{' '}
+                </span>
                 Emergency Line: (801) 473-7548
               </Link>
             </div>
@@ -258,7 +258,7 @@ export default async function ServiceAreasPage() {
                     style={{ verticalAlign: 'middle', fontSize: 20, marginRight: 4 }}
                   >
                     call
-                  </span>{' '}
+                  </span>
                   (801) 473-7548
                 </Link>
               </div>

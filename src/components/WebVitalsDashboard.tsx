@@ -9,6 +9,10 @@ interface WebVitalMetric {
   timestamp: number
 }
 
+interface WebVitalCustomEvent extends CustomEvent {
+  detail: WebVitalMetric
+}
+
 export default function WebVitalsDashboard() {
   const [metrics, setMetrics] = useState<WebVitalMetric[]>([])
   const [isVisible, setIsVisible] = useState(false)
@@ -18,14 +22,16 @@ export default function WebVitalsDashboard() {
     if (process.env.NODE_ENV !== 'development') return
 
     // Listen for custom events from WebVitals component
-    const handleWebVital = (event: CustomEvent<WebVitalMetric>) => {
-      setMetrics((prev) => {
-        const filtered = prev.filter((m) => m.name !== event.detail.name)
-        return [...filtered, event.detail].sort((a, b) => a.name.localeCompare(b.name))
-      })
+    const handleWebVital = (event: WebVitalCustomEvent) => {
+      if (event.detail) {
+        setMetrics((prev) => {
+          const newMetrics = [...prev, event.detail].slice(-50) // Keep last 50 metrics
+          return newMetrics
+        })
+      }
     }
 
-    window.addEventListener('web-vital' as any, handleWebVital)
+    window.addEventListener('web-vital', handleWebVital as EventListener)
 
     // Show/hide with keyboard shortcut
     const handleKeyPress = (e: KeyboardEvent) => {
@@ -37,7 +43,7 @@ export default function WebVitalsDashboard() {
     window.addEventListener('keydown', handleKeyPress)
 
     return () => {
-      window.removeEventListener('web-vital' as any, handleWebVital)
+      window.removeEventListener('web-vital', handleWebVital as EventListener)
       window.removeEventListener('keydown', handleKeyPress)
     }
   }, [])

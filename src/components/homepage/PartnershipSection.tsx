@@ -17,7 +17,7 @@ export default function PartnershipSection() {
             priority={false}
           />
           <p>
-            Clean Cuts Trees is a Proud Partner of <strong>Real Salt Lake</strong> & Winner of the{' '}
+            Clean Cuts Trees is a Proud Partner of <strong>Real Salt Lake</strong> & Winner of the
             <strong>America First Credit Union</strong> 2024 Small Business Showcase.
           </p>
           <Link href="/real-salt-lake-partnership" className="btn btn-secondary">
