@@ -1,10 +1,14 @@
 import Link from 'next/link'
 import { getPayload } from 'payload'
 
-import BookingButton from '@/components/BookingButton'
 import config from '@/payload.config'
 
 import PageSidebar from '@/components/PageSidebar'
+
+// Enable static generation
+export const dynamic = 'force-static'
+export const revalidate = 3600 // Revalidate every hour
+
 export const metadata = {
   title: 'Blog - Clean Cuts Trees | Tree Care Tips & News',
   description:
@@ -23,11 +27,11 @@ export default async function BlogPage() {
     depth: 2,
   })
 
-  // Fetch categories for filtering
-  const categories = await payload.find({
-    collection: 'categories',
-    limit: 100,
-  })
+  // Note: Categories could be used for filtering in the future if needed
+  // const categories = await payload.find({
+  //   collection: 'categories',
+  //   limit: 100,
+  // })
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString)

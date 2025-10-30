@@ -5,6 +5,11 @@ import { getPayload } from 'payload'
 import config from '@/payload.config'
 
 import PageSidebar from '@/components/PageSidebar'
+
+// Enable static generation
+export const dynamic = 'force-static'
+export const revalidate = 3600 // Revalidate every hour
+
 type Props = {
   params: Promise<{
     slug: string
@@ -289,4 +294,26 @@ export default async function BlogPostPage({ params }: Props) {
       )}
     </div>
   )
+}
+
+// Generate static params for all blog posts
+export async function generateStaticParams() {
+  const payloadConfig = await config
+  const payload = await getPayload({ config: payloadConfig })
+
+  const blogPosts = await payload.find({
+    collection: 'blog-posts',
+    where: {
+      status: {
+        equals: 'published',
+      },
+    },
+    limit: 1000, // Adjust if you have more posts
+  })
+
+  return blogPosts.docs
+    .map((post) => ({
+      slug: post.slug || '',
+    }))
+    .filter((param) => param.slug !== '')
 }
