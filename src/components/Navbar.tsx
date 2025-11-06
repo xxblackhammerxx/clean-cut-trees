@@ -260,8 +260,23 @@ const Navbar = () => {
                 </div>
                 <div className="dropdown-section">
                   <h4>Southern Utah</h4>
-                  <Link href="/service-areas/st-george-ut-tree-service" className="dropdown-item p">
-                    St. George
+                  <Link href="/st-george" className="dropdown-item priority-area">
+                    St. George ⭐
+                  </Link>
+                  <Link href="/st-george/service-areas/hurricane" className="dropdown-item">
+                    Hurricane
+                  </Link>
+                  <Link href="/st-george/service-areas/ivins" className="dropdown-item">
+                    Ivins
+                  </Link>
+                  <Link href="/st-george/service-areas/santa-clara" className="dropdown-item">
+                    Santa Clara
+                  </Link>
+                  <Link href="/st-george/service-areas/washington" className="dropdown-item">
+                    Washington
+                  </Link>
+                  <Link href="/st-george/service-areas/leeds" className="dropdown-item">
+                    Leeds
                   </Link>
                 </div>
               </div>
@@ -608,14 +623,52 @@ const Navbar = () => {
                   </Link>
                 </div>
                 <div className="mobile-area-group">
-                  <h5>Priority Areas</h5>
+                  <h5>Southern Utah</h5>
                   <Link
-                    href="/service-areas/st-george-ut-tree-service"
+                    href="/st-george"
                     className="mobile-sublink priority-area"
                     onClick={closeMenu}
                   >
                     St. George ⭐
                   </Link>
+                  <Link
+                    href="/st-george/service-areas/hurricane"
+                    className="mobile-sublink"
+                    onClick={closeMenu}
+                  >
+                    Hurricane
+                  </Link>
+                  <Link
+                    href="/st-george/service-areas/ivins"
+                    className="mobile-sublink"
+                    onClick={closeMenu}
+                  >
+                    Ivins
+                  </Link>
+                  <Link
+                    href="/st-george/service-areas/santa-clara"
+                    className="mobile-sublink"
+                    onClick={closeMenu}
+                  >
+                    Santa Clara
+                  </Link>
+                  <Link
+                    href="/st-george/service-areas/washington"
+                    className="mobile-sublink"
+                    onClick={closeMenu}
+                  >
+                    Washington
+                  </Link>
+                  <Link
+                    href="/st-george/service-areas/leeds"
+                    className="mobile-sublink"
+                    onClick={closeMenu}
+                  >
+                    Leeds
+                  </Link>
+                </div>
+                <div className="mobile-area-group">
+                  <h5>Priority Areas</h5>
                   <Link
                     href="/service-areas/south-jordan-ut-tree-service"
                     className="mobile-sublink"

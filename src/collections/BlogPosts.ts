@@ -33,33 +33,6 @@ export const BlogPosts: CollectionConfig = {
       type: 'richText',
     },
     {
-      name: 'faq',
-      type: 'array',
-      label: 'Frequently Asked Questions',
-      admin: {
-        description: 'Add FAQ section to your blog post',
-        initCollapsed: true,
-      },
-      fields: [
-        {
-          name: 'question',
-          type: 'text',
-          required: true,
-          admin: {
-            description: 'The question being asked',
-          },
-        },
-        {
-          name: 'answer',
-          type: 'richText',
-          required: true,
-          admin: {
-            description: 'The answer to the question',
-          },
-        },
-      ],
-    },
-    {
       name: 'excerpt',
       type: 'textarea',
       admin: {
