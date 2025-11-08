@@ -14,19 +14,15 @@ export default function RealSaltLakePartnershipPage() {
         <div className="container">
           <div className="page-layout">
             <main className="page-main">
-              <header className="page-header">
-                <h1 className="page-title">Tree Removal Service - Clean Cuts Trees</h1>
-              </header>
-
               <div className="page-content-body">
                 <>
                   <h1 key={0} className="content-heading">
                     Real Salt Lake Partnership
                   </h1>
-                  <h1 key={1} className="content-heading">
+                  <h2 key={1} className="content-heading">
                     Clean Cuts Trees wins the Small Business Showcase at the awards ceremony with
                     Real Salt Lake and America First Credit Union!
-                  </h1>
+                  </h2>
                   <p key={2}>
                     We are so excited to announce our partnership with Real Salt Lake and America
                     First Credit Union and our passion Clean Cuts Trees. Now, when you head to
@@ -34,7 +30,6 @@ export default function RealSaltLakePartnershipPage() {
                     representing!
                   </p>
                   <p key={3}>Clean Cuts Trees at the Awards Ceremony</p>
-                  <p key={4}>!image2</p>
                   <p key={5}>
                     Clean Cuts Trees, a local tree care company, recently celebrated a significant
                     victory by winning the coveted Small Business Showcase hosted by America First
@@ -50,8 +45,6 @@ export default function RealSaltLakePartnershipPage() {
                     thriving local business community by providing a unique opportunity for small
                     businesses to shine.
                   </p>
-                  <p key={7}>!image5</p>
-                  <p key={8}>!image1</p>
                   <p key={9}>
                     The Small Business Showcase has a proven track record of success, empowering
                     previous winners with valuable marketing exposure and a significant boost in
@@ -59,92 +52,9 @@ export default function RealSaltLakePartnershipPage() {
                     also strengthens the local economy by supporting and celebrating the
                     entrepreneurial spirit within the community.
                   </p>
-                  <p key={10}>More Pictures from this Awesome Event!</p>
-                  <p key={11}>!image3</p>
-                  <p key={12}>!image6</p>
-                  <p key={13}>!image4</p>
-                  <h3 key={14} className="content-heading">
-                    Get A Free Estimate
-                  </h3>
-                  <p key={15}>[](tel:+18014737548)</p>
-                  <p key={16}>Contact Us Today for More Info!</p>
-                  <h3 key={17} className="content-heading">
-                    801-473-7548
-                  </h3>
-                  <h1 key={18} className="content-heading">
-                    !A banner showing Clean Cuts Trees as a top-rated tree service.
-                  </h1>
-                  <p key={19}>!logo copy</p>
-                  <p key={20}>
-                    Clean Cuts Trees is the #1 tree service company in Fruit Heights serving all of
-                    Davis, Salt Lake and Weber County, Utah, & surrounding areas.
-                  </p>
-                  <p key={21}>!badge copy</p>
                 </>
               </div>
             </main>
-
-            <aside className="page-sidebar">
-              <div className="sidebar-widget">
-                <h3>Why Choose Clean Cuts Trees?</h3>
-                <ul className="features-list">
-                  <li>
-                    <span
-                      className="material-symbols-outlined"
-                      style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}
-                    >
-                      check_circle
-                    </span>
-                    Licensed & Insured
-                  </li>
-                  <li>
-                    <span
-                      className="material-symbols-outlined"
-                      style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}
-                    >
-                      check_circle
-                    </span>
-                    24/7 Emergency Service
-                  </li>
-                  <li>
-                    <span
-                      className="material-symbols-outlined"
-                      style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}
-                    >
-                      check_circle
-                    </span>
-                    Free Estimates
-                  </li>
-                  <li>
-                    <span
-                      className="material-symbols-outlined"
-                      style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}
-                    >
-                      check_circle
-                    </span>
-                    Family Owned & Operated
-                  </li>
-                  <li>
-                    <span
-                      className="material-symbols-outlined"
-                      style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}
-                    >
-                      check_circle
-                    </span>
-                    Professional Equipment
-                  </li>
-                  <li>
-                    <span
-                      className="material-symbols-outlined"
-                      style={{ fontSize: 18, verticalAlign: 'middle', marginRight: 4 }}
-                    >
-                      check_circle
-                    </span>
-                    Satisfaction Guaranteed
-                  </li>
-                </ul>
-              </div>
-            </aside>
           </div>
         </div>
       </article>
