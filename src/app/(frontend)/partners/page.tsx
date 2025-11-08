@@ -1,9 +1,12 @@
-'use client'
-
-import { useState } from 'react'
 import BookingButton from '@/components/BookingButton'
 import Link from 'next/link'
-import CTASection from '@/components/CTASection'
+import PartnersGrid from '@/components/PartnersGrid'
+
+export const metadata = {
+  title: 'Service Partners & Offers | Clean Cuts Trees Utah',
+  description:
+    'Explore our trusted service partners and joint offers for complete home and property services in Utah. Quality partnerships for comprehensive solutions.',
+}
 
 const servicePartners = [
   {
@@ -107,20 +110,6 @@ const servicePartners = [
 const categories = [...new Set(servicePartners.map((partner) => partner.category))]
 
 export default function ServicePartnersPage() {
-  const [activeCategory, setActiveCategory] = useState('all')
-
-  const filteredPartners =
-    activeCategory === 'all'
-      ? servicePartners
-      : servicePartners.filter((partner) => partner.category === activeCategory)
-
-  console.log('Active category:', activeCategory)
-  console.log('Filtered partners:', filteredPartners.length)
-
-  const handleCategoryFilter = (category: string) => {
-    console.log('Filtering to category:', category)
-    setActiveCategory(category)
-  }
   return (
     <div className="service-partners-page">
       {/* Hero Section */}
@@ -135,7 +124,7 @@ export default function ServicePartnersPage() {
             <BookingButton variant="primary" size="large">
               Get Combined Quote
             </BookingButton>
-            <Link href="/contact-us" className="btn btn-outline btn-large">
+            <Link href="/contact-us" className="btn btn-large">
               Ask About Partnerships
             </Link>
           </div>
@@ -151,79 +140,7 @@ export default function ServicePartnersPage() {
             complete property solutions with exclusive discounts and coordinated scheduling.
           </p>
 
-          {/* Category Filter */}
-          <div className="category-filters">
-            <button
-              className={`filter-btn ${activeCategory === 'all' ? 'active' : ''}`}
-              onClick={() => handleCategoryFilter('all')}
-            >
-              All Services
-            </button>
-            {categories.map((category) => (
-              <button
-                key={category}
-                className={`filter-btn ${activeCategory === category ? 'active' : ''}`}
-                onClick={() => handleCategoryFilter(category)}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
-
-          {/* Partners Grid */}
-          <div className="partners-grid">
-            {filteredPartners.map((partner, index) => (
-              <div key={index} className="partner-card">
-                <div className="partner-header">
-                  <div className="partner-logo">
-                    <div className="logo-placeholder">
-                      {partner.name
-                        .split(' ')
-                        .map((word) => word[0])
-                        .join('')}
-                    </div>
-                  </div>
-                  <div className="partner-info">
-                    <h3>{partner.name}</h3>
-                    <span className="category-badge">{partner.category}</span>
-                  </div>
-                </div>
-
-                <div className="partner-services">
-                  <h4>Services:</h4>
-                  <ul>
-                    {partner.services.map((service, idx) => (
-                      <li key={idx}>{service}</li>
-                    ))}
-                  </ul>
-                </div>
-
-                <p className="partner-description">{partner.description}</p>
-
-                <div className="joint-offer">
-                  <h4>🤝 Joint Offer:</h4>
-                  <p>{partner.jointOffer}</p>
-                </div>
-
-                <div className="partner-contact">
-                  <a
-                    href={`tel:${partner.phone.replace(/[^0-9]/g, '')}`}
-                    className="contact-btn phone-btn"
-                  >
-                    📞 {partner.phone}
-                  </a>
-                  <a
-                    href={partner.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="contact-btn website-btn"
-                  >
-                    🌐 Visit Website
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
+          <PartnersGrid servicePartners={servicePartners} categories={categories} />
         </div>
       </section>
 

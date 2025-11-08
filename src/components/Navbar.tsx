@@ -283,9 +283,9 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* <Link href="/service-partners" style={{ minWidth: '150px' }} className="navbar-link">
-            Service Partners
-          </Link> */}
+          <Link href="/partners" className="navbar-link">
+            Partners
+          </Link>
           <Link href="/blog" className="navbar-link">
             Blog
           </Link>
