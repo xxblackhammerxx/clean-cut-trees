@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import { trackBookingConversion } from '@/utils/googleAdsConversion'
 
 interface BookingButtonProps {
   variant?: 'primary' | 'secondary' | 'outline'
@@ -41,6 +42,9 @@ export default function BookingButton({
     `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`.trim()
 
   const handleClick = () => {
+    // Track conversion for Google Ads
+    trackBookingConversion()
+    
     if (typeof window !== 'undefined' && window.HCPWidget) {
       window.HCPWidget.openModal()
     } else {

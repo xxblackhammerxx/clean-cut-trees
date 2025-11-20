@@ -1,4 +1,5 @@
 import OptimizedImage from '@/components/OptimizedImage'
+import PhoneButton from '@/components/PhoneButton'
 import Link from 'next/link'
 
 export default function HeroSection() {
@@ -33,7 +34,11 @@ export default function HeroSection() {
           <Link href="/contact-us" className="btn btn-primary">
             CONTACT US NOW!
           </Link>
-          <a href="tel:+18014737548" className="btn btn-phone">
+          <PhoneButton 
+            phoneNumber="+18014737548" 
+            className="btn btn-phone"
+            style={{ verticalAlign: 'middle', fontSize: 20, marginRight: 4 }}
+          >
             <span
               className="material-symbols-outlined"
               style={{ verticalAlign: 'middle', fontSize: 20, marginRight: 4 }}
@@ -41,7 +46,7 @@ export default function HeroSection() {
               call
             </span>
             (801) 473-7548
-          </a>
+          </PhoneButton>
         </div>
       </div>
     </section>

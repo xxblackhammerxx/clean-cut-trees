@@ -3,6 +3,7 @@ import { getPayload } from 'payload'
 
 import BookingButton from '@/components/BookingButton'
 import ContactForm from '@/components/ContactForm'
+import PhoneButton from '@/components/PhoneButton'
 import config from '@/payload.config'
 
 export async function generateMetadata() {
@@ -174,10 +175,13 @@ export default async function ContactPage() {
               <BookingButton variant="primary" size="large">
                 Book Service Online
               </BookingButton>
-              <a href="tel:+18014737548" className="btn btn-phone btn-large">
+              <PhoneButton 
+                phoneNumber="+18014737548" 
+                className="btn btn-phone btn-large"
+              >
                 <span className="material-symbols-outlined">call</span>
                 Call Now
-              </a>
+              </PhoneButton>
             </div>
           </div>
         </div>
