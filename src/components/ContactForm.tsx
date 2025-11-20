@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { trackContactFormConversion } from '@/utils/googleAdsConversion'
 
 interface ContactFormData {
   name: string
@@ -61,6 +62,9 @@ const ContactForm = () => {
         throw new Error('Failed to submit form')
       }
 
+      // Track conversion for Google Ads
+      trackContactFormConversion()
+      
       setSubmitStatus('success')
       // Reset form
       setFormData({

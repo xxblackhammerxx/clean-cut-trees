@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import PhoneButton from '@/components/PhoneButton'
 
 export default function ContactSection() {
   return (
@@ -36,7 +37,7 @@ export default function ContactSection() {
               Phone
             </h3>
             <p>
-              <a href="tel:+18014737548">(801) 473-7548</a>
+              <PhoneButton phoneNumber="+18014737548" className="" displayText="(801) 473-7548" />
             </p>
           </div>
           <div className="contact-item">

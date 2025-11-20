@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import BookingButton from './BookingButton'
+import PhoneButton from './PhoneButton'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -298,9 +299,7 @@ const Navbar = () => {
           <BookingButton variant="primary" size="small" className="navbar-book-btn">
             Book Now
           </BookingButton>
-          <Link href="tel:+18014737548" className="navbar-phone">
-            (801) 473-7548
-          </Link>
+          <PhoneButton phoneNumber="+18014737548" className="navbar-phone" displayText="(801) 473-7548" />
         </div>
 
         {/* Mobile Menu Button */}
@@ -714,9 +713,12 @@ const Navbar = () => {
           </div>
 
           <div className="mobile-menu-footer">
-            <Link href="tel:+18014737548" className="mobile-phone" onClick={closeMenu}>
-              (801) 473-7548
-            </Link>
+            <PhoneButton 
+              phoneNumber="+18014737548" 
+              className="mobile-phone" 
+              displayText="(801) 473-7548"
+              onClick={closeMenu}
+            />
             <div className="mobile-hours">
               <p>24/7 Emergency Service Available</p>
             </div>

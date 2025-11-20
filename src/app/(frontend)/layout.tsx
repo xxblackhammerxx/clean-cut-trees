@@ -178,6 +178,26 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
 
         {/* Google Tag Manager */}
         <GoogleTagManager gtmId={gtmId} />
+
+        {/* Google Ads Conversion Tracking */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              function gtag_report_conversion(url) {
+                var callback = function () {
+                  if (typeof(url) != 'undefined') {
+                    window.location = url;
+                  }
+                };
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-10810466317/XjtiCMyRhJwYEI3A6qIo',
+                    'event_callback': callback
+                });
+                return false;
+              }
+            `,
+          }}
+        />
       </head>
       <body className={inter.className} suppressHydrationWarning={true}>
         {/* Google Tag Manager (noscript) - Must be immediately after opening body tag */}

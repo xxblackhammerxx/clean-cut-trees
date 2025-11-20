@@ -1,5 +1,7 @@
 import Image from 'next/image'
 
+import HouseCallProLink from '@/components/HouseCallProLink'
+import PhoneButton from '@/components/PhoneButton'
 import { stGeorgeOfficeContact, emergencyContact } from '@/utils/contactInfo'
 
 export const metadata = {
@@ -262,13 +264,16 @@ export default function TreeRemovalPage() {
                 <li>Environmentally responsible debris disposal and recycling</li>
               </ul>
               <div className="emergency-buttons">
-                <a href="https://book.housecallpro.com/book/Clean-Cuts-Trees/b4a00fdb66b64c1da2f367aa3c485101?v2=true&attr=5343" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+                <HouseCallProLink className="btn btn-primary">
                   Schedule Assessment
-                </a>
-                <a href={`tel:${stGeorgeOfficeContact.phoneLink}`} className="btn btn-phone">
+                </HouseCallProLink>
+                <PhoneButton 
+                  phoneNumber={stGeorgeOfficeContact.phoneLink}
+                  className="btn btn-phone"
+                >
                   <span className="material-symbols-outlined">call</span>
                   Get Free Estimate
-                </a>
+                </PhoneButton>
               </div>
             </div>
             <div className="emergency-gallery">
@@ -368,7 +373,7 @@ export default function TreeRemovalPage() {
                 Phone
               </h3>
               <p>
-                <a href={`tel:${stGeorgeOfficeContact.phoneLink}`}>{stGeorgeOfficeContact.phone}</a>
+                <PhoneButton phoneNumber={stGeorgeOfficeContact.phoneLink} className="" displayText={stGeorgeOfficeContact.phone} />
               </p>
             </div>
             <div className="contact-item">
@@ -376,17 +381,20 @@ export default function TreeRemovalPage() {
                 <span className="material-symbols-outlined">emergency</span>
                 Emergency Service
               </h3>
-              <p>24/7: <a href={`tel:${emergencyContact.phoneLink}`}>{emergencyContact.phone}</a></p>
+              <p>24/7: <PhoneButton phoneNumber={emergencyContact.phoneLink} className="" displayText={emergencyContact.phone} /></p>
             </div>
           </div>
 
           <div className="final-cta">
-            <a href="https://book.housecallpro.com/book/Clean-Cuts-Trees/b4a00fdb66b64c1da2f367aa3c485101?v2=true&attr=5343" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-large">
+            <HouseCallProLink className="btn btn-primary btn-large">
               📅 SCHEDULE TREE REMOVAL
-            </a>
-            <a href={`tel:${stGeorgeOfficeContact.phoneLink}`} className="btn btn-secondary">
+            </HouseCallProLink>
+            <PhoneButton 
+              phoneNumber={stGeorgeOfficeContact.phoneLink}
+              className="btn btn-secondary"
+            >
               💰 GET FREE ESTIMATE
-            </a>
+            </PhoneButton>
           </div>
         </div>
       </section>
