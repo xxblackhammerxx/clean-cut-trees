@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { trackContactFormConversion } from '@/utils/googleAdsConversion'
+import { useRecaptcha } from '@/hooks/useRecaptcha'
 
 interface ContactFormData {
   name: string
@@ -17,6 +18,8 @@ interface ContactFormData {
 }
 
 const ContactForm = () => {
+  const { executeRecaptcha } = useRecaptcha()
+
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     email: '',
@@ -50,21 +53,35 @@ const ContactForm = () => {
     try {
       console.log('Submitting form data:', formData)
 
+      // Execute reCAPTCHA
+      let recaptchaToken: string | null = null
+      if (executeRecaptcha) {
+        recaptchaToken = await executeRecaptcha('contact_form')
+        if (!recaptchaToken) {
+          throw new Error('reCAPTCHA verification failed')
+        }
+      }
+
       const response = await fetch('/api/contact-submissions', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          recaptchaToken,
+        }),
       })
 
+      const result = await response.json()
+
       if (!response.ok) {
-        throw new Error('Failed to submit form')
+        throw new Error(result.error || 'Failed to submit form')
       }
 
       // Track conversion for Google Ads
       trackContactFormConversion()
-      
+
       setSubmitStatus('success')
       // Reset form
       setFormData({
@@ -81,7 +98,11 @@ const ContactForm = () => {
       })
     } catch (error) {
       setSubmitStatus('error')
-      setErrorMessage('Failed to submit form. Please try again or call us directly.')
+      setErrorMessage(
+        error instanceof Error
+          ? error.message
+          : 'Failed to submit form. Please try again or call us directly.',
+      )
       console.error('Contact form error:', error)
     } finally {
       setIsSubmitting(false)
@@ -283,6 +304,17 @@ const ContactForm = () => {
           <p className="form-note">
             * Required fields. We typically respond within 24 hours. For emergencies, call
             <a href="tel:+18014737548">(801) 473-7548</a>
+          </p>
+          <p className="recaptcha-info">
+            This site is protected by reCAPTCHA and the Google{' '}
+            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
+              Privacy Policy
+            </a>{' '}
+            and{' '}
+            <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">
+              Terms of Service
+            </a>{' '}
+            apply.
           </p>
         </div>
       </form>

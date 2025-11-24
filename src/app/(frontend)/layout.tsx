@@ -4,6 +4,7 @@ import GoogleAnalytics from '@/components/GoogleAnalytics'
 import GoogleTagManager from '@/components/GoogleTagManager'
 import GoogleTagManagerNoScript from '@/components/GoogleTagManagerNoScript'
 import Navbar from '@/components/Navbar'
+import RecaptchaProvider from '@/components/providers/RecaptchaProvider'
 import WebVitals from '@/components/WebVitals'
 import WebVitalsDashboard from '@/components/WebVitalsDashboard'
 import { getCriticalCSS } from '@/lib/critical-css'
@@ -13,6 +14,7 @@ import React from 'react'
 import '../global.css'
 import './seo-improvements.css'
 import './styles.css'
+import './recaptcha.css'
 
 const heroImageSrc = '/Emergency-Tree-Service-Team.jpg'
 const optimizedHeroImage = getOptimizedMetaImageSrc(heroImageSrc)
@@ -205,10 +207,12 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
 
         <WebVitals debug={process.env.NODE_ENV === 'development'} />
         <WebVitalsDashboard />
-        <Navbar />
-        <main style={{ paddingTop: '100px' }}>{children}</main>
-        <Footer />
-        <FloatingBookingButton />
+        <RecaptchaProvider>
+          <Navbar />
+          <main style={{ paddingTop: '100px' }}>{children}</main>
+          <Footer />
+          <FloatingBookingButton />
+        </RecaptchaProvider>
       </body>
     </html>
   )
