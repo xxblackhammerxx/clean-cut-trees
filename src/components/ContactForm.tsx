@@ -337,7 +337,7 @@ const ContactForm = () => {
               Your consent is not a condition of purchase.
             </p>
             <p className="compliance-text">
-              For questions about our SMS program, email us or call <a href="tel:+18014737548">(801) 473-7548</a>.
+              For questions about our SMS program, email us or call <a href="tel:+13852022172">(385) 202-2172</a>.
             </p>
           </div>
         </div>
