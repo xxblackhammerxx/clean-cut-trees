@@ -4,7 +4,7 @@ export const ContactSubmissions: CollectionConfig = {
   slug: 'contact-submissions',
   admin: {
     useAsTitle: 'name',
-    defaultColumns: ['name', 'email', 'phone', 'createdAt'],
+    defaultColumns: ['name', 'email', 'phone', 'consentToSms', 'consentToPromotions', 'createdAt'],
     group: 'Forms',
   },
   access: {
@@ -100,6 +100,24 @@ export const ContactSubmissions: CollectionConfig = {
       label: 'Best Time to Call',
     },
     {
+      name: 'consentToSms',
+      type: 'checkbox',
+      label: 'Consented to SMS Messages',
+      defaultValue: false,
+      admin: {
+        description: 'Customer has consented to receive SMS messages from Clean Cut Trees',
+      },
+    },
+    {
+      name: 'consentToPromotions',
+      type: 'checkbox',
+      label: 'Consented to Promotional Messages',
+      defaultValue: false,
+      admin: {
+        description: 'Customer has consented to receive promotional offers and updates',
+      },
+    },
+    {
       name: 'status',
       type: 'select',
       label: 'Status',
@@ -168,6 +186,13 @@ export const ContactSubmissions: CollectionConfig = {
                   <p><strong>Email:</strong> <a href="mailto:${doc.email}">${doc.email}</a></p>
                   ${doc.phone ? `<p><strong>Phone:</strong> <a href="tel:${doc.phone}">${doc.phone}</a></p>` : ''}
                   ${doc.address ? `<p><strong>Property Address:</strong> ${doc.address}</p>` : ''}
+                </div>
+
+                <div style="background: #e8f5e8; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                  <h3 style="color: #2c5530; margin-top: 0;">Communication Consent</h3>
+                  <p><strong>SMS Messages:</strong> <span style="color: ${doc.consentToSms ? '#28a745' : '#dc3545'};">${doc.consentToSms ? '✅ Consented' : '❌ Not consented'}</span></p>
+                  <p><strong>Promotional Messages:</strong> <span style="color: ${doc.consentToPromotions ? '#28a745' : '#dc3545'};">${doc.consentToPromotions ? '✅ Consented' : '❌ Not consented'}</span></p>
+                  ${doc.consentToSms ? '<p style="font-size: 12px; color: #666; margin: 10px 0 0 0;"><em>⚠️ A2P Compliance: Customer has provided explicit consent for SMS communication. Ensure compliance with TCPA regulations.</em></p>' : ''}
                 </div>
 
                 <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">

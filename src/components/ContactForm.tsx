@@ -15,6 +15,8 @@ interface ContactFormData {
   address: string
   preferredContact: string
   bestTimeToCall: string
+  consentToSms: boolean
+  consentToPromotions: boolean
 }
 
 const ContactForm = () => {
@@ -31,6 +33,8 @@ const ContactForm = () => {
     address: '',
     preferredContact: 'email',
     bestTimeToCall: '',
+    consentToSms: false,
+    consentToPromotions: false,
   })
 
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -40,8 +44,9 @@ const ContactForm = () => {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
   ) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
+    const { name, value, type } = e.target
+    const targetValue = type === 'checkbox' ? (e.target as HTMLInputElement).checked : value
+    setFormData((prev) => ({ ...prev, [name]: targetValue }))
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -95,6 +100,8 @@ const ContactForm = () => {
         address: '',
         preferredContact: 'email',
         bestTimeToCall: '',
+        consentToSms: false,
+        consentToPromotions: false,
       })
     } catch (error) {
       setSubmitStatus('error')
@@ -286,6 +293,53 @@ const ContactForm = () => {
             rows={5}
             placeholder="Please describe your tree service needs, including details about the trees, property conditions, and any specific concerns..."
           />
+        </div>
+
+        {/* Consent Section */}
+        <div className="form-section consent-section full-width">
+          <h3>Communication Preferences</h3>
+          
+          <div className="form-group checkbox-group">
+            <label className="checkbox-label">
+              <input
+                type="checkbox"
+                name="consentToSms"
+                checked={formData.consentToSms}
+                onChange={handleChange}
+              />
+              <span className="checkbox-text">
+                I consent to receive text messages from Clean Cut Trees regarding my inquiry and future services. 
+                I understand that message and data rates may apply, and I can opt out at any time by replying STOP.
+              </span>
+            </label>
+          </div>
+
+          <div className="form-group checkbox-group">
+            <label className="checkbox-label">
+              <input
+                type="checkbox"
+                name="consentToPromotions"
+                checked={formData.consentToPromotions}
+                onChange={handleChange}
+              />
+              <span className="checkbox-text">
+                I would like to receive promotional offers, seasonal tips, and updates about Clean Cut Trees services 
+                via email and/or SMS. I can unsubscribe at any time.
+              </span>
+            </label>
+          </div>
+
+          <div className="a2p-compliance">
+            <p className="compliance-text">
+              <strong>SMS Terms & Conditions:</strong> By providing your phone number and checking the SMS consent box above, 
+              you agree to receive text messages from Clean Cut Trees. Message frequency varies. Message and data rates may apply. 
+              Reply STOP to opt out or HELP for help. Carriers are not liable for delayed or undelivered messages. 
+              Your consent is not a condition of purchase.
+            </p>
+            <p className="compliance-text">
+              For questions about our SMS program, email us or call <a href="tel:+18014737548">(801) 473-7548</a>.
+            </p>
+          </div>
         </div>
 
         {/* Submit Button */}

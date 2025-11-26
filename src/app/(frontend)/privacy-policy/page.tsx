@@ -1,10 +1,10 @@
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy - Clean Cuts Trees | Clean Cuts Trees',
+  title: 'Privacy Policy - Clean Cuts Trees | Professional Tree Service Utah',
   description:
-    'At Clean Cuts Trees, accessible from https://cleancutstrees.com/, one of our main priorities is the privacy of our visitors. This Privacy Policy document',
-  keywords: 'tree service, Clean Cuts Trees, Utah',
+    'Privacy Policy for Clean Cuts Trees. Learn how we protect your personal information, SMS messaging policies, and data handling practices for our tree service business.',
+  keywords: 'privacy policy, data protection, SMS messaging, tree service, Clean Cuts Trees, Utah',
 }
 
 export default function PrivacyPolicyPage() {
@@ -15,214 +15,175 @@ export default function PrivacyPolicyPage() {
           <div className="page-layout">
             <main className="page-main">
               <header className="page-header">
-                <h1 className="page-title">Privacy Policy - Clean Cuts Trees</h1>
+                <h1 className="page-title">Privacy Policy</h1>
               </header>
 
               <div className="page-content-body">
-                <>
-                  <h1 key={0} className="content-heading">
-                    Privacy Policy
-                  </h1>
-                  <h1 key={1} className="content-heading">
-                    Privacy Policy for Clean Cuts Trees
-                  </h1>
-                  <p key={2}>
-                    At Clean Cuts Trees, accessible from https://cleancutstrees.com/, one of our
-                    main priorities is the privacy of our visitors. This Privacy Policy document
-                    contains types of information that is collected and recorded by Clean Cuts Trees
-                    and how we use it.
-                  </p>
-                  <p key={3}>
-                    If you have additional questions or require more information about our Privacy
-                    Policy, do not hesitate to contact us.
-                  </p>
-                  <p key={4}>
-                    This Privacy Policy applies only to our online activities and is valid for
-                    visitors to our website with regards to the information that they shared and/or
-                    collect in Clean Cuts Trees. This policy is not applicable to any information
-                    collected offline or via channels other than this website.
-                  </p>
-                  <h2 key={5} className="content-heading">
-                    Consent
-                  </h2>
-                  <p key={6}>
-                    By using our website, you hereby consent to our Privacy Policy and agree to its
-                    terms.
-                  </p>
-                  <h2 key={7} className="content-heading">
-                    Information we collect
-                  </h2>
-                  <p key={8}>
-                    The personal information that you are asked to provide, and the reasons why you
-                    are asked to provide it, will be made clear to you at the point we ask you to
-                    provide your personal information.
-                  </p>
-                  <p key={9}>
-                    If you contact us directly, we may receive additional information about you such
-                    as your name, email address, phone number, the contents of the message and/or
-                    attachments you may send us, and any other information you may choose to
-                    provide.
-                  </p>
-                  <p key={10}>
-                    When you register for an Account, we may ask for your contact information,
-                    including items such as name, company name, address, email address, and
-                    telephone number.
-                  </p>
-                  <h2 key={11} className="content-heading">
-                    How we use your information
-                  </h2>
-                  <p key={12}>We use the information we collect in various ways, including to:</p>
-                  <p key={13}>
-                    Provide, operate, and maintain our website Improve, personalize, and expand our
-                    website Understand and analyze how you use our website Develop new products,
-                    services, features, and functionality Communicate with you, either directly or
-                    through one of our partners, including for customer service, to provide you with
-                    updates and other information relating to the website, and for marketing and
-                    promotional purposes Send you emails Find and prevent fraud
-                  </p>
-                  <h2 key={14} className="content-heading">
-                    Log Files
-                  </h2>
-                  <p key={15}>
-                    Clean Cuts Trees follows a standard procedure of using log files. These files
-                    log visitors when they visit websites. All hosting companies do this and a part
-                    of hosting services’ analytics. The information collected by log files include
-                    internet protocol (IP) addresses, browser type, Internet Service Provider (ISP),
-                    date and time stamp, referring/exit pages, and possibly the number of clicks.
-                    These are not linked to any information that is personally identifiable. The
-                    purpose of the information is for analyzing trends, administering the site,
-                    tracking users’ movement on the website, and gathering demographic information.
-                  </p>
-                  <h2 key={16} className="content-heading">
-                    Cookies and Web Beacons
-                  </h2>
-                  <p key={17}>
-                    Like any other website, Clean Cuts Trees uses ‘cookies’. These cookies are used
-                    to store information including visitors’ preferences, and the pages on the
-                    website that the visitor accessed or visited. The information is used to
-                    optimize the users’ experience by customizing our web page content based on
-                    visitors’ browser type and/or other information.
-                  </p>
-                  <p key={18}>
-                    For more general information on cookies, please read more on the Cookie Consent
-                    website.
-                  </p>
-                  <h2 key={19} className="content-heading">
-                    Advertising Partners Privacy Policies
-                  </h2>
-                  <p key={20}>
-                    You may consult this list to find the Privacy Policy for each of the advertising
-                    partners of Clean Cuts Trees.
-                  </p>
-                  <p key={21}>
-                    Third-party ad servers or ad networks uses technologies like cookies,
-                    JavaScript, or Web Beacons that are used in their respective advertisements and
-                    links that appear on Clean Cuts Trees, which are sent directly to users’
-                    browser. They automatically receive your IP address when this occurs. These
-                    technologies are used to measure the effectiveness of their advertising
-                    campaigns and/or to personalize the advertising content that you see on websites
-                    that you visit.
-                  </p>
-                  <p key={22}>
-                    Note that Clean Cuts Trees has no access to or control over these cookies that
-                    are used by third-party advertisers.
-                  </p>
-                  <h2 key={23} className="content-heading">
-                    Third Party Privacy Policies
-                  </h2>
-                  <p key={24}>
-                    Clean Cuts Trees’s Privacy Policy does not apply to other advertisers or
-                    websites. Thus, we are advising you to consult the respective Privacy Policies
-                    of these third-party ad servers for more detailed information. It may include
-                    their practices and instructions about how to opt-out of certain options.
-                  </p>
-                  <p key={25}>
-                    You can choose to disable cookies through your individual browser options. To
-                    know more detailed information about cookie management with specific web
-                    browsers, it can be found at the browsers’ respective websites.
-                  </p>
-                  <h2 key={26} className="content-heading">
-                    CCPA Privacy Rights (Do Not Sell My Personal Information)
-                  </h2>
-                  <p key={27}>
-                    Under the CCPA, among other rights, California consumers have the right to:
-                  </p>
-                  <p key={28}>
-                    Request that a business that collects a consumer’s personal data disclose the
-                    categories and specific pieces of personal data that a business has collected
-                    about consumers.
-                  </p>
-                  <p key={29}>
-                    Request that a business delete any personal data about the consumer that a
-                    business has collected.
-                  </p>
-                  <p key={30}>
-                    Request that a business that sells a consumer’s personal data, not sell the
-                    consumer’s personal data.
-                  </p>
-                  <p key={31}>
-                    If you make a request, we have one month to respond to you. If you would like to
-                    exercise any of these rights, please contact us.
-                  </p>
-                  <h2 key={32} className="content-heading">
-                    GDPR Data Protection Rights
-                  </h2>
-                  <p key={33}>
-                    We would like to make sure you are fully aware of all of your data protection
-                    rights. Every user is entitled to the following:
-                  </p>
-                  <p key={34}>
-                    The right to access – You have the right to request copies of your personal
-                    data. We may charge you a small fee for this service.
-                  </p>
-                  <p key={35}>
-                    The right to rectification – You have the right to request that we correct any
-                    information you believe is inaccurate. You also have the right to request that
-                    we complete the information you believe is incomplete.
-                  </p>
-                  <p key={36}>
-                    The right to erasure – You have the right to request that we erase your personal
-                    data, under certain conditions.
-                  </p>
-                  <p key={37}>
-                    The right to restrict processing – You have the right to request that we
-                    restrict the processing of your personal data, under certain conditions.
-                  </p>
-                  <p key={38}>
-                    The right to object to processing – You have the right to object to our
-                    processing of your personal data, under certain conditions.
-                  </p>
-                  <p key={39}>
-                    The right to data portability – You have the right to request that we transfer
-                    the data that we have collected to another organization, or directly to you,
-                    under certain conditions.
-                  </p>
-                  <p key={40}>
-                    If you make a request, we have one month to respond to you. If you would like to
-                    exercise any of these rights, please contact us.
-                  </p>
-                  <h2 key={41} className="content-heading">
-                    Children’s Information
-                  </h2>
-                  <p key={42}>
-                    Another part of our priority is adding protection for children while using the
-                    internet. We encourage parents and guardians to observe, participate in, and/or
-                    monitor and guide their online activity.
-                  </p>
-                  <p key={43}>
-                    Clean Cuts Trees does not knowingly collect any Personal Identifiable
-                    Information from children under the age of 13. If you think that your child
-                    provided this kind of information on our website, we strongly encourage you to
-                    contact us immediately and we will do our best efforts to promptly remove such
-                    information from our records.
-                  </p>
-                  <p key={44}>!logo copy</p>
-                  <p key={45}>
-                    Clean Cuts Trees is the #1 tree service company in Fruit Heights serving all of
-                    Davis, Salt Lake and Weber County, Utah, & surrounding areas.
-                  </p>
-                  <p key={46}>!badge copy</p>
-                </>
+                <p className="effective-date">
+                  <strong>Effective Date:</strong> November 26, 2025
+                </p>
+                
+                <h2 className="content-heading">
+                  1. Introduction
+                </h2>
+                <p>
+                  Clean Cuts Trees ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website https://cleancutstrees.com or use our services.
+                </p>
+                
+                <h2 className="content-heading">
+                  2. Information We Collect
+                </h2>
+                <h3>Personal Information</h3>
+                <p>We may collect personal information that you voluntarily provide, including:</p>
+                <ul>
+                  <li>Name and contact information (email, phone number, address)</li>
+                  <li>Service requests and property information</li>
+                  <li>Payment information (processed securely through third-party processors)</li>
+                  <li>Communications with our customer service team</li>
+                </ul>
+                
+                <h3>Automatically Collected Information</h3>
+                <p>We automatically collect certain information when you visit our website:</p>
+                <ul>
+                  <li>IP address and device information</li>
+                  <li>Browser type and version</li>
+                  <li>Pages visited and time spent on our site</li>
+                  <li>Referring website information</li>
+                </ul>
+                
+                <h2 className="content-heading">
+                  3. SMS/Text Messaging Policy
+                </h2>
+                <p>
+                  <strong>By providing your phone number and consenting to receive text messages, you agree to the following:</strong>
+                </p>
+                <ul>
+                  <li>We may send you text messages related to your service requests, appointments, and important updates</li>
+                  <li>Message frequency may vary based on your service needs</li>
+                  <li>Standard message and data rates may apply</li>
+                  <li>You can opt-out at any time by texting "STOP" to any message</li>
+                  <li>For help, text "HELP" or contact us at (801) 473-7548</li>
+                  <li>We use industry-standard security measures to protect your information</li>
+                </ul>
+                
+                <h2 className="content-heading">
+                  4. How We Use Your Information
+                </h2>
+                <p>We use collected information to:</p>
+                <ul>
+                  <li>Provide and improve our tree care services</li>
+                  <li>Communicate about appointments and service updates</li>
+                  <li>Process payments and manage billing</li>
+                  <li>Respond to customer service inquiries</li>
+                  <li>Send marketing communications (with your consent)</li>
+                  <li>Comply with legal obligations</li>
+                  <li>Protect against fraud and unauthorized access</li>
+                </ul>
+                
+                <h2 className="content-heading">
+                  5. Information Sharing and Disclosure
+                </h2>
+                <p>We do not sell, trade, or rent your personal information. We may share information:</p>
+                <ul>
+                  <li>With service providers who assist in our operations</li>
+                  <li>When required by law or legal process</li>
+                  <li>To protect our rights, safety, or property</li>
+                  <li>In connection with a business transfer or merger</li>
+                  <li>With your explicit consent</li>
+                </ul>
+                
+                <h2 className="content-heading">
+                  6. Consent and Opt-Out Rights
+                </h2>
+                <p>
+                  By using our website or services, you consent to this Privacy Policy. You have the right to:
+                </p>
+                <ul>
+                  <li>Opt-out of marketing communications</li>
+                  <li>Request access to your personal information</li>
+                  <li>Request correction or deletion of your information</li>
+                  <li>Withdraw consent for future processing</li>
+                </ul>
+                
+                <h2 className="content-heading">
+                  7. Data Security
+                </h2>
+                <p>
+                  We implement appropriate security measures to protect your information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the internet is 100% secure.
+                </p>
+                
+                <h2 className="content-heading">
+                  8. Cookies and Tracking Technologies
+                </h2>
+                <p>
+                  Our website uses cookies and similar technologies to enhance your experience. These help us:
+                </p>
+                <ul>
+                  <li>Remember your preferences</li>
+                  <li>Analyze website traffic and usage patterns</li>
+                  <li>Improve our services</li>
+                  <li>Provide relevant content and advertisements</li>
+                </ul>
+                <p>You can control cookie preferences through your browser settings.</p>
+                
+                <h2 className="content-heading">
+                  9. Third-Party Services
+                </h2>
+                <p>
+                  We may use third-party services for analytics, payment processing, and customer support. These providers have their own privacy policies and we encourage you to review them.
+                </p>
+                
+                <h2 className="content-heading">
+                  10. California Privacy Rights (CCPA)
+                </h2>
+                <p>California residents have additional rights under the CCPA, including:</p>
+                <ul>
+                  <li>Right to know what personal information is collected</li>
+                  <li>Right to delete personal information</li>
+                  <li>Right to opt-out of the sale of personal information</li>
+                  <li>Right to non-discrimination for exercising privacy rights</li>
+                </ul>
+                
+                <h2 className="content-heading">
+                  11. GDPR Rights (EU Residents)
+                </h2>
+                <p>If you are an EU resident, you have rights under GDPR including:</p>
+                <ul>
+                  <li>Right of access to your personal data</li>
+                  <li>Right to rectification of inaccurate data</li>
+                  <li>Right to erasure ("right to be forgotten")</li>
+                  <li>Right to restrict processing</li>
+                  <li>Right to data portability</li>
+                  <li>Right to object to processing</li>
+                </ul>
+                
+                <h2 className="content-heading">
+                  12. Children's Privacy
+                </h2>
+                <p>
+                  Our services are not directed to children under 13. We do not knowingly collect personal information from children under 13. If we learn we have collected such information, we will delete it immediately.
+                </p>
+                
+                <h2 className="content-heading">
+                  13. Changes to This Policy
+                </h2>
+                <p>
+                  We may update this Privacy Policy periodically. We will notify you of material changes by posting the new policy on our website with an updated effective date.
+                </p>
+                
+                <h2 className="content-heading">
+                  14. Contact Information
+                </h2>
+                <p>
+                  For questions about this Privacy Policy or to exercise your privacy rights, contact us:
+                </p>
+                <div className="contact-info">
+                  <p><strong>Clean Cuts Trees</strong></p>
+                  <p>Phone: <a href="tel:+18014737548">(801) 473-7548</a></p>
+                  <p>Email: <a href="mailto:info@cleancutstrees.com">info@cleancutstrees.com</a></p>
+                  <p>Website: <a href="https://cleancutstrees.com">cleancutstrees.com</a></p>
+                  <p>Service Areas: Davis, Weber & Salt Lake Counties, Utah</p>
+                </div>
               </div>
             </main>
 
